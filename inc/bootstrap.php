@@ -41,7 +41,7 @@ const SLUG = 'quillwork';
  * Theme version — cache-bust for enqueued assets and the WordPress.org version.
  * The CLI injects the theme's own version from colophon.json on every sync.
  */
-const VERSION = '1.0.0';
+const VERSION = '1.6147';
 
 /**
  * Absolute filesystem path to the theme root (no trailing slash).
