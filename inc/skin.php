@@ -16,6 +16,21 @@ namespace Quillwork;
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Opt in to GitHub-release self-updates.
+ *
+ * Names the repo the [CORE][REMOVABLE] inc/github-updater.php watches for new
+ * releases. Empty by default in core; set here so a Quillwork installed from a
+ * GitHub release gets the one-click update banner in Appearance → Themes. Delete
+ * inc/github-updater.php (and this filter) before a WordPress.org submission.
+ */
+add_filter(
+	'quillwork/github_updater_repo',
+	static function (): string {
+		return 'thisismyurl/thisismyurl-colophon-quillwork';
+	}
+);
+
+/**
  * Register Quillwork's image crop sizes.
  *
  * 16:9 for the hero/wide editorial images; 3:2 for the portfolio card grids.
@@ -198,5 +213,22 @@ add_filter(
 		);
 
 		return $default;
+	}
+);
+
+/**
+ * Point the Get-started page's two video slots at the published course tutorials.
+ *
+ * The core renders a "coming soon" placeholder for any empty UID; these are the
+ * Cloudflare Stream UIDs for the matching course-5601 lessons — "Setting up your
+ * site" and "Optimizing your site" — so the page shows the real videos.
+ */
+add_filter(
+	'quillwork/get_started_videos',
+	static function (): array {
+		return array(
+			array( 'uid' => 'b79d9bd4564c2651d24dbe52127dbfb8', 'title' => __( 'Setting up your site', 'quillwork' ) ),
+			array( 'uid' => 'ee88879539bbfaef2cba32d92547c451', 'title' => __( 'Optimizing your site', 'quillwork' ) ),
+		);
 	}
 );
