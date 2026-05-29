@@ -27,15 +27,15 @@ defined( 'ABSPATH' ) || exit;
 	<div class="wp-block-group qw-hero__content">
 
 		<!-- wp:paragraph {"className":"is-style-qw-eyebrow qw-eyebrow"} -->
-		<p class="is-style-qw-eyebrow qw-eyebrow"><?php esc_html_e( 'Freelance Writer &middot; Your Region', 'quillwork' ); ?></p>
+		<p class="is-style-qw-eyebrow qw-eyebrow"><?php esc_html_e( 'Essayist &middot; Your City', 'quillwork' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":1,"fontSize":"display"} -->
-		<h1 class="wp-block-heading has-display-font-size"><?php esc_html_e( 'Words that work.', 'quillwork' ); ?><em class="qw-hero__accent"><?php esc_html_e( 'Content that converts.', 'quillwork' ); ?></em></h1>
+		<h1 class="wp-block-heading has-display-font-size"><?php esc_html_e( 'Ideas that stay.', 'quillwork' ); ?><em class="qw-hero__accent"><?php esc_html_e( 'Essays worth returning to.', 'quillwork' ); ?></em></h1>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"fontSize":"md","style":{"typography":{"lineHeight":"1.8"}}} -->
-		<p class="has-md-font-size" style="line-height:1.8"><?php esc_html_e( 'Marketing copy, long-form editorial, technical writing, and search-friendly content built to be read. Clear on the first pass and worth a second.', 'quillwork' ); ?></p>
+		<p class="has-md-font-size" style="line-height:1.8"><?php esc_html_e( 'Personal essays, cultural criticism, and narrative nonfiction for publications that still believe in the sentence. Precise on the first pass and worth a second.', 'quillwork' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->

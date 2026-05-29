@@ -20,7 +20,7 @@
  * @package quillwork
  */
 
-namespace Quillwork;
+namespace quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -99,7 +99,7 @@ function preload_fonts(): void {
 	$fonts = (array) apply_filters( 'quillwork/preload_fonts', array() );
 
 	foreach ( $fonts as $font ) {
-		if ( ! is_string( $font ) || '' === $font || false !== strpos( $font, '://' ) ) {
+		if ( ! is_string( $font ) || '' === $font || str_contains( $font, '://' ) ) {
 			continue;
 		}
 

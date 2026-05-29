@@ -27,21 +27,21 @@ defined( 'ABSPATH' ) || exit;
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:heading {"level":2,"fontSize":"2xl","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|6"}}}} -->
-			<h2 class="wp-block-heading has-2-xl-font-size" style="margin-bottom:var(--wp--preset--spacing--6)"><?php esc_html_e( 'Based in your region, serving clients everywhere', 'quillwork' ); ?></h2>
+			<h2 class="wp-block-heading has-2-xl-font-size" style="margin-bottom:var(--wp--preset--spacing--6)"><?php esc_html_e( 'Based in your city, published everywhere', 'quillwork' ); ?></h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"fontSize":"base","textColor":"ink-medium"} -->
-			<p class="has-ink-medium-color has-text-color has-base-font-size"><?php esc_html_e( 'With a working knowledge of many industries and audiences, I bring clarity and craft to every project. Whether you are a new business finding your voice or an established one refining its message, the writing aligns with your goals.', 'quillwork' ); ?></p>
+			<p class="has-ink-medium-color has-text-color has-base-font-size"><?php esc_html_e( 'I write personal essays, cultural criticism, and narrative nonfiction for literary journals, magazines, and independent publications. The work moves between memoir, place, and ideas.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"fontSize":"base","textColor":"ink-medium"} -->
-			<p class="has-ink-medium-color has-text-color has-base-font-size"><?php esc_html_e( 'The approach pairs strategy with careful editing. Every piece is researched, revised, and shaped to serve both your objectives and your reader.', 'quillwork' ); ?></p>
+			<p class="has-ink-medium-color has-text-color has-base-font-size"><?php esc_html_e( 'Every piece is researched, revised, and shaped to do what only prose can — hold an experience still long enough for a reader to enter it. Add your own bio in the Site Editor.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:quote {"className":"is-style-qw-highlight qw-highlight"} -->
 			<blockquote class="wp-block-quote is-style-qw-highlight qw-highlight">
 				<!-- wp:paragraph {"fontSize":"md"} -->
-				<p class="has-md-font-size"><?php esc_html_e( 'Great content is not only keywords and conversions. It is the genuine connection that builds a lasting relationship with your audience.', 'quillwork' ); ?></p>
+				<p class="has-md-font-size"><?php esc_html_e( 'The essay is the form that lets you think out loud in public — which is the whole point of writing anything.', 'quillwork' ); ?></p>
 				<!-- /wp:paragraph -->
 			</blockquote>
 			<!-- /wp:quote -->
@@ -59,7 +59,7 @@ defined( 'ABSPATH' ) || exit;
 					<p class="qw-stat__number has-text-align-center has-2-xl-font-size">250+</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:paragraph {"className":"qw-stat__label","fontSize":"sm","textAlign":"center"} -->
-					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Projects completed', 'quillwork' ); ?></p>
+					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Essays published', 'quillwork' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -70,7 +70,7 @@ defined( 'ABSPATH' ) || exit;
 					<p class="qw-stat__number has-text-align-center has-2-xl-font-size">50+</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:paragraph {"className":"qw-stat__label","fontSize":"sm","textAlign":"center"} -->
-					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Happy clients', 'quillwork' ); ?></p>
+					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Publications', 'quillwork' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -81,7 +81,7 @@ defined( 'ABSPATH' ) || exit;
 					<p class="qw-stat__number has-text-align-center has-2-xl-font-size">10+</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:paragraph {"className":"qw-stat__label","fontSize":"sm","textAlign":"center"} -->
-					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Industries served', 'quillwork' ); ?></p>
+					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Years writing', 'quillwork' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -92,7 +92,7 @@ defined( 'ABSPATH' ) || exit;
 					<p class="qw-stat__number has-text-align-center has-2-xl-font-size">100%</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:paragraph {"className":"qw-stat__label","fontSize":"sm","textAlign":"center"} -->
-					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Client satisfaction', 'quillwork' ); ?></p>
+					<p class="qw-stat__label has-text-align-center has-sm-font-size"><?php esc_html_e( 'Independent', 'quillwork' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->

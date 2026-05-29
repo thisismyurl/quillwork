@@ -29,8 +29,8 @@
 	   lands in the top-left. Targets #main-content, which every template carries. */
 	.skip-link {
 		position: absolute;
-		left: -9999px;
-		top: 0;
+		inset-inline-start: -9999px;
+		inset-block-start: 0;
 		z-index: 10000;
 		padding: 0.75rem 1.25rem;
 		background: var(--cl-skip-bg);
@@ -39,8 +39,9 @@
 		text-decoration: none;
 	}
 	.skip-link:focus {
-		left: 0.75rem;
-		top: 0.75rem;
+		inset-inline-start: 0.75rem;
+		inset-block-start: 0.75rem;
+		text-decoration: underline;
 	}
 
 	/* Visible focus — WCAG 2.4.7. Never removed without a replacement; this IS
@@ -66,8 +67,8 @@
 	}
 	.screen-reader-text:focus {
 		position: fixed;
-		top: 0.75rem;
-		left: 0.75rem;
+		inset-block-start: 0.75rem;
+		inset-inline-start: 0.75rem;
 		width: auto;
 		height: auto;
 		clip: auto;

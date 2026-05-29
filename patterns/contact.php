@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"align":"center","fontSize":"md","textColor":"ink-medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}}} -->
-	<p class="has-text-align-center has-ink-medium-color has-text-color has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Ready to sharpen your content? Get in touch to talk through the project and where words can do the most good.', 'quillwork' ); ?></p>
+	<p class="has-text-align-center has-ink-medium-color has-text-color has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--10)"><?php esc_html_e( 'For commissions, editing inquiries, workshop bookings, or just a conversation about the work — get in touch.', 'quillwork' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:group {"className":"qw-contact-methods","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|12","margin":{"bottom":"var:preset|spacing|10"}}}} -->
@@ -54,7 +54,7 @@ defined( 'ABSPATH' ) || exit;
 			<p class="has-text-align-center has-base-font-size"><?php esc_html_e( 'Your Region', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"align":"center","fontSize":"sm","textColor":"ink-muted"} -->
-			<p class="has-text-align-center has-ink-muted-color has-text-color has-sm-font-size"><?php esc_html_e( 'Working with clients everywhere', 'quillwork' ); ?></p>
+			<p class="has-text-align-center has-ink-muted-color has-text-color has-sm-font-size"><?php esc_html_e( 'Available for assignment worldwide', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

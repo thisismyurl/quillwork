@@ -10,7 +10,7 @@
  * @package quillwork
  */
 
-namespace Quillwork;
+namespace quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -24,8 +24,18 @@ function setup(): void {
 	// re-skin. The CLI rewrites the literal when it generates a theme.
 	load_theme_textdomain( 'quillwork', DIR . '/languages' );
 
-	// Fallback content width for oEmbeds in the reading column.
-	$GLOBALS['content_width'] = 720;
+	/**
+	 * Filters the fallback content width for oEmbeds.
+	 *
+	 * The default 720 matches the reading-column contentSize in theme.json and
+	 * singular.html. A re-skin with a wider column should override this so
+	 * oEmbed providers (YouTube, Vimeo, Twitter) size their output correctly.
+	 *
+	 * @since 1.6150
+	 *
+	 * @param int $width Content width in pixels.
+	 */
+	$GLOBALS['content_width'] = (int) apply_filters( 'quillwork/content_width', 720 );
 
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'editor-styles' );
@@ -47,10 +57,24 @@ function setup(): void {
 		)
 	);
 
+	/**
+	 * Filters the navigation menu registrations.
+	 *
+	 * Add, rename, or remove menu locations without editing core. The array
+	 * maps location slug => translatable label; every entry is passed directly
+	 * to register_nav_menus().
+	 *
+	 * @since 1.6150
+	 *
+	 * @param array $menus Location-slug => label pairs.
+	 */
 	register_nav_menus(
-		array(
-			'primary' => esc_html__( 'Primary Navigation', 'quillwork' ),
-			'footer'  => esc_html__( 'Footer Navigation', 'quillwork' ),
+		(array) apply_filters(
+			'quillwork/register_nav_menus',
+			array(
+				'primary' => esc_html__( 'Primary Navigation', 'quillwork' ),
+				'footer'  => esc_html__( 'Footer Navigation', 'quillwork' ),
+			)
 		)
 	);
 
@@ -157,8 +181,32 @@ add_filter( 'comment_form_default_fields', __NAMESPACE__ . '\\comment_form_field
  * template's <main> carries.
  */
 function skip_link(): void {
-	echo '<a class="skip-link" href="#main-content">'
-		. esc_html__( 'Skip to content', 'quillwork' )
+	/**
+	 * Filters the skip-link anchor target ID (without the leading #).
+	 *
+	 * The default 'main-content' matches the id="main-content" on the <main>
+	 * element in every core template. Override if you rename that id.
+	 *
+	 * @since 1.6150
+	 *
+	 * @param string $target Element ID, without the leading #.
+	 */
+	$target = (string) apply_filters( 'quillwork/skip_link_target', 'main-content' );
+
+	/**
+	 * Filters the visible skip-link label.
+	 *
+	 * Override to match the language or phrasing of your site without editing
+	 * a translation file — useful for single-language sites or custom copy.
+	 *
+	 * @since 1.6150
+	 *
+	 * @param string $label The link text.
+	 */
+	$label = (string) apply_filters( 'quillwork/skip_link_label', __( 'Skip to content', 'quillwork' ) );
+
+	echo '<a class="skip-link" href="#' . esc_attr( $target ) . '">'
+		. esc_html( $label )
 		. '</a>';
 }
 add_action( 'wp_body_open', __NAMESPACE__ . '\\skip_link' );

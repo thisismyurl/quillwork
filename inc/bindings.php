@@ -19,7 +19,7 @@
  * @package quillwork
  */
 
-namespace Quillwork;
+namespace quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -62,10 +62,25 @@ add_action( 'init', __NAMESPACE__ . '\\register_bindings' );
  * @return string The composed copyright sentence.
  */
 function get_copyright_value(): string {
+	/**
+	 * Filters the date format used for the copyright year.
+	 *
+	 * Default 'Y' produces a four-digit year. Return a PHP date-format string
+	 * — e.g. 'Y' for a single year, or supply a static string like '2022–2026'
+	 * for a year range. The value is passed to current_time() so the result
+	 * follows the site's timezone setting.
+	 *
+	 * @since 1.6150
+	 *
+	 * @param string $format PHP date format string, or a literal string.
+	 */
+	$format = (string) apply_filters( 'quillwork/copyright_date_format', 'Y' );
+	$year   = (string) current_time( $format );
+
 	$copyright = sprintf(
 		/* translators: 1: four-digit year, 2: site title. */
 		__( '© %1$s %2$s. All rights reserved.', 'quillwork' ),
-		current_time( 'Y' ),
+		$year,
 		esc_html( get_bloginfo( 'name' ) )
 	);
 
@@ -125,9 +140,8 @@ function get_footer_credit_value(): string {
 		$credit,
 		array(
 			'a' => array(
-				'href'   => array(),
-				'rel'    => array(),
-				'target' => array(),
+				'href' => array(),
+				'rel'  => array(),
 			),
 		)
 	);

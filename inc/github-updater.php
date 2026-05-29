@@ -37,7 +37,7 @@
  * @package quillwork
  */
 
-namespace Quillwork;
+namespace quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -211,7 +211,7 @@ function github_updater_find_zip_asset( array $release, string $stylesheet ): st
 
 		$name = strtolower( (string) $asset['name'] );
 
-		if ( '.zip' === substr( $name, -4 ) && 0 === strpos( $name, $prefix ) ) {
+		if ( str_ends_with( $name, '.zip' ) && str_starts_with( $name, $prefix ) ) {
 			return esc_url_raw( (string) $asset['browser_download_url'] );
 		}
 	}

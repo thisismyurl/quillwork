@@ -11,7 +11,7 @@
  * @package quillwork
  */
 
-namespace Quillwork;
+namespace quillwork;
 
 defined( 'ABSPATH' ) || exit;
 

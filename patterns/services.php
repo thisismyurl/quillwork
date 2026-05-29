@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":2,"fontSize":"2xl"} -->
-		<h2 class="wp-block-heading has-2-xl-font-size"><?php esc_html_e( 'Crafting content that elevates your brand', 'quillwork' ); ?></h2>
+		<h2 class="wp-block-heading has-2-xl-font-size"><?php esc_html_e( 'What I write', 'quillwork' ); ?></h2>
 		<!-- /wp:heading -->
 	</div>
 	<!-- /wp:group -->
@@ -42,17 +42,17 @@ defined( 'ABSPATH' ) || exit;
 			<p class="qw-service-card__number">01</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3,"fontSize":"lg"} -->
-			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Marketing content', 'quillwork' ); ?></h3>
+			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Essays and criticism', 'quillwork' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Persuasive copy that captures attention and prompts action. From landing pages to email campaigns, content that turns prospects into customers.', 'quillwork' ); ?></p>
+			<p><?php esc_html_e( 'Personal essays and cultural criticism for literary journals, magazines, and independent publications. Work that earns its space on the page.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:list {"className":"qw-service-features"} -->
 			<ul class="wp-block-list qw-service-features">
-				<!-- wp:list-item --><li><?php esc_html_e( 'Landing pages and web copy', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Email marketing campaigns', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Product descriptions', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Brand messaging and voice', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Personal and lyric essays', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Cultural and book criticism', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Literary memoir', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Magazine and journal commissions', 'quillwork' ); ?></li><!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
 		</div>
@@ -64,17 +64,17 @@ defined( 'ABSPATH' ) || exit;
 			<p class="qw-service-card__number">02</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3,"fontSize":"lg"} -->
-			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Blog and editorial', 'quillwork' ); ?></h3>
+			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Narrative journalism', 'quillwork' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Informative posts that establish your authority and connect with readers. Stories that inform, hold attention, and earn the return visit.', 'quillwork' ); ?></p>
+			<p><?php esc_html_e( 'Reported features, profiles, and longform nonfiction that take the subject seriously and trust the reader to stay.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:list {"className":"qw-service-features"} -->
 			<ul class="wp-block-list qw-service-features">
-				<!-- wp:list-item --><li><?php esc_html_e( 'Thought-leadership articles', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Industry insights and analysis', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Company news and updates', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Guest-post creation', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Longform reported features', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Profiles and interviews', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Travel and place writing', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Print and digital publications', 'quillwork' ); ?></li><!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
 		</div>
@@ -86,17 +86,17 @@ defined( 'ABSPATH' ) || exit;
 			<p class="qw-service-card__number">03</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3,"fontSize":"lg"} -->
-			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Technical writing', 'quillwork' ); ?></h3>
+			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Editing and development', 'quillwork' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Complex information made clear. Technical concepts translated into user guides, documentation, and white papers your audience can actually use.', 'quillwork' ); ?></p>
+			<p><?php esc_html_e( 'Close reading and structural editing for writers who need a careful second set of eyes before submission or publication.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:list {"className":"qw-service-features"} -->
 			<ul class="wp-block-list qw-service-features">
-				<!-- wp:list-item --><li><?php esc_html_e( 'User guides and documentation', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'White papers and reports', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Process documentation', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Case studies', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Manuscript critique', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Developmental and line editing', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Query letter review', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Submission strategy', 'quillwork' ); ?></li><!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
 		</div>
@@ -108,17 +108,17 @@ defined( 'ABSPATH' ) || exit;
 			<p class="qw-service-card__number">04</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3,"fontSize":"lg"} -->
-			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Search-friendly content', 'quillwork' ); ?></h3>
+			<h3 class="wp-block-heading has-lg-font-size"><?php esc_html_e( 'Workshops and teaching', 'quillwork' ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Content that ranks and reads well. Strategic, keyword-aware writing that improves search visibility while keeping the prose worth a human read.', 'quillwork' ); ?></p>
+			<p><?php esc_html_e( 'Craft-focused workshops for writers at every stage — in universities, literary festivals, and online. The essay as a form worth mastering.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 			<!-- wp:list {"className":"qw-service-features"} -->
 			<ul class="wp-block-list qw-service-features">
-				<!-- wp:list-item --><li><?php esc_html_e( 'Keyword research and strategy', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Optimised articles', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Content-gap analysis', 'quillwork' ); ?></li><!-- /wp:list-item -->
-				<!-- wp:list-item --><li><?php esc_html_e( 'Meta descriptions and headlines', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Essay craft workshops', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Literary festival sessions', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'University guest lectures', 'quillwork' ); ?></li><!-- /wp:list-item -->
+				<!-- wp:list-item --><li><?php esc_html_e( 'Online writing intensives', 'quillwork' ); ?></li><!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
 		</div>

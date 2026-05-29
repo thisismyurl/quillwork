@@ -32,6 +32,10 @@ if ( file_exists( __DIR__ . '/inc/github-updater.php' ) ) {
 	require_once __DIR__ . '/inc/github-updater.php';
 }
 
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require_once __DIR__ . '/inc/cli.php'; // [CORE] wp quillwork commands — CLI-only, zero front-end cost.
+}
+
 if ( is_admin() ) {
 	require_once __DIR__ . '/inc/admin.php'; // [CORE] WP.org-compliant Get-started page + welcome notice.
 }

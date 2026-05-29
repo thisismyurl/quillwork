@@ -18,7 +18,6 @@
 	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 	html {
-		scroll-behavior: smooth;
 		-webkit-text-size-adjust: 100%;
 		text-size-adjust: 100%;
 		color-scheme: light;
@@ -38,6 +37,13 @@
 	input, button, textarea, select { font: inherit; }
 	p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 	ol, ul { list-style: none; }
+
+	/* Smooth scroll is an opt-in for users who have not requested reduced motion.
+	   Set here at the reset layer so skins inherit it without declaring it; the
+	   reduce guard below overrides it if the user prefers no motion. */
+	@media (prefers-reduced-motion: no-preference) {
+		html { scroll-behavior: smooth; }
+	}
 
 	/* CWV / a11y: the single source of reduced-motion handling for the whole
 	   theme. Any decorative animation a skin adds is neutralised here, so skins

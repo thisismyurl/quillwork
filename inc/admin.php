@@ -18,7 +18,7 @@
  * @package quillwork
  */
 
-namespace Quillwork;
+namespace quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -62,15 +62,16 @@ function clear_welcome_notice(): void {
 /**
  * Register the "Get started" page under Appearance.
  *
- * edit_theme_options gates it to the users who can switch themes and edit global
- * styles — the right audience for onboarding.
+ * The required capability comes from get_onboarding_capability() — default is
+ * edit_theme_options (users who can switch themes and configure global styles),
+ * filterable via colophon/onboarding_capability.
  */
 function register_get_started_page(): void {
 	add_theme_page(
 		/* translators: %s: theme name. */
 		sprintf( esc_html__( '%s: Get started', 'quillwork' ), get_theme_name() ),
 		get_theme_name(),
-		'edit_theme_options',
+		get_onboarding_capability(),
 		GET_STARTED_SLUG,
 		__NAMESPACE__ . '\\render_get_started_page'
 	);
@@ -84,6 +85,30 @@ add_action( 'admin_menu', __NAMESPACE__ . '\\register_get_started_page' );
  */
 function get_theme_name(): string {
 	return (string) wp_get_theme()->get( 'Name' );
+}
+
+/**
+ * The WordPress capability required to view and dismiss the onboarding flow.
+ *
+ * Centralised so the filter changes the check in all four places at once — the
+ * menu registration, the notice render, the dismiss handler, and the page render.
+ * Default 'edit_theme_options' targets users who can switch themes and configure
+ * global styles: the right audience for onboarding copy.
+ *
+ * @return string WordPress capability slug.
+ */
+function get_onboarding_capability(): string {
+	/**
+	 * Filters the capability required to see the Get-started page and welcome notice.
+	 *
+	 * Raise to 'manage_options' on multi-author sites where editors should not
+	 * see theme onboarding. Lower to any custom capability for a tighter fit.
+	 *
+	 * @since 1.6150
+	 *
+	 * @param string $capability WordPress capability slug.
+	 */
+	return (string) apply_filters( 'quillwork/onboarding_capability', 'edit_theme_options' );
 }
 
 /**
@@ -116,13 +141,13 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_get_started_asse
 /**
  * Show the dismissible welcome notice while the flag is set.
  *
- * Shown only to users who can edit_theme_options, and never on the Get-started
+ * Shown only to users who pass get_onboarding_capability(), and never on the Get-started
  * page itself. A standard `notice is-dismissible`, so core renders the close
  * button and handles keyboard dismissal; the persistent server-side dismissal
  * rides the nonce link.
  */
 function render_welcome_notice(): void {
-	if ( ! current_user_can( 'edit_theme_options' ) ) {
+	if ( ! current_user_can( get_onboarding_capability() ) ) {
 		return;
 	}
 
@@ -153,7 +178,8 @@ function render_welcome_notice(): void {
 			<a class="button button-primary" href="<?php echo esc_url( $page_url ); ?>">
 				<?php
 				/* translators: %s: theme name. */
-				printf( esc_html__( 'Set up %s →', 'quillwork' ), esc_html( $theme ) );
+				printf( esc_html__( 'Set up %s', 'quillwork' ), esc_html( $theme ) );
+				?> <span aria-hidden="true">→</span><?php
 				?>
 			</a>
 			<a class="quillwork-welcome-notice__dismiss" href="<?php echo esc_url( $dismiss ); ?>">
@@ -172,7 +198,7 @@ add_action( 'admin_notices', __NAMESPACE__ . '\\render_welcome_notice' );
  * mutation. Redirects back to the dashboard so a refresh does not replay it.
  */
 function handle_welcome_dismiss(): void {
-	if ( ! current_user_can( 'edit_theme_options' ) ) {
+	if ( ! current_user_can( get_onboarding_capability() ) ) {
 		wp_die( esc_html__( 'You do not have permission to do that.', 'quillwork' ) );
 	}
 
@@ -228,7 +254,7 @@ function get_started_content(): array {
 		'developers' => array(
 			/* translators: %s: linked developer-guide anchor. */
 			'text'  => __( 'This theme is built on Colophon, a small documented core meant to be reused. The %s walks through how to build your own theme on it.', 'quillwork' ),
-			'url'   => 'https://thisismyurl.com/themes/colophon',
+			'url'   => 'https://thisismyurl.com/colophon',
 			'label' => __( 'developer guide', 'quillwork' ),
 		),
 	);
@@ -253,7 +279,7 @@ function get_started_content(): array {
  * at the point of echo. Reaching this page clears the welcome flag.
  */
 function render_get_started_page(): void {
-	if ( ! current_user_can( 'edit_theme_options' ) ) {
+	if ( ! current_user_can( get_onboarding_capability() ) ) {
 		return;
 	}
 
@@ -312,9 +338,9 @@ function render_get_started_page(): void {
 				$dev  = $content['developers'];
 				$link = '<a href="' . esc_url( $dev['url'] ?? '' ) . '" target="_blank" rel="noopener noreferrer">'
 					. esc_html( $dev['label'] ?? '' ) . '</a>';
-				// The text carries one %s for the link; everything else is escaped,
-				// and the link itself is built from escaped parts above.
-				printf( esc_html( $dev['text'] ), $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				// The text carries one %s for the link. wp_kses preserves the
+				// placeholder for sprintf substitution and allows the anchor built above.
+				printf( wp_kses( $dev['text'], $cl_inline ), $link );
 				?>
 			</p>
 		<?php endif; ?>

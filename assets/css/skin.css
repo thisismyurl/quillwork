@@ -52,7 +52,7 @@
 		position: sticky;
 		inset-block-start: 0;
 		z-index: 100;
-		background: rgba(250, 248, 245, 0.95);
+		background: color-mix(in srgb, var(--wp--preset--color--cream) 95%, transparent);
 		-webkit-backdrop-filter: blur(10px);
 		backdrop-filter: blur(10px);
 		border-block-end: 1px solid rgba(13, 59, 63, 0.10);
