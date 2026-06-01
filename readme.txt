@@ -3,7 +3,7 @@ Contributors: thisismyurl
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.6153
+Stable tag: 1.6154
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, accessibility-ready, rtl-language-support, translation-ready, wide-blocks, sticky-post, threaded-comments
@@ -87,6 +87,11 @@ category in the block inserter:
 * Contact — Centred CTA (`quillwork/contact`): a centred band with a heading, subtitle, email and location methods, and a single primary call to action.
 
 == Changelog ==
+
+= 1.6154 =
+* Added GPL copyright notice to style.css for Theme Check compliance.
+* Removed UTM parameters from Theme URI.
+* Lowered Requires at least to 6.6 (actual minimum: theme.json v3).
 
 = 1.6148 =
 * Updated Theme URI to https://thisismyurl.com/quillwork.

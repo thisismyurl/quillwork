@@ -4,7 +4,7 @@ Theme URI:          https://thisismyurl.com/quillwork/
 Author:             Christopher Ross
 Author URI:         https://thisismyurl.com/
 Description:        An elegant, literary full-site-editing theme for writers, editors, and personal brands. Light Cormorant Garamond display headlines with italic accents, a calm Newsreader reading column, deep-teal and warm-ochre palette on a cream ground, numbered service cards, and gentle float accents that respect reduced-motion. Zero plugin dependencies, WCAG 2.2 AA accessible, Core Web Vitals optimised, self-hosted OFL fonts, RTL-ready via CSS logical properties.
-Version:            1.6153
+Version:            1.6154
 Requires at least:  6.6
 Tested up to:       7.0
 Requires PHP:       8.1
@@ -13,6 +13,12 @@ License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:        quillwork
 Tags:               blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, accessibility-ready, rtl-language-support, translation-ready, wide-blocks, sticky-post, threaded-comments
 */
+
+/* Copyright (C) 2026 Christopher Ross — https://thisismyurl.com/
+   Quillwork is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 2 of the License, or
+   (at your option) any later version. */
 
 /* =====================================================================
    QUILLWORK STYLESHEET
