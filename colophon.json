@@ -3,7 +3,7 @@
     "slug": "quillwork",
     "namespace": "quillwork",
     "prefix": "qw",
-    "version": "1.6152",
+    "version": "1.6153",
     "colophon_version": "1.6150",
     "is_core": false,
     "overrides": []
