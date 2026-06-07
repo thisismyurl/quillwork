@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Quillwork — Front Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+<style>
+  /* WP.org 1200×900 crop: header ~64px + hero 520px + services ~316px = 900px */
+  .qw-hero { min-block-size: 520px; height: 520px; }
+  .qw-section { padding-block: var(--wp--preset--spacing--10); }
+</style>
+</head>
+<body>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#">Quillwork</a>
+    <nav class="qw-nav">
+      <a href="#">Work</a>
+      <a href="#">Services</a>
+      <a href="#">Studio</a>
+      <a href="#">Journal</a>
+    </nav>
+    <a class="qw-cta-btn" href="#">Start a Brief</a>
+  </div>
+</header>
+
+<main class="qw-main">
+
+  <!-- Hero — two-column composition: headline left, quill-stroke illustration right.
+       The right column is a large SVG of a single calligraphic pen stroke — the
+       founding gesture of every letterform. Not decoration. Concept. -->
+  <section class="qw-hero qw-section--cream">
+
+    <!-- Left: headline composition -->
+    <div class="qw-hero__text">
+      <p class="qw-eyebrow">Visual Identity &middot; Type Direction &middot; Editorial Systems</p>
+      <h1 class="qw-hero__title">
+        Letters<br>
+        built to<br>
+        <em class="qw-hero__accent">last.</em>
+      </h1>
+      <p class="qw-hero__sub">
+        An independent studio designing visual identities, editorial systems, and type-led brand work for publishers, cultural institutions, and independent makers.
+      </p>
+      <div class="qw-hero__actions">
+        <a class="qw-cta-btn" href="#">View Selected Work</a>
+        <a class="qw-hero__secondary-link" href="#">Start a Brief &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Right: quill-stroke SVG — the founding gesture of letterform.
+         A single calligraphic down-stroke (broad nib, 45° angle) that draws in
+         on page load via stroke-dashoffset animation. Rooted in the theme's name
+         and the practice it serves. -->
+    <div class="qw-hero__stroke" aria-hidden="true">
+      <svg class="qw-quill-stroke" viewBox="0 0 240 480" xmlns="http://www.w3.org/2000/svg"
+           preserveAspectRatio="xMidYMid meet">
+        <!-- Main broad downstroke — the signature move of a broad-nib calligraphy pen. -->
+        <!-- Stroke width varies to simulate broad nib: thick on the down-stroke,
+             thinner at entry and exit. Achieved via a filled path rather than
+             a stroked line so the ink-swell reads correctly. -->
+        <path class="qw-stroke-main"
+          d="M 160 30
+             C 155 40, 148 55, 140 75
+             C 128 105, 112 140, 96 180
+             C 78 224, 62 268, 52 310
+             C 44 345, 42 375, 45 400
+             C 48 420, 54 440, 60 455"
+          fill="none"
+          stroke="var(--wp--preset--color--teal, #1a6b72)"
+          stroke-width="18"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          pathLength="1"
+        />
+        <!-- Hairline cross-stroke at entry — the pen touching paper -->
+        <path class="qw-stroke-entry"
+          d="M 120 26 L 165 34"
+          fill="none"
+          stroke="var(--wp--preset--color--teal, #1a6b72)"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          pathLength="1"
+        />
+        <!-- Hairline exit serif — the pen lifting -->
+        <path class="qw-stroke-exit"
+          d="M 56 456 L 86 452"
+          fill="none"
+          stroke="var(--wp--preset--color--teal, #1a6b72)"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          pathLength="1"
+        />
+        <!-- Ink-swell at the widest point of the downstroke -->
+        <ellipse class="qw-stroke-swell"
+          cx="78" cy="228"
+          rx="14" ry="8"
+          transform="rotate(-20 78 228)"
+          fill="var(--wp--preset--color--teal, #1a6b72)"
+          opacity="0.18"
+        />
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- Services — redesigned interaction: number fully reveals on hover,
+       L-bracket corner accent (registration mark referencing print production),
+       no translateX -->
+  <section class="qw-section qw-section--white">
+    <div class="qw-constrained">
+      <div class="qw-section-label">
+        <p class="qw-eyebrow">Practice</p>
+        <p class="qw-section-label__count">4 disciplines</p>
+      </div>
+      <div class="qw-service-cards">
+        <div class="qw-service-card">
+          <div class="qw-service-card__number">01</div>
+          <div class="qw-service-card__title">Brand Identity</div>
+          <p class="qw-service-card__body">Wordmarks, visual systems, and brand guidelines built to last twenty years, not two.</p>
+          <span class="qw-service-card__arrow" aria-hidden="true">&rarr;</span>
+        </div>
+        <div class="qw-service-card">
+          <div class="qw-service-card__number">02</div>
+          <div class="qw-service-card__title">Type Direction</div>
+          <p class="qw-service-card__body">Custom type pairing and variable-font implementation — the typographic voice of your brand.</p>
+          <span class="qw-service-card__arrow" aria-hidden="true">&rarr;</span>
+        </div>
+        <div class="qw-service-card">
+          <div class="qw-service-card__number">03</div>
+          <div class="qw-service-card__title">Editorial Design</div>
+          <p class="qw-service-card__body">Book series templates, magazine grids, annual reports — print and digital in one system.</p>
+          <span class="qw-service-card__arrow" aria-hidden="true">&rarr;</span>
+        </div>
+        <div class="qw-service-card">
+          <div class="qw-service-card__number">04</div>
+          <div class="qw-service-card__title">Web &amp; Screen</div>
+          <p class="qw-service-card__body">WordPress FSE themes and component systems that carry the identity online without losing it.</p>
+          <span class="qw-service-card__arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="qw-footer">
+  <div class="qw-footer__inner">
+    <div>
+      <div class="qw-footer__brand-name">Quillwork</div>
+      <p class="qw-footer__tagline">Visual identity &amp; type.<br>Montreal, Quebec.</p>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Studio</div>
+      <nav class="qw-footer__links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Journal</a>
+      </nav>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Contact</div>
+      <nav class="qw-footer__links">
+        <a href="#">Start a Brief</a>
+        <a href="#">studio@quillwork.co</a>
+        <a href="#">Instagram</a>
+      </nav>
+    </div>
+  </div>
+  <div class="qw-footer__bottom">
+    <span>&copy; 2026 Quillwork</span>
+    <span>Built with WordPress &amp; <a href="https://thisismyurl.com/quillwork/">Quillwork</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

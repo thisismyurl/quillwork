@@ -1,0 +1,253 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"palette": [
+				{ "slug": "ink-deep",    "color": "#0d3b3f", "name": "Ink Deep" },
+				{ "slug": "ink-medium",  "color": "#1f5c63", "name": "Ink Medium" },
+				{ "slug": "ink-muted",   "color": "#696969", "name": "Ink Muted" },
+				{ "slug": "teal",        "color": "#1a6b72", "name": "Teal" },
+				{ "slug": "teal-light",  "color": "#2d8f97", "name": "Teal Light" },
+				{ "slug": "teal-tint",   "color": "#e8f2f3", "name": "Teal Tint" },
+				{ "slug": "ochre",       "color": "#d4a574", "name": "Ochre" },
+				{ "slug": "ochre-warm",  "color": "#b8865f", "name": "Ochre Warm" },
+				{ "slug": "coral",       "color": "#c97d60", "name": "Coral" },
+				{ "slug": "cream",       "color": "#faf8f5", "name": "Cream" },
+				{ "slug": "paper-white", "color": "#ffffff", "name": "Paper White" }
+			],
+			"gradients": []
+		},
+
+		"typography": {
+			"fluid": true,
+			"customFontSize": false,
+			"lineHeight": true,
+			"letterSpacing": true,
+			"textTransform": true,
+			"textDecoration": true,
+			"fontFamilies": [
+				{
+					"name": "Cormorant Garamond",
+					"slug": "cormorant",
+					"fontFamily": "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
+					"fontFace": [
+						{
+							"fontFamily": "Cormorant Garamond",
+							"fontWeight": "300 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/cormorant-garamond/cormorant-garamond-variable.woff2" ]
+						},
+						{
+							"fontFamily": "Cormorant Garamond",
+							"fontWeight": "300 700",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/cormorant-garamond/cormorant-garamond-variable-italic.woff2" ]
+						}
+					]
+				},
+				{
+					"name": "Newsreader",
+					"slug": "newsreader",
+					"fontFamily": "'Newsreader', Georgia, serif",
+					"fontFace": [
+						{
+							"fontFamily": "Newsreader",
+							"fontWeight": "300 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/newsreader/newsreader-variable.woff2" ]
+						},
+						{
+							"fontFamily": "Newsreader",
+							"fontWeight": "300 700",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/newsreader/newsreader-variable-italic.woff2" ]
+						}
+					]
+				},
+				{
+					"name": "DM Sans",
+					"slug": "dm-sans",
+					"fontFamily": "'DM Sans', 'Helvetica Neue', Arial, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "DM Sans",
+							"fontWeight": "100 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/dm-sans/dm-sans-variable.woff2" ]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{ "slug": "2xs",     "size": "0.6875rem",                              "name": "2XS" },
+				{ "slug": "xs",      "size": "0.8125rem",                              "name": "XS" },
+				{ "slug": "sm",      "size": "0.9375rem",                              "name": "SM" },
+				{ "slug": "base",    "size": "1.0625rem",                              "name": "Base" },
+				{ "slug": "lg",      "size": "1.25rem",                                "name": "LG" },
+				{ "slug": "xl",      "size": "1.5rem",                                 "name": "XL" },
+				{ "slug": "2xl",     "size": "2rem",                                   "name": "2XL" },
+				{ "slug": "3xl",     "size": "clamp(2.5rem, 3vw + 1rem, 4rem)",        "name": "3XL", "fluid": false },
+				{ "slug": "4xl",     "size": "clamp(3rem, 4vw + 1rem, 5.5rem)",        "name": "4XL", "fluid": false },
+				{ "slug": "display", "size": "clamp(3.5rem, 5vw + 1rem, 7.5rem)",      "name": "Display", "fluid": false }
+			]
+		},
+
+		"spacing": {
+			"spacingScale": { "operator": "*", "increment": 1.5, "steps": 0 },
+			"spacingSizes": [
+				{ "slug": "1",  "size": "0.25rem",  "name": "1" },
+				{ "slug": "2",  "size": "0.5rem",   "name": "2" },
+				{ "slug": "3",  "size": "0.75rem",  "name": "3" },
+				{ "slug": "4",  "size": "1rem",     "name": "4" },
+				{ "slug": "5",  "size": "1.25rem",  "name": "5" },
+				{ "slug": "6",  "size": "1.5rem",   "name": "6" },
+				{ "slug": "7",  "size": "1.75rem",  "name": "7" },
+				{ "slug": "8",  "size": "2rem",     "name": "8" },
+				{ "slug": "9",  "size": "2.5rem",   "name": "9" },
+				{ "slug": "10", "size": "3rem",     "name": "10" },
+				{ "slug": "11", "size": "4rem",     "name": "11" },
+				{ "slug": "12", "size": "5rem",     "name": "12" },
+				{ "slug": "16", "size": "clamp(4rem, 9vw, 8rem)", "name": "Section" }
+			],
+			"units": [ "%", "px", "em", "rem", "vh", "vw", "dvh", "dvw" ]
+		},
+
+		"layout": {
+			"contentSize": "720px",
+			"wideSize":    "1280px"
+		},
+
+		"blocks": {
+			"core/navigation": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|dm-sans",
+					"fontWeight": "500",
+					"textTransform": "uppercase",
+					"letterSpacing": "0.08em",
+					"fontSize": "var:preset|font-size|xs"
+				}
+			}
+		}
+	},
+
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--cream)",
+			"text":       "var(--wp--preset--color--ink-deep)"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|dm-sans",
+			"fontSize":   "var:preset|font-size|base",
+			"lineHeight": "1.7"
+		},
+		"spacing": {
+			"blockGap": "var:preset|spacing|6"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|cormorant",
+					"fontWeight": "700",
+					"lineHeight": "1.1",
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontSize": "var:preset|font-size|display",
+					"fontWeight": "300",
+					"lineHeight": "1.0",
+					"letterSpacing": "-0.03em"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|4xl",
+					"fontWeight": "300",
+					"lineHeight": "1.05"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var:preset|font-size|3xl",
+					"fontWeight": "400",
+					"lineHeight": "1.15"
+				}
+			},
+			"link": {
+				"color": { "text": "var(--wp--preset--color--teal)" },
+				"typography": { "textDecoration": "underline" },
+				":hover": {
+					"color": { "text": "var(--wp--preset--color--ink-deep)" }
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--ink-deep)",
+					"text": "var(--wp--preset--color--cream)"
+				},
+				"typography": {
+					"fontFamily": "var:preset|font-family|dm-sans",
+					"fontWeight": "500",
+					"fontSize": "var:preset|font-size|xs",
+					"textTransform": "uppercase",
+					"letterSpacing": "0.1em"
+				},
+				"spacing": {
+					"padding": { "top": "0.75rem", "bottom": "0.75rem", "left": "2rem", "right": "2rem" }
+				},
+				"border": { "radius": "0" }
+			}
+		},
+		"blocks": {
+			"core/post-content": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|newsreader",
+					"fontSize": "var:preset|font-size|base",
+					"lineHeight": "1.8"
+				},
+				"spacing": { "blockGap": "var:preset|spacing|6" }
+			},
+			"core/pullquote": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|cormorant",
+					"fontSize": "var:preset|font-size|2xl",
+					"fontStyle": "italic",
+					"fontWeight": "300"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--teal)",
+					"background": "transparent"
+				},
+				"border": {
+					"top": { "color": "var(--wp--preset--color--ochre)", "width": "2px", "style": "solid" },
+					"bottom": { "color": "var(--wp--preset--color--ochre)", "width": "2px", "style": "solid" }
+				}
+			}
+		}
+	},
+
+	"templateParts": [
+		{ "area": "header", "name": "header", "title": "Header" },
+		{ "area": "footer", "name": "footer", "title": "Footer" },
+		{ "area": "uncategorized", "name": "post-meta", "title": "Post Meta" }
+	],
+
+	"customTemplates": [
+		{ "name": "page-wide",  "title": "Page — Wide",       "postTypes": [ "page" ] },
+		{ "name": "page-blank", "title": "Page — No Header/Footer", "postTypes": [ "page" ] }
+	]
+}

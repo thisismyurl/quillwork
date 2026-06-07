@@ -1,0 +1,21 @@
+/* =====================================================================
+   [SKIN] editor-style.css — block editor personality for Quillwork.
+   Loaded via add_editor_style() in inc/setup.php. Complements theme.json
+   global styles with ::before / ::after decorations that theme.json cannot
+   express, and makes the editing canvas match the front end.
+   ===================================================================== */
+
+/* Mirror the eyebrow treatment in the editor */
+.is-style-quillwork-eyebrow {
+	font-family: var(--wp--preset--font-family--dm-sans, sans-serif) !important;
+	font-weight: 500 !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.18em !important;
+	color: var(--wp--preset--color--teal, #1a6b72) !important;
+}
+
+/* Service card hover preview — left-border teal accent */
+.is-style-quillwork-service {
+	border-inline-start: 4px solid var(--wp--preset--color--teal, #1a6b72);
+	background: var(--wp--preset--color--cream, #faf8f5);
+}

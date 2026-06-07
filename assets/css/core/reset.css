@@ -1,0 +1,109 @@
+/* =====================================================================
+   [CORE] reset.css — the cascade contract + a design-agnostic reset.
+   ---------------------------------------------------------------------
+   This sheet loads FIRST. Its first line is the most important line in
+   the whole theme: it declares the @layer order once, for everyone.
+   After this, rules can arrive in any file in any order and still cascade
+   by layer — reset loses to base, base loses to layout, and so on down
+   to utilities, which always wins. That's the point of layers: order-
+   independence without specificity wars.
+
+   Everything here is design-neutral. No colours, no type, no spacing
+   values — those are the skin's job. `colophon sync` owns this file;
+   don't add Kern's personality here. It lives in skin.css.
+
+   Pillar 6 (Resilience): the reduced-motion guard at the bottom is a
+   global kill-switch. Any skin animation is neutralised here; skins
+   don't each need to remember their own guard.
+   Pillar 9 (Archaeological Records): [CORE] tag marks CLI ownership.
+   ===================================================================== */
+@layer reset, base, layout, components, blocks, utilities;
+
+@layer reset {
+
+	*, *::before, *::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+		/*
+		 * color-scheme intentionally omitted here.
+		 *
+		 * Setting color-scheme: light globally blocks dark mode for all themes in
+		 * the collection, including those (Masthead) that advertise dark-mode
+		 * support. Each skin opts into the correct color-scheme value in skin.css
+		 * so themes that are light-only declare it there, and themes that support
+		 * dark mode can declare color-scheme: light dark.
+		 */
+
+		/*
+		 * hanging-punctuation: first last — Safari-only as of 2026 (not
+		 * implemented in Chrome or Firefox). Included because it meaningfully
+		 * improves the appearance of opening quotes in headlines on the ~15% of
+		 * visitors using Safari, at zero cost to the other 85%. No polyfill needed;
+		 * unsupported browsers simply ignore it.
+		 */
+		hanging-punctuation: first last;
+	}
+
+	body {
+		min-height: 100dvh; /* dvh accounts for mobile browser chrome changes */
+		/*
+		 * overflow-x: hidden removed.
+		 *
+		 * overflow-x: hidden on body creates a new block formatting context,
+		 * which breaks position: sticky on child elements in Safari — directly
+		 * affecting the sticky navigation headers in Wake, Masthead, and Kern.
+		 * It also silently conceals horizontal overflow bugs in plugin content
+		 * rather than surfacing them. If a specific template needs overflow
+		 * containment, apply it at that component, not globally.
+		 */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		/*
+		 * text-rendering: optimizeLegibility removed from body.
+		 *
+		 * Applied globally, optimizeLegibility degrades rendering performance on
+		 * pages with dense small-size text — exactly the article-card archives
+		 * Masthead and Wake render. Ligature and kerning quality is only visible
+		 * at display sizes; skins apply optimizeLegibility to headline selectors
+		 * (h1, h2, .display) in skin.css where the visual benefit is real and the
+		 * performance cost is bounded.
+		 */
+	}
+
+	img, video, canvas, audio, iframe, embed, object {
+		display: block;
+		max-width: 100%;
+	}
+
+	img, video {
+		height: auto; /* Prevents aspect-ratio distortion when width is constrained */
+	}
+
+	/* Inputs inherit the document font — avoids the browser's monospace default */
+	input, button, textarea, select { font: inherit; }
+
+	/* Prevent text overflow from breaking layout */
+	p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+	/* Reset list styles — pattern library applies its own list treatments */
+	ol, ul { list-style: none; }
+
+	/* CWV + a11y: the single source of reduced-motion handling for the whole
+	   theme. Any decorative animation a skin adds is neutralised here, so skins
+	   don't each need to remember a guard of their own. */
+	@media (prefers-reduced-motion: reduce) {
+		*, *::before, *::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+}

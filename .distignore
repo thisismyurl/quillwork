@@ -1,0 +1,16 @@
+inc/github-updater.php
+inc/cli.php
+colophon.json
+.distignore
+PILLARS.md
+*.sh
+bin/
+preview/
+production/
+build-trailer.py
+generate-screenshots.py
+trailer-script.md
+.git
+.github
+.gitignore
+.gitattributes

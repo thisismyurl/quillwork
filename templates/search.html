@@ -1,0 +1,29 @@
+<!-- wp:template-part {"slug":"header"} /-->
+
+<!-- wp:group {"tagName":"main","id":"main-content","className":"qw-main","layout":{"type":"constrained","contentSize":"1280px"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|11","bottom":"var:preset|spacing|11","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}}}} -->
+<main id="main-content" class="wp-block-group qw-main">
+
+	<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search the studio…","buttonText":"Search","buttonPosition":"button-outside","buttonUseIcon":true,"isExpanded":true,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}}} /-->
+
+	<!-- wp:query-title {"type":"search"} /-->
+
+	<!-- wp:query {"queryId":2,"query":{"perPage":10,"inherit":true},"layout":{"type":"default"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+			<!-- wp:post-title {"level":2,"isLink":true} /-->
+			<!-- wp:post-excerpt {"moreText":""} /-->
+		<!-- /wp:post-template -->
+		<!-- wp:query-no-results -->
+			<!-- wp:paragraph --><p>No results. Try a different search term.</p><!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer"} /-->

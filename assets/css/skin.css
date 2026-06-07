@@ -1,0 +1,328 @@
+/* =====================================================================
+   [SKIN] skin.css — Quillwork's personality, slotted into the Colophon core
+   cascade.
+   ---------------------------------------------------------------------
+   Two jobs:
+   1. BIND the --cl-* semantic tokens that core/base.css references, drawing
+      from Quillwork's theme.json palette. These live in an UNLAYERED :root
+      block on purpose — unlayered declarations beat layered ones, so they
+      reliably override the neutral fallbacks core ships. (Same cascade-layer
+      rule that bites people when WordPress core's own unlayered CSS wins;
+      here we use it deliberately.) The skip-link and base focus-ring rules
+      themselves now live in core/base.css and read these tokens — they are
+      NOT duplicated here.
+   2. POPULATE @layer layout / components / blocks / utilities — the four skin
+      layers, in the order reset.css declared. The bones (reset, base) are
+      core; everything below is Quillwork's design.
+
+   `colophon sync` never touches this file.
+   ===================================================================== */
+
+/* ---- 1. Token bindings + runtime tokens (unlayered, so they win) ---- */
+:root {
+	/* Quillwork is a light-only theme — declare it here (not in the
+	   shared reset.css) so it applies only to themes that are light-only. */
+	color-scheme: light;
+
+	/* Bind the core semantic-token contract to Quillwork's palette. The base
+	   teal focus ring clears 3:1 on the cream/white grounds; ochre is the
+	   inverse used on the ink-deep bands where teal fails. */
+	--cl-focus-ring:         var(--wp--preset--color--teal);
+	--cl-focus-ring-inverse: var(--wp--preset--color--ochre);
+	--cl-skip-bg:            var(--wp--preset--color--ink-deep);
+	--cl-skip-fg:            var(--wp--preset--color--cream);
+
+	/* Runtime-only tokens — no theme.json equivalent exists for these. */
+	--qw-transition:      220ms cubic-bezier(0.4, 0, 0.2, 1);
+	--qw-transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+	--qw-gutter:          clamp(1.5rem, 5vw, 3rem);
+	--qw-section-gap:     clamp(4rem, 9vw, 8rem);
+	/* Canonical page width — mirrors theme.json wideSize (1280px).
+	   Change both together. */
+	--qw-full-max:        1280px;
+}
+
+/* =====================================================================
+   [SKIN] LAYOUT — Quillwork band rhythm
+   ===================================================================== */
+@layer layout {
+
+	.qw-main { isolation: isolate; }
+
+	/* Sticky translucent header. z-index sits below the nav overlay
+	   (.wp-block-navigation__responsive-container is z-index 100000 in core),
+	   so the mobile menu always paints over a stuck header. */
+	.qw-header {
+		position: sticky;
+		inset-block-start: 0;
+		z-index: 100;
+		background: rgba(250, 248, 245, 0.95);
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+		border-block-end: 1px solid rgba(13, 59, 63, 0.10);
+	}
+
+	/* Generous section bands — the calm whitespace of the source design. */
+	.qw-section {
+		padding-block: var(--qw-section-gap);
+		padding-inline: var(--qw-gutter);
+	}
+
+	.qw-section--cream { background: var(--wp--preset--color--cream, #faf8f5); }
+	.qw-section--white { background: var(--wp--preset--color--paper-white, #ffffff); }
+	.qw-section--teal-tint { background: var(--wp--preset--color--teal-tint, #e8f2f3); }
+	.qw-section--ink {
+		background: var(--wp--preset--color--ink-deep, #0d3b3f);
+		color: var(--wp--preset--color--cream, #faf8f5);
+	}
+}
+
+/* =====================================================================
+   [SKIN] COMPONENTS — Quillwork personality
+   Hero italic headline, numbered service cards, float accents.
+   ===================================================================== */
+@layer components {
+
+	/* ---- Header navigation ---- */
+	/* Header nav links are uppercase DM Sans (type from theme.json core/navigation);
+	   colour and underline behaviour are skin personality and live here. */
+	.qw-header .wp-block-navigation a {
+		color: var(--wp--preset--color--ink-medium, #4a4a4a);
+		text-decoration: none;
+	}
+	.qw-header .wp-block-navigation a:hover,
+	.qw-header .wp-block-navigation a:focus {
+		color: var(--wp--preset--color--ink-deep, #0d3b3f);
+	}
+
+	/* ---- Hero ---- */
+	/* Height is driven here (not by an inline block min-height) so it stays
+	   responsive and uses dvh — vh mis-measures under the iOS URL bar. */
+	.qw-hero {
+		position: relative;
+		overflow: clip;
+		min-block-size: 85dvh;
+	}
+	@media (max-width: 600px) {
+		.qw-hero { min-block-size: 60dvh; }
+	}
+
+	/* The light-italic accent line inside the serif headline. */
+	.qw-hero__accent {
+		display: block;
+		font-style: italic;
+		font-weight: 700;
+		color: var(--wp--preset--color--teal, #1a6b72);
+	}
+
+	.qw-eyebrow {
+		font-family: var(--wp--preset--font-family--dm-sans, sans-serif);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		color: var(--wp--preset--color--teal, #1a6b72);
+	}
+
+	/* Calm float accent — concentric ochre rings. Decorative only
+	   (aria-hidden in markup). The qw-float animation is neutralised for
+	   reduced-motion users by the global guard in @layer reset; this
+	   component declares no second guard of its own. */
+	.qw-float-accent {
+		position: absolute;
+		inset-block-start: 12%;
+		inset-inline-end: 4%;
+		inline-size: clamp(200px, 28vw, 400px);
+		aspect-ratio: 1;
+		opacity: 0.4;
+		pointer-events: none;
+	}
+	.qw-float-accent::before,
+	.qw-float-accent::after {
+		content: "";
+		position: absolute;
+		border: 2px solid var(--wp--preset--color--ochre, #d4a574);
+		border-radius: 50%;
+		animation: qw-float 8s ease-in-out infinite;
+	}
+	.qw-float-accent::before { inset: 0; }
+	.qw-float-accent::after { inset: 20%; animation-delay: -2s; }
+
+	@keyframes qw-float {
+		0%, 100% { transform: translateY(0) rotate(0deg); }
+		50%      { transform: translateY(-20px) rotate(5deg); }
+	}
+
+	/* On the narrowest screens the accent crowds the hero headline — drop it. */
+	@media (max-width: 480px) {
+		.qw-float-accent { display: none; }
+		/* Stat grid: one column on phones so labels like "Client satisfaction" never break mid-word.
+		   !important is required to beat WordPress core's UN-LAYERED grid-layout rule —
+		   this @layer components declaration would otherwise lose to it regardless of specificity. */
+		.wp-block-group.qw-stats-grid { grid-template-columns: 1fr !important; }
+	}
+
+	/* ---- Numbered service cards ---- */
+	.qw-service-card {
+		padding: var(--wp--preset--spacing--10, 2.5rem) var(--wp--preset--spacing--8, 2rem);
+		background: var(--wp--preset--color--cream, #faf8f5);
+		border-inline-start: 4px solid transparent;
+		transition: transform var(--qw-transition), border-color var(--qw-transition), box-shadow var(--qw-transition);
+	}
+	.qw-service-card:hover,
+	.qw-service-card:focus-within {
+		border-inline-start-color: var(--wp--preset--color--teal, #1a6b72);
+		transform: translateX(10px);
+		box-shadow: -20px 20px 60px rgba(13, 59, 63, 0.1);
+	}
+	.qw-service-card__number {
+		font-family: var(--wp--preset--font-family--cormorant, serif);
+		font-size: var(--wp--preset--font-size--3xl, 4rem);
+		font-weight: 300;
+		line-height: 1;
+		color: var(--wp--preset--color--ochre, #d4a574);
+		opacity: 0.3;
+	}
+
+	/* ---- Stat cards (about-stats) ---- */
+	.qw-stat__number {
+		font-family: var(--wp--preset--font-family--cormorant, serif);
+		font-weight: 700;
+		line-height: 1;
+		color: var(--wp--preset--color--teal, #1a6b72);
+	}
+	.qw-stat__label {
+		font-family: var(--wp--preset--font-family--dm-sans, sans-serif);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		overflow-wrap: break-word;
+		color: var(--wp--preset--color--ink-muted, #696969);
+	}
+
+	/* ---- Service-card feature list (arrow bullets) ---- */
+	.qw-service-features li {
+		position: relative;
+		padding-block: var(--wp--preset--spacing--2, 0.5rem);
+		padding-inline-start: var(--wp--preset--spacing--5, 1.5rem);
+		font-family: var(--wp--preset--font-family--dm-sans, sans-serif);
+		font-size: var(--wp--preset--font-size--sm, 1rem);
+		color: var(--wp--preset--color--ink-muted, #696969);
+	}
+	/* Decorative arrow — content via ::before keeps it out of the a11y tree. */
+	.qw-service-features li::before {
+		content: "\2192"; /* → */
+		position: absolute;
+		inset-inline-start: 0;
+		font-weight: 700;
+		color: var(--wp--preset--color--teal, #1a6b72);
+	}
+
+	/* ---- Stat cards (about-stats) ---- */
+	.qw-stat {
+		text-align: center;
+		transition: transform var(--qw-transition);
+	}
+	.qw-stat:hover,
+	.qw-stat:focus-within { transform: translateY(-5px); }
+
+	/* ---- Testimonial cards (ink band) ---- */
+	.qw-testimonial-card {
+		position: relative;
+		padding: var(--wp--preset--spacing--10, 3rem);
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	/* Oversized decorative quote glyph — purely ornamental, kept out of the
+	   a11y tree by being generated content with no semantic role. */
+	.qw-testimonial-card::before {
+		content: "\201C"; /* “ */
+		position: absolute;
+		inset-block-start: var(--wp--preset--spacing--4, 1rem);
+		inset-inline-start: var(--wp--preset--spacing--6, 2rem);
+		font-family: var(--wp--preset--font-family--cormorant, serif);
+		font-size: var(--wp--preset--font-size--display, 5rem);
+		line-height: 1;
+		color: var(--wp--preset--color--ochre, #d4a574);
+		opacity: 0.3;
+		pointer-events: none;
+	}
+	.qw-testimonial-quote { position: relative; z-index: 1; }
+
+	/* ---- Pull-style about highlight ---- */
+	.qw-highlight {
+		border-inline-start: 4px solid var(--wp--preset--color--coral, #c97d60);
+		background: var(--wp--preset--color--paper-white, #ffffff);
+		padding: var(--wp--preset--spacing--8, 2rem);
+		font-style: italic;
+	}
+
+	/* ---- Footer ---- */
+	/* The footer sits on the ink-deep band; teal link text fails contrast there.
+	   Cream at rest for both nav and the credit line — clears 4.5:1 on #0d3b3f.
+	   Footer nav is plain text, not the uppercased header treatment. */
+	.qw-footer .wp-block-navigation a,
+	.qw-footer__bottom a {
+		color: var(--wp--preset--color--cream, #faf8f5);
+	}
+	/* Footer navigation: cream → ochre on interaction (the a11y-fix hover). */
+	.qw-footer .wp-block-navigation a:hover,
+	.qw-footer .wp-block-navigation a:focus {
+		color: var(--wp--preset--color--ochre, #d4a574);
+	}
+	/* Footer credit link only: cream → paper-white on interaction (per request).
+	   White on ink-deep clears ~16:1, well past AA — distinct from the nav hover. */
+	.qw-footer__bottom a:hover,
+	.qw-footer__bottom a:focus {
+		color: var(--wp--preset--color--paper-white, #ffffff);
+	}
+	.qw-footer .wp-block-navigation {
+		text-transform: none;
+		letter-spacing: 0;
+	}
+
+	/* Tap targets — footer nav links and post-term pills reach the 44px floor. */
+	.qw-footer .wp-block-navigation a,
+	.wp-block-post-terms a {
+		min-block-size: 44px;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	/* The mobile-nav open/close toggles must meet the 44px touch target. */
+	.wp-block-navigation__responsive-container-open,
+	.wp-block-navigation__responsive-container-close {
+		min-inline-size: 44px;
+		min-block-size: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Focus ring on the dark bands (footer + ink-deep testimonial band): the
+	   base teal ring fails 3:1 on #0d3b3f, so override to ochre, which clears it.
+	   This also matches the --cl-focus-ring-inverse binding above. */
+	.qw-footer :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible,
+	.qw-section--ink :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+		outline-color: var(--wp--preset--color--ochre, #d4a574);
+	}
+}
+
+/* =====================================================================
+   [SKIN] BLOCKS — narrow overrides where theme.json cannot reach
+   (theme.json owns the bulk of block styling; this layer is the exception
+   list, not the default home for block CSS.)
+   ===================================================================== */
+@layer blocks {
+
+	/* Link-underline offset for the literary reading column. */
+	.qw-main :where(p, li) a {
+		text-underline-offset: 0.15em;
+	}
+}
+
+/* =====================================================================
+   [SKIN] UTILITIES — last layer, intentional escape hatch
+   ===================================================================== */
+@layer utilities {
+	.qw-text-center { text-align: center; }
+	.qw-no-motion   { animation: none !important; transition: none !important; }
+}

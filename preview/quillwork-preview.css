@@ -1,0 +1,919 @@
+/* =====================================================================
+   quillwork-preview.css — standalone preview CSS for Playwright captures.
+   Replicates all WP preset tokens as CSS custom properties so the HTML
+   mockups render faithfully without a live WordPress install.
+   ===================================================================== */
+@layer reset, base, layout, components, blocks, utilities, preview;
+
+/* ---- WP preset tokens ---- */
+:root {
+  /* Colour palette */
+  --wp--preset--color--ink-deep:      #0d3b3f;
+  --wp--preset--color--ink-medium:    #1f5c63;
+  --wp--preset--color--ink-muted:     #696969;
+  --wp--preset--color--teal:          #1a6b72;
+  --wp--preset--color--teal-light:    #2d8f97;
+  --wp--preset--color--teal-tint:     #e8f2f3;
+  --wp--preset--color--ochre:         #d4a574;
+  --wp--preset--color--ochre-warm:    #b8865f;
+  --wp--preset--color--coral:         #c97d60;
+  --wp--preset--color--cream:         #faf8f5;
+  --wp--preset--color--paper-white:   #ffffff;
+
+  /* Font families */
+  --wp--preset--font-family--cormorant:  'Cormorant Garamond', 'Georgia', serif;
+  --wp--preset--font-family--newsreader: 'Newsreader', 'Georgia', serif;
+  --wp--preset--font-family--dm-sans:    'DM Sans', system-ui, sans-serif;
+
+  /* Font sizes */
+  --wp--preset--font-size--2xs:    0.6875rem;
+  --wp--preset--font-size--xs:     0.8125rem;
+  --wp--preset--font-size--sm:     0.9375rem;
+  --wp--preset--font-size--base:   1.0625rem;
+  --wp--preset--font-size--lg:     1.25rem;
+  --wp--preset--font-size--xl:     1.5rem;
+  --wp--preset--font-size--2xl:    2rem;
+  --wp--preset--font-size--3xl:    clamp(2.5rem, 3vw + 1rem, 4rem);
+  --wp--preset--font-size--4xl:    clamp(3rem, 4vw + 1rem, 5.5rem);
+  --wp--preset--font-size--display: clamp(3.5rem, 5vw + 1rem, 7.5rem);
+
+  /* Spacing */
+  --wp--preset--spacing--1:  0.25rem;
+  --wp--preset--spacing--2:  0.5rem;
+  --wp--preset--spacing--3:  0.75rem;
+  --wp--preset--spacing--4:  1rem;
+  --wp--preset--spacing--5:  1.25rem;
+  --wp--preset--spacing--6:  1.5rem;
+  --wp--preset--spacing--7:  1.75rem;
+  --wp--preset--spacing--8:  2rem;
+  --wp--preset--spacing--9:  2.5rem;
+  --wp--preset--spacing--10: 3rem;
+  --wp--preset--spacing--11: 4rem;
+  --wp--preset--spacing--12: 5rem;
+
+  /* Runtime tokens */
+  --qw-transition:      220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --qw-transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  --qw-gutter:          clamp(1.5rem, 5vw, 3rem);
+  --qw-section-gap:     clamp(4rem, 9vw, 8rem);
+  --qw-full-max:        1280px;
+}
+
+/* =====================================================================
+   RESET
+   ===================================================================== */
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  ol, ul { list-style: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* =====================================================================
+   BASE
+   ===================================================================== */
+@layer base {
+  body {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--base);
+    color: var(--wp--preset--color--ink-deep);
+    background: var(--wp--preset--color--cream);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  p { line-height: 1.7; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+  a { text-decoration: underline; text-underline-offset: 0.15em; }
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+@layer layout {
+  .qw-main { isolation: isolate; }
+
+  .qw-constrained {
+    max-width: var(--qw-full-max);
+    margin-inline: auto;
+    padding-inline: var(--qw-gutter);
+  }
+
+  .qw-section {
+    padding-block: var(--qw-section-gap);
+    padding-inline: var(--qw-gutter);
+  }
+  .qw-section--cream     { background: var(--wp--preset--color--cream); }
+  .qw-section--white     { background: var(--wp--preset--color--paper-white); }
+  .qw-section--teal-tint { background: var(--wp--preset--color--teal-tint); }
+  .qw-section--ink {
+    background: var(--wp--preset--color--ink-deep);
+    color: var(--wp--preset--color--cream);
+  }
+
+  .qw-cols-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--wp--preset--spacing--10);
+    align-items: start;
+  }
+  .qw-cols-40-60 {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--wp--preset--spacing--12);
+    align-items: start;
+  }
+}
+
+/* =====================================================================
+   COMPONENTS
+   ===================================================================== */
+@layer components {
+  /* ---- Header ---- */
+  .qw-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-block-end: 1px solid rgba(13, 59, 63, 0.10);
+    padding-block: var(--wp--preset--spacing--5);
+    padding-inline: var(--qw-gutter);
+  }
+
+  .qw-header__inner {
+    max-width: var(--qw-full-max);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .qw-site-title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--wp--preset--color--ink-deep);
+    text-decoration: none;
+  }
+
+  .qw-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--9);
+  }
+
+  .qw-nav a {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--wp--preset--color--ink-medium);
+    transition: color var(--qw-transition);
+  }
+  .qw-nav a:hover { color: var(--wp--preset--color--ink-deep); }
+
+  .qw-cta-btn {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--wp--preset--color--cream);
+    background: var(--wp--preset--color--ink-deep);
+    padding: 0.625rem 1.25rem;
+    transition: background var(--qw-transition);
+  }
+  .qw-cta-btn:hover { background: var(--wp--preset--color--teal); }
+
+  /* ---- Hamburger (mobile) ---- */
+  .qw-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .qw-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--wp--preset--color--ink-deep);
+  }
+
+  /* ---- Eyebrow ---- */
+  .qw-eyebrow {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--wp--preset--color--teal);
+    margin-bottom: var(--wp--preset--spacing--5);
+  }
+
+  /* ---- Hero ---- */
+  /* ---- Hero: two-column split composition ----
+     Left: headline system, right: quill-stroke SVG.
+     The SVG is the founding gesture of letterform — a broad-nib calligraphic
+     downstroke. It draws in once on load (stroke-dashoffset), then holds.
+     No infinite loop. No decorative metaphor without a conceptual anchor. */
+  .qw-hero {
+    position: relative;
+    overflow: clip;
+    min-block-size: 85dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--wp--preset--spacing--12);
+    padding-inline: var(--qw-gutter);
+    background: var(--wp--preset--color--cream);
+  }
+
+  .qw-hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: var(--qw-section-gap);
+  }
+
+  .qw-hero__title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--display);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin-bottom: var(--wp--preset--spacing--8);
+    color: var(--wp--preset--color--ink-deep);
+  }
+
+  /* The accent is italic weight 600 — calligraphy is italic by nature.
+     It hangs on the last line, the resolution of the headline proposition. */
+  .qw-hero__accent {
+    display: inline;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--wp--preset--color--teal);
+  }
+
+  .qw-hero__sub {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--base);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--wp--preset--color--ink-medium);
+    max-width: 46ch;
+    margin-bottom: var(--wp--preset--spacing--9);
+  }
+
+  .qw-hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--7);
+    flex-wrap: wrap;
+  }
+
+  .qw-hero__secondary-link {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--wp--preset--color--ink-medium);
+    text-decoration: none;
+    transition: color var(--qw-transition);
+  }
+  .qw-hero__secondary-link:hover { color: var(--wp--preset--color--teal); }
+
+  /* Right column: quill stroke SVG container.
+     The SVG fills the column and is vertically centered. */
+  .qw-hero__stroke {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .qw-quill-stroke {
+    width: clamp(160px, 22vw, 280px);
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Stroke draw-in animation — one-time only, 1.4s ease-out.
+     stroke-dasharray/dashoffset on pathLength="1" means percentages read cleanly.
+     The stroke draws from top to bottom (entry → swell → exit). */
+  .qw-stroke-main {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: qw-draw-stroke 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+  }
+  .qw-stroke-entry {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: qw-draw-stroke 0.4s ease-out 0.2s forwards;
+  }
+  .qw-stroke-exit {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: qw-draw-stroke 0.4s ease-out 1.5s forwards;
+  }
+  .qw-stroke-swell {
+    opacity: 0;
+    animation: qw-swell-in 0.6s ease-out 0.9s forwards;
+  }
+
+  @keyframes qw-draw-stroke {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes qw-swell-in {
+    to { opacity: 0.18; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .qw-stroke-main, .qw-stroke-entry, .qw-stroke-exit {
+      stroke-dashoffset: 0;
+      animation: none;
+    }
+    .qw-stroke-swell { opacity: 0.18; animation: none; }
+  }
+
+  @media (max-width: 720px) {
+    .qw-hero {
+      grid-template-columns: 1fr;
+    }
+    .qw-hero__stroke { display: none; }
+  }
+
+  /* ---- Numbered service cards ---- */
+  .qw-service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--wp--preset--spacing--6);
+  }
+
+  /* Service cards: ink-reveal interaction.
+     The number (01–04) operates as a registration mark — fully visible on hover,
+     ghosted at rest. The corner bracket (::after) on hover references print
+     registration marks used in presswork, connecting to the editorial/print
+     discipline the studio serves. No translateX — typography doesn't move. */
+  .qw-service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--wp--preset--spacing--1);
+  }
+
+  .qw-section-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: var(--wp--preset--spacing--8);
+    border-bottom: 1px solid var(--wp--preset--color--ink-deep);
+    margin-bottom: var(--wp--preset--spacing--6);
+  }
+  .qw-section-label__count {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    color: var(--wp--preset--color--ink-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .qw-service-card {
+    position: relative;
+    padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--8);
+    background: var(--wp--preset--color--cream);
+    border-top: 1px solid var(--wp--preset--color--ink-deep);
+    transition: background var(--qw-transition);
+    overflow: hidden;
+  }
+
+  /* Registration mark corner bracket — appears on hover.
+     A calligraphic L-bracket in teal, positioned bottom-right of each card.
+     References the crop/registration marks in print design. */
+  .qw-service-card::after {
+    content: "";
+    position: absolute;
+    bottom: var(--wp--preset--spacing--5);
+    right: var(--wp--preset--spacing--5);
+    width: 16px;
+    height: 16px;
+    border-bottom: 2px solid var(--wp--preset--color--teal);
+    border-right: 2px solid var(--wp--preset--color--teal);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity var(--qw-transition), transform var(--qw-transition);
+  }
+
+  .qw-service-card:hover {
+    background: var(--wp--preset--color--teal-tint);
+  }
+  .qw-service-card:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Number: ghost at rest, fully readable on hover — the sequence becomes legible
+     when the user engages, not as ambient decoration. */
+  .qw-service-card__number {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--3xl);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--wp--preset--color--ochre);
+    opacity: 0.25;
+    margin-bottom: var(--wp--preset--spacing--5);
+    transition: opacity var(--qw-transition);
+  }
+  .qw-service-card:hover .qw-service-card__number {
+    opacity: 0.85;
+  }
+
+  .qw-service-card__title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--2xl);
+    font-weight: 600;
+    margin-bottom: var(--wp--preset--spacing--4);
+    color: var(--wp--preset--color--ink-deep);
+    transition: color var(--qw-transition);
+  }
+  .qw-service-card:hover .qw-service-card__title {
+    color: var(--wp--preset--color--teal);
+  }
+
+  .qw-service-card__body {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--sm);
+    line-height: 1.7;
+    color: var(--wp--preset--color--ink-muted);
+  }
+
+  /* Arrow reveals on hover — directional affordance at rest=hidden, hover=visible */
+  .qw-service-card__arrow {
+    display: inline-block;
+    margin-top: var(--wp--preset--spacing--4);
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--sm);
+    color: var(--wp--preset--color--teal);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity var(--qw-transition), transform var(--qw-transition);
+  }
+  .qw-service-card:hover .qw-service-card__arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Service feature list */
+  .qw-service-features { margin-top: var(--wp--preset--spacing--6); }
+  .qw-service-features li {
+    position: relative;
+    padding-block: var(--wp--preset--spacing--2);
+    padding-inline-start: var(--wp--preset--spacing--5);
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--sm);
+    color: var(--wp--preset--color--ink-muted);
+  }
+  .qw-service-features li::before {
+    content: "\2192";
+    position: absolute;
+    inset-inline-start: 0;
+    font-weight: 700;
+    color: var(--wp--preset--color--teal);
+  }
+
+  /* ---- Stats grid ---- */
+  .qw-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--wp--preset--spacing--8);
+  }
+
+  .qw-stat {
+    text-align: center;
+    transition: transform var(--qw-transition);
+  }
+  .qw-stat:hover { transform: translateY(-4px); }
+
+  .qw-stat__number {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--4xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--wp--preset--color--teal);
+    margin-bottom: var(--wp--preset--spacing--2);
+  }
+
+  .qw-stat__label {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--wp--preset--color--ink-muted);
+  }
+
+  /* ---- Testimonial cards ---- */
+  .qw-testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--wp--preset--spacing--6);
+  }
+
+  .qw-testimonial-card {
+    position: relative;
+    padding: var(--wp--preset--spacing--10);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .qw-testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    inset-block-start: var(--wp--preset--spacing--4);
+    inset-inline-start: var(--wp--preset--spacing--6);
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--display);
+    line-height: 1;
+    color: var(--wp--preset--color--ochre);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .qw-testimonial-quote {
+    position: relative;
+    z-index: 1;
+    font-family: var(--wp--preset--font-family--newsreader);
+    font-size: var(--wp--preset--font-size--lg);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--wp--preset--color--cream);
+    margin-bottom: var(--wp--preset--spacing--6);
+  }
+
+  .qw-testimonial-attr {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--ochre);
+  }
+
+  /* ---- Highlight pull ---- */
+  .qw-highlight {
+    border-inline-start: 4px solid var(--wp--preset--color--coral);
+    background: var(--wp--preset--color--paper-white);
+    padding: var(--wp--preset--spacing--8);
+    font-family: var(--wp--preset--font-family--newsreader);
+    font-size: var(--wp--preset--font-size--lg);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--wp--preset--color--ink-deep);
+    margin-block: var(--wp--preset--spacing--10);
+  }
+
+  /* ---- Image placeholder ---- */
+  .qw-img-placeholder {
+    background: linear-gradient(135deg,
+      var(--wp--preset--color--teal-tint) 0%,
+      var(--wp--preset--color--teal-tint) 60%,
+      rgba(26, 107, 114, 0.15) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--teal);
+    opacity: 0.6;
+  }
+
+  /* ---- Blog post card ---- */
+  .qw-post-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--4);
+  }
+
+  .qw-post-card__image .qw-img-placeholder {
+    aspect-ratio: 3 / 2;
+    transition: opacity var(--qw-transition);
+  }
+  .qw-post-card:hover .qw-post-card__image .qw-img-placeholder { opacity: 0.8; }
+
+  .qw-post-card__meta {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--teal);
+  }
+
+  .qw-post-card__title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--xl);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--wp--preset--color--ink-deep);
+    text-decoration: none;
+  }
+
+  .qw-post-card__excerpt {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--sm);
+    line-height: 1.7;
+    color: var(--wp--preset--color--ink-muted);
+  }
+
+  .qw-post-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--wp--preset--spacing--10);
+  }
+
+  /* ---- Section heading ---- */
+  .qw-section-heading {
+    margin-bottom: var(--wp--preset--spacing--12);
+  }
+  .qw-section-heading__title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--4xl);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: inherit;
+    max-width: 20ch;
+  }
+  .qw-section-heading__sub {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--base);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--wp--preset--color--ink-muted);
+    max-width: 52ch;
+    margin-top: var(--wp--preset--spacing--5);
+  }
+
+  /* ---- CTA band ---- */
+  .qw-cta-band {
+    text-align: center;
+    padding-block: var(--qw-section-gap);
+    padding-inline: var(--qw-gutter);
+    background: var(--wp--preset--color--ink-deep);
+  }
+  .qw-cta-band__title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--4xl);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: var(--wp--preset--color--cream);
+    margin-bottom: var(--wp--preset--spacing--6);
+    max-width: 24ch;
+    margin-inline: auto;
+    line-height: 1.1;
+  }
+  .qw-cta-band__sub {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--base);
+    font-weight: 300;
+    color: var(--wp--preset--color--teal-tint);
+    max-width: 50ch;
+    margin-inline: auto;
+    margin-bottom: var(--wp--preset--spacing--10);
+    line-height: 1.7;
+  }
+
+  /* ---- Post body ---- */
+  .qw-post-body {
+    font-family: var(--wp--preset--font-family--newsreader);
+    font-size: var(--wp--preset--font-size--lg);
+    line-height: 1.8;
+    color: var(--wp--preset--color--ink-deep);
+    max-width: 68ch;
+    margin-inline: auto;
+  }
+  .qw-post-body p { margin-bottom: var(--wp--preset--spacing--7); }
+  .qw-post-body blockquote {
+    border-inline-start: 4px solid var(--wp--preset--color--ochre);
+    padding-inline-start: var(--wp--preset--spacing--8);
+    font-style: italic;
+    font-size: var(--wp--preset--font-size--xl);
+    color: var(--wp--preset--color--ink-medium);
+    margin-block: var(--wp--preset--spacing--10);
+  }
+
+  /* ---- Post header ---- */
+  .qw-post-header {
+    max-width: 68ch;
+    margin-inline: auto;
+    margin-bottom: var(--wp--preset--spacing--12);
+  }
+  .qw-post-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--6);
+    margin-bottom: var(--wp--preset--spacing--7);
+  }
+  .qw-post-meta__cat {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--teal);
+    text-decoration: none;
+  }
+  .qw-post-meta__date {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--xs);
+    color: var(--wp--preset--color--ink-muted);
+  }
+  .qw-post-title {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--4xl);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: var(--wp--preset--spacing--6);
+  }
+  .qw-post-byline {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--xs);
+    color: var(--wp--preset--color--ink-muted);
+  }
+
+  /* ---- Contact form ---- */
+  .qw-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--6);
+    max-width: 560px;
+  }
+  .qw-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--wp--preset--spacing--5);
+  }
+  .qw-form-field { display: flex; flex-direction: column; gap: var(--wp--preset--spacing--2); }
+  .qw-form-field label {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--ink-muted);
+  }
+  .qw-form-field input,
+  .qw-form-field textarea,
+  .qw-form-field select {
+    padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--5);
+    background: var(--wp--preset--color--paper-white);
+    border: 1px solid rgba(13, 59, 63, 0.2);
+    font-family: var(--wp--preset--font-family--newsreader);
+    font-size: var(--wp--preset--font-size--base);
+    color: var(--wp--preset--color--ink-deep);
+    outline: none;
+    transition: border-color var(--qw-transition);
+  }
+  .qw-form-field input:focus,
+  .qw-form-field textarea:focus,
+  .qw-form-field select:focus {
+    border-color: var(--wp--preset--color--teal);
+  }
+  .qw-form-field textarea { min-height: 160px; resize: vertical; }
+  .qw-submit-btn {
+    align-self: start;
+    padding: var(--wp--preset--spacing--4) var(--wp--preset--spacing--10);
+    background: var(--wp--preset--color--ink-deep);
+    color: var(--wp--preset--color--cream);
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background var(--qw-transition);
+  }
+  .qw-submit-btn:hover { background: var(--wp--preset--color--teal); }
+
+  /* ---- Footer ---- */
+  .qw-footer {
+    background: var(--wp--preset--color--ink-deep);
+    color: var(--wp--preset--color--cream);
+    padding-block: var(--qw-section-gap);
+    padding-inline: var(--qw-gutter);
+  }
+
+  .qw-footer__inner {
+    max-width: var(--qw-full-max);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--wp--preset--spacing--10);
+    padding-bottom: var(--wp--preset--spacing--12);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: var(--wp--preset--spacing--8);
+  }
+
+  .qw-footer__brand-name {
+    font-family: var(--wp--preset--font-family--cormorant);
+    font-size: var(--wp--preset--font-size--2xl);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--wp--preset--color--cream);
+    margin-bottom: var(--wp--preset--spacing--4);
+  }
+
+  .qw-footer__tagline {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--sm);
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(250, 248, 245, 0.6);
+  }
+
+  .qw-footer__heading {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--ochre);
+    margin-bottom: var(--wp--preset--spacing--6);
+  }
+
+  .qw-footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--3);
+  }
+  .qw-footer__links a {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--sm);
+    color: rgba(250, 248, 245, 0.7);
+    text-decoration: none;
+    transition: color var(--qw-transition);
+  }
+  .qw-footer__links a:hover { color: var(--wp--preset--color--ochre); }
+
+  .qw-footer__bottom {
+    max-width: var(--qw-full-max);
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--xs);
+    color: rgba(250, 248, 245, 0.4);
+  }
+  .qw-footer__bottom a {
+    color: rgba(250, 248, 245, 0.6);
+    text-decoration: none;
+  }
+  .qw-footer__bottom a:hover { color: var(--wp--preset--color--ochre); }
+}
+
+/* =====================================================================
+   PREVIEW — demo-only utilities
+   ===================================================================== */
+@layer preview {
+  /* Section divider rule */
+  .qw-rule {
+    border: none;
+    border-top: 1px solid rgba(13, 59, 63, 0.12);
+    margin: 0;
+  }
+
+  /* Two-col about layout */
+  .qw-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--wp--preset--spacing--12);
+    align-items: center;
+  }
+
+  .qw-about-img { aspect-ratio: 4/5; }
+}

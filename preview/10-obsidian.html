@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Quillwork — Obsidian Variant (Dark Mode)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+<style>
+  /*
+   * OBSIDIAN PALETTE — near-black ground, warm gold accent.
+   * Eight CSS custom property overrides in theme.json.
+   * Suited to luxury goods, high-end photography studios,
+   * dark-editorial magazines, architecture practices.
+   *
+   * Gold (#c4942a) on near-black (#111111): contrast > 8:1 (WCAG AAA).
+   */
+  :root {
+    --wp--preset--color--ink-deep:    #f0ede6;    /* Inverted for dark ground */
+    --wp--preset--color--ink-medium:  #d4cfc6;
+    --wp--preset--color--ink-muted:   #7a7872;
+    --wp--preset--color--teal:        #c4942a;    /* Gold as primary accent */
+    --wp--preset--color--teal-light:  #d4a840;
+    --wp--preset--color--teal-tint:   #201a0e;    /* Very dark gold tint */
+    --wp--preset--color--ochre:       #c4942a;
+    --wp--preset--color--ochre-warm:  #b8825e;
+    --wp--preset--color--coral:       #a06040;
+    --wp--preset--color--cream:       #111111;    /* Ground = near-black */
+    --wp--preset--color--paper-white: #1a1a1a;
+  }
+
+  /* Dark-mode adjustments */
+  body { background: #111111; }
+
+  .qw-header {
+    background: rgba(17, 17, 17, 0.95);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .qw-nav a { color: #d4cfc6; }
+
+  .qw-hero__accent { color: #c4942a; }
+
+  .qw-service-card {
+    background: #1a1a1a;
+  }
+  .qw-service-card__number { color: #c4942a; }
+  .qw-service-card__title  { color: #f0ede6; }
+  .qw-service-card__body   { color: #7a7872; }
+  .qw-service-features li  { color: #7a7872; }
+  .qw-service-features li::before { color: #c4942a; }
+  .qw-service-card:hover {
+    border-inline-start-color: #c4942a;
+    box-shadow: -12px 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .qw-eyebrow { color: #c4942a; }
+
+  .qw-float-accent::before,
+  .qw-float-accent::after { border-color: #c4942a; }
+
+  .qw-section--white { background: #1a1a1a; }
+  .qw-section--teal-tint { background: #201a0e; }
+
+  .qw-stat__number { color: #c4942a; }
+  .qw-stat__label  { color: #7a7872; }
+
+  .qw-footer {
+    background: #0a0a0a;
+  }
+  .qw-footer__inner {
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
+
+  a { color: #c4942a; }
+</style>
+</head>
+<body>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#" style="color: #f0ede6;">Axiom Studio</a>
+    <nav class="qw-nav">
+      <a href="#">Projects</a>
+      <a href="#">Practice</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a class="qw-cta-btn" href="#" style="background: #c4942a; color: #111111;">Inquire</a>
+  </div>
+</header>
+
+<main class="qw-main">
+
+  <!-- Hero — obsidian ground -->
+  <section class="qw-hero" style="background: #111111;">
+    <div aria-hidden="true" class="qw-float-accent"></div>
+    <div>
+      <div class="qw-eyebrow">Architecture · Interiors · Object</div>
+      <h1 class="qw-hero__title" style="color: #f0ede6;">
+        Form follows<br>
+        <span class="qw-hero__accent">intention.</span>
+      </h1>
+      <p class="qw-hero__sub" style="color: #d4cfc6;">
+        An architecture and interiors practice working at the intersection of material precision and spatial restraint. Based in Toronto, working internationally.
+      </p>
+      <a class="qw-cta-btn" href="#" style="background: #c4942a; color: #111111;">Selected Projects</a>
+    </div>
+  </section>
+
+  <!-- Projects grid — dark paper -->
+  <section class="qw-section qw-section--white">
+    <div class="qw-constrained">
+      <div class="qw-eyebrow">Selected Projects</div>
+      <div class="qw-post-cards-grid">
+        <div class="qw-post-card">
+          <div class="qw-post-card__image"><div class="qw-img-placeholder" style="aspect-ratio: 4/3; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #7a7872;">Residence — Forest Hill</div></div>
+          <div class="qw-post-card__meta">Residential</div>
+          <a class="qw-post-card__title" href="#" style="color: #f0ede6; text-decoration: none;">Forest Hill Residence — Toronto</a>
+          <p class="qw-post-card__excerpt" style="color: #7a7872;">2,800 sq ft. Concrete, blackened steel, and white oak.</p>
+        </div>
+        <div class="qw-post-card">
+          <div class="qw-post-card__image"><div class="qw-img-placeholder" style="aspect-ratio: 4/3; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #7a7872;">Office — King West</div></div>
+          <div class="qw-post-card__meta">Commercial</div>
+          <a class="qw-post-card__title" href="#" style="color: #f0ede6; text-decoration: none;">Meridian Capital Offices — King West</a>
+          <p class="qw-post-card__excerpt" style="color: #7a7872;">12,000 sq ft. Material precision for a financial institution.</p>
+        </div>
+        <div class="qw-post-card">
+          <div class="qw-post-card__image"><div class="qw-img-placeholder" style="aspect-ratio: 4/3; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #7a7872;">Object — Bench</div></div>
+          <div class="qw-post-card__meta">Object Design</div>
+          <a class="qw-post-card__title" href="#" style="color: #f0ede6; text-decoration: none;">Axis Bench — Limited Edition</a>
+          <p class="qw-post-card__excerpt" style="color: #7a7872;">Blackened steel and solid walnut. Edition of 24.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="qw-section qw-section--teal-tint">
+    <div class="qw-constrained">
+      <div class="qw-stats-grid">
+        <div class="qw-stat">
+          <div class="qw-stat__number">48</div>
+          <div class="qw-stat__label">Projects completed</div>
+        </div>
+        <div class="qw-stat">
+          <div class="qw-stat__number">12</div>
+          <div class="qw-stat__label">Years in practice</div>
+        </div>
+        <div class="qw-stat">
+          <div class="qw-stat__number">6</div>
+          <div class="qw-stat__label">Countries</div>
+        </div>
+        <div class="qw-stat">
+          <div class="qw-stat__number">3</div>
+          <div class="qw-stat__label">Awards this year</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palette note -->
+  <section class="qw-section" style="background: #0d0d0d; padding-top: var(--wp--preset--spacing--10); padding-bottom: var(--wp--preset--spacing--10);">
+    <div class="qw-constrained">
+      <div class="qw-eyebrow" style="margin-bottom: var(--wp--preset--spacing--4);">About this palette</div>
+      <p style="font-family: var(--wp--preset--font-family--dm-sans); font-size: var(--wp--preset--font-size--base); line-height: 1.7; color: #7a7872; max-width: 65ch;">
+        <strong style="color: #c4942a;">Obsidian</strong> — cream (ground): #111111 · teal (accent): #c4942a (warm gold) · paper-white: #1a1a1a. Color roles invert: the cream variable becomes the dark canvas; the teal variable becomes the warm gold accent. Eight CSS custom property overrides in theme.json — nothing else changed.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="qw-footer">
+  <div class="qw-footer__inner">
+    <div>
+      <div class="qw-footer__brand-name" style="color: #f0ede6;">Axiom Studio</div>
+      <p class="qw-footer__tagline">Architecture · Interiors · Object.<br>Toronto, Ontario.</p>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Practice</div>
+      <nav class="qw-footer__links">
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Press</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Contact</div>
+      <nav class="qw-footer__links">
+        <a href="#">Inquire</a>
+        <a href="#">studio@axiom.ca</a>
+        <a href="#">Instagram</a>
+      </nav>
+    </div>
+  </div>
+  <div class="qw-footer__bottom" style="color: rgba(255,255,255,0.25);">
+    <span>&copy; 2024 Axiom Studio</span>
+    <span>Built with WordPress &amp; <a href="https://thisismyurl.com/quillwork/" style="color: rgba(255,255,255,0.35);">Quillwork</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

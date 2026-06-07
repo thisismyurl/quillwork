@@ -1,0 +1,29 @@
+/*
+Theme Name:         Quillwork
+Theme URI:          https://thisismyurl.com/quillwork/
+Author:             Christopher Ross
+Author URI:         https://thisismyurl.com/
+Description:        A calligraphy-informed full-site editing theme for independent design studios, brand consultancies, and editorial agencies. Named for the precise craft of quill-cut letterforms — every detail deliberate, every space considered. Features a Cormorant Garamond display headline system, numbered service card patterns, type-specimen studio bio, and a restrained teal/ochre palette that reads as literate without performing wealth. Built on the Colophon core: WCAG 2.2 AA accessible, Core Web Vitals optimised, self-hosted SIL OFL fonts, RTL-ready via CSS logical properties, zero plugin dependencies.
+Version:            1.6148
+Requires at least:  6.7
+Tested up to:       6.8
+Requires PHP:       8.1
+License:            GNU General Public License v2 or later
+License URI:        https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:        quillwork
+Tags:               portfolio, blog, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, accessibility-ready, rtl-language-support, translation-ready, wide-blocks
+*/
+
+/* =====================================================================
+   QUILLWORK STYLESHEET
+   ---------------------------------------------------------------------
+   This file is the WordPress-required theme identity header and nothing
+   more. CSS lives in discrete sheets loaded via inc/assets.php:
+
+     assets/css/core/reset.css   [CORE]  @layer order + design-agnostic reset
+     assets/css/core/base.css    [CORE]  a11y scaffolding + --cl-* token contract
+     assets/css/skin.css         [SKIN]  Quillwork's layout, components, blocks
+
+   Block themes do not auto-enqueue style.css on the front end; this
+   header is read by WordPress for theme identity only.
+   ===================================================================== */

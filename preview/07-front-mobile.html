@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375">
+<title>Quillwork — Front Page Mobile (375px)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+<style>
+  /* Mobile overrides */
+  .qw-nav, .qw-cta-btn { display: none; }
+  .qw-hamburger { display: flex; }
+  .qw-hero { min-block-size: 60dvh; padding-inline: var(--wp--preset--spacing--6); }
+  .qw-hero__title { font-size: clamp(3rem, 15vw, 5rem); }
+  .qw-section { padding-block: var(--wp--preset--spacing--10); padding-inline: var(--wp--preset--spacing--6); }
+  .qw-constrained { padding-inline: var(--wp--preset--spacing--6); }
+  .qw-service-cards { grid-template-columns: 1fr; }
+  .qw-float-accent { display: none; }
+  .qw-footer__inner { grid-template-columns: 1fr; gap: var(--wp--preset--spacing--8); }
+  .qw-footer__bottom { flex-direction: column; gap: var(--wp--preset--spacing--2); }
+  .qw-stats-grid { grid-template-columns: 1fr 1fr; }
+</style>
+</head>
+<body>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#">Quillwork</a>
+    <div class="qw-hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main class="qw-main">
+
+  <!-- Hero — mobile -->
+  <section class="qw-hero qw-section--cream">
+    <div>
+      <div class="qw-eyebrow">Brand · Type · Identity</div>
+      <h1 class="qw-hero__title">
+        Design for<br>
+        <span class="qw-hero__accent">enduring</span><br>
+        work.
+      </h1>
+      <p class="qw-hero__sub" style="font-size: var(--wp--preset--font-size--base);">
+        An independent studio specialising in visual identities and editorial systems.
+      </p>
+      <a class="qw-cta-btn" href="#" style="display: inline-block; margin-top: var(--wp--preset--spacing--8);">View Work</a>
+    </div>
+  </section>
+
+  <!-- Services — stacked -->
+  <section class="qw-section qw-section--white">
+    <div class="qw-eyebrow">Services</div>
+    <div class="qw-service-cards">
+      <div class="qw-service-card">
+        <div class="qw-service-card__number">01</div>
+        <div class="qw-service-card__title">Brand Identity</div>
+        <p class="qw-service-card__body">Wordmarks, visual systems, and guidelines built to last.</p>
+      </div>
+      <div class="qw-service-card">
+        <div class="qw-service-card__number">02</div>
+        <div class="qw-service-card__title">Type Direction</div>
+        <p class="qw-service-card__body">Custom type pairing and variable-font implementation.</p>
+      </div>
+      <div class="qw-service-card">
+        <div class="qw-service-card__number">03</div>
+        <div class="qw-service-card__title">Editorial Design</div>
+        <p class="qw-service-card__body">Book series templates, grids, annual reports.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats — 2col on mobile -->
+  <section class="qw-section qw-section--teal-tint">
+    <div class="qw-eyebrow">Studio at a glance</div>
+    <div class="qw-stats-grid">
+      <div class="qw-stat">
+        <div class="qw-stat__number">96</div>
+        <div class="qw-stat__label">Projects</div>
+      </div>
+      <div class="qw-stat">
+        <div class="qw-stat__number">7</div>
+        <div class="qw-stat__label">Years</div>
+      </div>
+      <div class="qw-stat">
+        <div class="qw-stat__number">12</div>
+        <div class="qw-stat__label">Per year</div>
+      </div>
+      <div class="qw-stat">
+        <div class="qw-stat__number">4</div>
+        <div class="qw-stat__label">Countries</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="qw-cta-band" style="text-align: left;">
+    <div class="qw-eyebrow" style="color: var(--wp--preset--color--ochre);">Start a project</div>
+    <h2 style="font-family: var(--wp--preset--font-family--cormorant); font-size: var(--wp--preset--font-size--3xl); font-weight: 400; letter-spacing: -0.03em; color: var(--wp--preset--color--cream); margin-bottom: var(--wp--preset--spacing--6); line-height: 1.1;">Have a project in mind?</h2>
+    <a class="qw-cta-btn" href="#" style="background: var(--wp--preset--color--cream); color: var(--wp--preset--color--ink-deep);">Start a Brief</a>
+  </div>
+
+</main>
+
+<footer class="qw-footer" style="padding-inline: var(--wp--preset--spacing--6);">
+  <div class="qw-footer__inner">
+    <div>
+      <div class="qw-footer__brand-name">Quillwork</div>
+      <p class="qw-footer__tagline">Independent design studio. Montreal.</p>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Links</div>
+      <nav class="qw-footer__links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">Studio</a>
+        <a href="#">Journal</a>
+        <a href="#">Brief</a>
+      </nav>
+    </div>
+  </div>
+  <div class="qw-footer__bottom">
+    <span>&copy; 2024 Quillwork</span>
+    <span>Built with WordPress &amp; <a href="https://thisismyurl.com/quillwork/">Quillwork</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

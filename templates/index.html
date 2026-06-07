@@ -1,0 +1,48 @@
+<!-- wp:template-part {"slug":"header"} /-->
+
+<!-- wp:group {"tagName":"main","id":"main-content","className":"qw-main","layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|11","bottom":"var:preset|spacing|11"}}}} -->
+<main id="main-content" class="wp-block-group qw-main">
+
+	<!-- wp:group {"layout":{"type":"constrained","contentSize":"1280px"},"style":{"spacing":{"padding":{"left":"var:preset|spacing|8","right":"var:preset|spacing|8"}}}} -->
+	<div class="wp-block-group">
+
+		<!-- wp:query {"queryId":0,"query":{"perPage":10,"postType":"post","order":"desc","orderBy":"date","inherit":true},"layout":{"type":"default"}} -->
+		<div class="wp-block-query">
+
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+
+				<!-- wp:group {"tagName":"article","className":"qw-post-card","style":{"spacing":{"blockGap":"var:preset|spacing|4"}},"layout":{"type":"default"}} -->
+				<article class="wp-block-group qw-post-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","sizeSlug":"quillwork-card"} /-->
+					<!-- wp:group {"className":"qw-post-card__body","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"default"}} -->
+					<div class="wp-block-group qw-post-card__body">
+						<!-- wp:post-terms {"term":"category","className":"qw-eyebrow"} /-->
+						<!-- wp:post-title {"level":2,"isLink":true} /-->
+						<!-- wp:post-excerpt {"moreText":"","style":{"typography":{"fontFamily":"var:preset|font-family|newsreader"}}} /-->
+						<!-- wp:template-part {"slug":"post-meta"} /-->
+					</div>
+					<!-- /wp:group -->
+				</article>
+				<!-- /wp:group -->
+
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph --><p><?php esc_html_e( 'No posts yet. Publish your first post and it will appear here.', 'quillwork' ); ?></p><!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
+
+			<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+
+		</div>
+		<!-- /wp:query -->
+
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer"} /-->

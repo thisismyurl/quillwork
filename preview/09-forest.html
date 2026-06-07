@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Quillwork — Forest Variant (Deep Green Palette)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+<style>
+  /*
+   * FOREST PALETTE — deep forest green ground, warm sand accent.
+   * Same Quillwork structure; eight CSS custom property overrides.
+   * Suited to environmental organisations, natural-products brands,
+   * publishers with an ecology or outdoors focus.
+   *
+   * Warm sand (#d4b896) on forest (#1c3528): contrast > 7:1 (WCAG AAA).
+   */
+  :root {
+    --wp--preset--color--ink-deep:    #0f1f16;
+    --wp--preset--color--ink-medium:  #1c3528;
+    --wp--preset--color--ink-muted:   #5a7a65;
+    --wp--preset--color--teal:        #2d6e4e;
+    --wp--preset--color--teal-light:  #3d8f68;
+    --wp--preset--color--teal-tint:   #e4eeea;
+    --wp--preset--color--ochre:       #d4b896;
+    --wp--preset--color--ochre-warm:  #c4a07e;
+    --wp--preset--color--coral:       #c4825a;
+    --wp--preset--color--cream:       #f6f3ee;
+    --wp--preset--color--paper-white: #fefcf9;
+  }
+</style>
+</head>
+<body>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#">Wildnote Press</a>
+    <nav class="qw-nav">
+      <a href="#">Catalogue</a>
+      <a href="#">Authors</a>
+      <a href="#">About</a>
+      <a href="#">Journal</a>
+    </nav>
+    <a class="qw-cta-btn" href="#">Subscribe</a>
+  </div>
+</header>
+
+<main class="qw-main">
+
+  <!-- Hero -->
+  <section class="qw-hero qw-section--cream">
+    <div aria-hidden="true" class="qw-float-accent"></div>
+    <div>
+      <div class="qw-eyebrow">Natural World · Conservation · Literature</div>
+      <h1 class="qw-hero__title">
+        Books written<br>
+        <span class="qw-hero__accent">from the field.</span>
+      </h1>
+      <p class="qw-hero__sub">
+        Wildnote Press publishes nature writing, field guides, and conservation essays from researchers and practitioners. Books that go back to the land with their authors.
+      </p>
+      <a class="qw-cta-btn" href="#">Explore Catalogue</a>
+    </div>
+  </section>
+
+  <!-- Featured titles -->
+  <section class="qw-section qw-section--white">
+    <div class="qw-constrained">
+      <div class="qw-eyebrow">Recent Titles</div>
+      <div class="qw-post-cards-grid">
+        <div class="qw-post-card">
+          <div class="qw-post-card__image"><div class="qw-img-placeholder" style="aspect-ratio: 3/4;">Cover — The Estuary</div></div>
+          <div class="qw-post-card__meta">Conservation · Nonfiction</div>
+          <a class="qw-post-card__title" href="#">The Estuary: Life at the Margin of the Sea</a>
+          <p class="qw-post-card__excerpt">Rachel Marsh spent three years in the tidal flats of New Brunswick. This is what she found.</p>
+        </div>
+        <div class="qw-post-card">
+          <div class="qw-post-card__image"><div class="qw-img-placeholder" style="aspect-ratio: 3/4;">Cover — Field Notes</div></div>
+          <div class="qw-post-card__meta">Field Guide</div>
+          <a class="qw-post-card__title" href="#">Field Notes: Boreal Birds of Eastern Canada</a>
+          <p class="qw-post-card__excerpt">The definitive illustrated guide to 240 species. Updated edition with new range maps.</p>
+        </div>
+        <div class="qw-post-card">
+          <div class="qw-post-card__image"><div class="qw-img-placeholder" style="aspect-ratio: 3/4;">Cover — Rewilding</div></div>
+          <div class="qw-post-card__meta">Essays</div>
+          <a class="qw-post-card__title" href="#">Rewilding: The Case for Letting Go</a>
+          <p class="qw-post-card__excerpt">Seven essays on what happens when land is returned to itself after a century of agriculture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publisher statement — ink band -->
+  <section class="qw-section qw-section--ink">
+    <div class="qw-constrained">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--wp--preset--spacing--12); align-items: center;">
+        <div>
+          <div class="qw-eyebrow" style="color: var(--wp--preset--color--ochre);">About Wildnote</div>
+          <h2 style="font-family: var(--wp--preset--font-family--cormorant); font-size: var(--wp--preset--font-size--3xl); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; color: var(--wp--preset--color--cream); margin-bottom: var(--wp--preset--spacing--7);">
+            Publishing as stewardship.
+          </h2>
+          <p style="font-family: var(--wp--preset--font-family--newsreader); font-size: var(--wp--preset--font-size--base); line-height: 1.8; color: rgba(246,243,238,0.75);">
+            Every Wildnote title donates 5% of net proceeds to the land trust or conservation area its author works in. We believe publishing can be part of the solution.
+          </p>
+        </div>
+        <div class="qw-img-placeholder" style="height: 340px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: rgba(246,243,238,0.4);">
+          Land Trust Map
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palette note -->
+  <section class="qw-section qw-section--teal-tint" style="padding-top: var(--wp--preset--spacing--10); padding-bottom: var(--wp--preset--spacing--10);">
+    <div class="qw-constrained">
+      <div class="qw-eyebrow" style="margin-bottom: var(--wp--preset--spacing--4);">About this palette</div>
+      <p style="font-family: var(--wp--preset--font-family--dm-sans); font-size: var(--wp--preset--font-size--base); line-height: 1.7; color: var(--wp--preset--color--ink-muted); max-width: 65ch;">
+        <strong style="color: var(--wp--preset--color--teal);">Forest</strong> — teal: #2d6e4e · ochre: #d4b896 · cream: #f6f3ee. Eight CSS custom property overrides. Same Quillwork templates, same block patterns, same component library. The only change is the palette — achieved entirely within theme.json custom properties.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="qw-footer">
+  <div class="qw-footer__inner">
+    <div>
+      <div class="qw-footer__brand-name">Wildnote Press</div>
+      <p class="qw-footer__tagline">Nature writing &amp; conservation.<br>Halifax, Nova Scotia.</p>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Catalogue</div>
+      <nav class="qw-footer__links">
+        <a href="#">Books</a>
+        <a href="#">Field Guides</a>
+        <a href="#">Essays</a>
+        <a href="#">Authors</a>
+      </nav>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Press</div>
+      <nav class="qw-footer__links">
+        <a href="#">About</a>
+        <a href="#">Conservation Fund</a>
+        <a href="#">Submissions</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </div>
+  <div class="qw-footer__bottom">
+    <span>&copy; 2024 Wildnote Press</span>
+    <span>Built with WordPress &amp; <a href="https://thisismyurl.com/quillwork/">Quillwork</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

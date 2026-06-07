@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Quillwork — Start a Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+</head>
+<body>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#">Quillwork</a>
+    <nav class="qw-nav">
+      <a href="#">Work</a>
+      <a href="#">Services</a>
+      <a href="#">Studio</a>
+      <a href="#">Journal</a>
+    </nav>
+    <a class="qw-cta-btn" href="#" style="background: var(--wp--preset--color--teal);">Start a Brief</a>
+  </div>
+</header>
+
+<main class="qw-main">
+
+  <section class="qw-section qw-section--cream">
+    <div class="qw-constrained">
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--wp--preset--spacing--12); align-items: start;">
+
+        <!-- Left: context -->
+        <div>
+          <div class="qw-eyebrow">Get in Touch</div>
+          <h1 style="font-family: var(--wp--preset--font-family--cormorant); font-size: var(--wp--preset--font-size--4xl); font-weight: 400; letter-spacing: -0.03em; line-height: 1.0; margin-bottom: var(--wp--preset--spacing--8); color: var(--wp--preset--color--ink-deep);">
+            Let's talk<br>about your<br>
+            <em>project.</em>
+          </h1>
+
+          <p style="font-family: var(--wp--preset--font-family--newsreader); font-size: var(--wp--preset--font-size--base); line-height: 1.7; color: var(--wp--preset--color--ink-medium); margin-bottom: var(--wp--preset--spacing--10);">
+            We're selective about the projects we take on — not as a gatekeeping exercise, but because the work is better when we care about it. Tell us what you're building. If it's a good fit, we'll say so honestly.
+          </p>
+
+          <div class="qw-eyebrow" style="margin-bottom: var(--wp--preset--spacing--5);">What to include</div>
+          <ul style="display: flex; flex-direction: column; gap: var(--wp--preset--spacing--3);">
+            <li style="display: flex; gap: var(--wp--preset--spacing--3); align-items: start;">
+              <span style="color: var(--wp--preset--color--teal); font-weight: 700; flex-shrink: 0;">→</span>
+              <span style="font-size: var(--wp--preset--font-size--sm); color: var(--wp--preset--color--ink-medium);">What you do and who your audience is</span>
+            </li>
+            <li style="display: flex; gap: var(--wp--preset--spacing--3); align-items: start;">
+              <span style="color: var(--wp--preset--color--teal); font-weight: 700; flex-shrink: 0;">→</span>
+              <span style="font-size: var(--wp--preset--font-size--sm); color: var(--wp--preset--color--ink-medium);">What's working in your current identity and what isn't</span>
+            </li>
+            <li style="display: flex; gap: var(--wp--preset--spacing--3); align-items: start;">
+              <span style="color: var(--wp--preset--color--teal); font-weight: 700; flex-shrink: 0;">→</span>
+              <span style="font-size: var(--wp--preset--font-size--sm); color: var(--wp--preset--color--ink-medium);">Rough timeline and budget range</span>
+            </li>
+            <li style="display: flex; gap: var(--wp--preset--spacing--3); align-items: start;">
+              <span style="color: var(--wp--preset--color--teal); font-weight: 700; flex-shrink: 0;">→</span>
+              <span style="font-size: var(--wp--preset--font-size--sm); color: var(--wp--preset--color--ink-medium);">Three examples of work you admire (and why)</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: var(--wp--preset--spacing--10); padding: var(--wp--preset--spacing--7); background: var(--wp--preset--color--teal-tint);">
+            <div class="qw-eyebrow" style="margin-bottom: var(--wp--preset--spacing--3);">Response time</div>
+            <p style="font-size: var(--wp--preset--font-size--sm); line-height: 1.7; color: var(--wp--preset--color--ink-medium);">We respond to every brief within three business days. If we're at capacity, we'll say so and suggest a timeline. We don't ghost.</p>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div>
+          <form class="qw-form">
+            <div class="qw-form-row">
+              <div class="qw-form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+              </div>
+              <div class="qw-form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com">
+              </div>
+            </div>
+
+            <div class="qw-form-field">
+              <label for="org">Organisation</label>
+              <input type="text" id="org" name="org" placeholder="Studio, publisher, or institution">
+            </div>
+
+            <div class="qw-form-field">
+              <label for="service">Service area</label>
+              <select id="service" name="service">
+                <option value="">— Select one —</option>
+                <option>Brand Identity</option>
+                <option>Type Direction</option>
+                <option>Editorial Design</option>
+                <option>Web &amp; Screen</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="qw-form-field">
+              <label for="timeline">Ideal timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">— Select one —</option>
+                <option>Within 3 months</option>
+                <option>3–6 months</option>
+                <option>6–12 months</option>
+                <option>No fixed deadline</option>
+              </select>
+            </div>
+
+            <div class="qw-form-field">
+              <label for="brief">The brief</label>
+              <textarea id="brief" name="brief" placeholder="Tell us what you're building, what's not working, and what you hope the identity will do that the current one can't."></textarea>
+            </div>
+
+            <button type="submit" class="qw-submit-btn">Send Brief</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="qw-footer">
+  <div class="qw-footer__inner">
+    <div>
+      <div class="qw-footer__brand-name">Quillwork</div>
+      <p class="qw-footer__tagline">Independent design studio.<br>Montreal, Quebec.</p>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Studio</div>
+      <nav class="qw-footer__links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Journal</a>
+      </nav>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Contact</div>
+      <nav class="qw-footer__links">
+        <a href="#">Start a Brief</a>
+        <a href="#">studio@quillwork.co</a>
+      </nav>
+    </div>
+  </div>
+  <div class="qw-footer__bottom">
+    <span>&copy; 2024 Quillwork</span>
+    <span>Built with WordPress &amp; <a href="https://thisismyurl.com/quillwork/">Quillwork</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

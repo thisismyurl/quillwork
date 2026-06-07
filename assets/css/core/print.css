@@ -1,0 +1,81 @@
+/* [CORE] print.css — Kern print stylesheet.
+ * Loaded by assets.php with media="print".
+ * Goal: a case study or blog post should print as a clean document.
+ * Remove chrome. Keep typography. Keep structure. Kill decoration.
+ *
+ * Pillar 5 (Safe by Default): if someone prints a case study for a client
+ * meeting, it should not print the nav, the footer, or any screen-only chrome.
+ * The content should be the only thing on paper.
+ */
+
+@layer reset {
+	/* Hide chrome that has no place on paper */
+	.kern-site-header,
+	.kern-site-footer,
+	.wp-block-query-pagination,
+	.kern-post-meta .post-author,
+	.skip-link,
+	button,
+	.wp-block-search {
+		display: none !important;
+	}
+}
+
+@layer base {
+	/* Paper defaults */
+	body {
+		background: #fff;
+		color: #000;
+		font-size: 11pt;
+		line-height: 1.6;
+	}
+
+	/* Ensure links show their href on paper */
+	a[href]::after {
+		content: " (" attr(href) ")";
+		font-size: 0.85em;
+		color: #555;
+	}
+
+	/* Internal links don't need their href printed */
+	a[href^="#"]::after,
+	a[href^="javascript:"]::after {
+		content: "";
+	}
+
+	/* Keep headings and their following content together */
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+		break-after: avoid;
+	}
+
+	/* Images shouldn't overflow the paper */
+	img {
+		max-width: 100% !important;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+
+	/* Keep blockquotes together */
+	blockquote {
+		page-break-inside: avoid;
+		break-inside: avoid;
+		border-left: 2px solid #000;
+		padding-left: 1em;
+	}
+}
+
+@layer layout {
+	/* Unconstrain the main wrapper for paper width */
+	.kern-main {
+		max-width: 100% !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+
+	/* Full-width sections should not override their constraints oddly */
+	.wp-block-group[class*="kern-band"] {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}

@@ -1,0 +1,61 @@
+/* =====================================================================
+   [SKIN] admin-get-started.css — styles for the Appearance → Get started page.
+   ---------------------------------------------------------------------
+   Loaded only on its own admin screen (inc/admin.php gates the enqueue on the
+   page's hook suffix), so nothing here leaks into the rest of wp-admin. Kept
+   intentionally calm — it should feel like part of WordPress, not a takeover.
+   ===================================================================== */
+
+.quillwork-get-started {
+	max-width: 760px;
+}
+
+.quillwork-get-started__lead {
+	font-size: 15px;
+	line-height: 1.7;
+	max-width: 60ch;
+	color: #2c3338;
+}
+
+.quillwork-get-started h2 {
+	margin-top: 2rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid #dcdcde;
+}
+
+.quillwork-get-started__steps {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: cl-step;
+}
+
+.quillwork-get-started__steps li {
+	position: relative;
+	padding: 0 0 1rem 2.5rem;
+	max-width: 60ch;
+	line-height: 1.6;
+}
+
+.quillwork-get-started__steps li::before {
+	counter-increment: cl-step;
+	content: counter(cl-step);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1.75rem;
+	height: 1.75rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #1d2327;
+	color: #fff;
+	font-weight: 600;
+	font-size: 13px;
+	border-radius: 50%;
+}
+
+.quillwork-get-started__steps strong {
+	display: block;
+	margin-bottom: 0.15rem;
+}

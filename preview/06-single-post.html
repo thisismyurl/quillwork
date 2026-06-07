@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Quillwork — Journal Post</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+</head>
+<body>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#">Quillwork</a>
+    <nav class="qw-nav">
+      <a href="#">Work</a>
+      <a href="#">Services</a>
+      <a href="#">Studio</a>
+      <a href="#" style="color: var(--wp--preset--color--teal);">Journal</a>
+    </nav>
+    <a class="qw-cta-btn" href="#">Start a Brief</a>
+  </div>
+</header>
+
+<main class="qw-main">
+
+  <!-- Post header -->
+  <section class="qw-section qw-section--cream">
+    <div class="qw-constrained">
+      <div class="qw-post-header">
+        <div class="qw-post-meta">
+          <a class="qw-post-meta__cat" href="#">Type Direction</a>
+          <span class="qw-post-meta__date">May 12, 2024 &middot; 8 min read</span>
+        </div>
+        <h1 class="qw-post-title">On the paradox of legible italics: why slanted isn't always italic</h1>
+        <p style="font-family: var(--wp--preset--font-family--newsreader); font-size: var(--wp--preset--font-size--lg); font-weight: 300; line-height: 1.6; color: var(--wp--preset--color--ink-medium); margin-top: var(--wp--preset--spacing--5);">
+          Variable fonts give us genuine italic optical correction at no loading cost. Most implementations waste the opportunity by treating italic as a style modifier rather than a separate reading mode.
+        </p>
+        <div class="qw-post-byline" style="margin-top: var(--wp--preset--spacing--6);">By <strong style="color: var(--wp--preset--color--ink-deep);">Quillwork Studio</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured image -->
+  <div class="qw-img-placeholder" style="height: 500px; width: 100%; max-width: 900px; margin: 0 auto;">
+    Featured Image — Italic Axis Comparison
+  </div>
+
+  <!-- Post body -->
+  <section class="qw-section qw-section--white">
+    <div class="qw-constrained">
+      <div class="qw-post-body">
+
+        <p>
+          There is a distinction in type design that does not survive most digital production workflows: the difference between an <em>oblique</em> — mechanically slanted roman letters — and a true <em>italic</em> — a separately drawn face with different letterform proportions, stroke weights, and optical adjustments designed for the angle they inhabit.
+        </p>
+
+        <p>
+          Variable fonts make this distinction actionable for the first time in web typography without a performance penalty. A single WOFF2 file can now hold both the roman and the italic in a continuous axis, allowing the browser to render the correct letterforms at any weight without a second network request.
+        </p>
+
+        <blockquote>
+          "An italic that looks like a slanted roman is not italic — it is a pretence of emphasis, a visual costume over a face that was never designed to wear it."
+        </blockquote>
+
+        <p>
+          The failure mode is familiar to anyone who has reviewed a brand guidelines document: the typographer specifies a beautiful serif italic at 300 weight, the developer ships an oblique because that is what the font stack falls back to when the italic file is missing or incorrectly declared. The brand voice shifts from literary precision to corporate formality without anyone noticing, because the difference between an oblique and a true italic is invisible to most readers and invisible in most QA processes.
+        </p>
+
+        <p>
+          Cormorant Garamond — the typeface you are reading now — is a model of what a well-crafted italic variable font looks like in practice. The italic axis is not a slant algorithm; it is a genuine calligraphic italic derived from Claude Garamond's sixteenth-century models, with descenders that differ in angle and pen-nib direction from the roman. At 300 weight, the italic is delicate. At 700, it is emphatic. The variable axis traverses all of them fluidly.
+        </p>
+
+        <p>
+          The practical implication for designers: declare <code>font-style: italic</code> on the <code>@font-face</code> rule that loads the italic file, not on the element that needs emphasis. The browser will use the correct file when italic is needed. If you are using a single variable file with an <code>ital</code> axis, declare both normal and italic ranges explicitly. Do not leave it to the browser to synthesise.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Post nav -->
+  <section class="qw-section qw-section--cream" style="padding-top: var(--wp--preset--spacing--8); padding-bottom: var(--wp--preset--spacing--8);">
+    <div class="qw-constrained">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--wp--preset--spacing--10); border-top: 1px solid rgba(13,59,63,0.12); padding-top: var(--wp--preset--spacing--8);">
+        <div>
+          <div class="qw-eyebrow" style="margin-bottom: var(--wp--preset--spacing--3);">&larr; Previous</div>
+          <div style="font-family: var(--wp--preset--font-family--cormorant); font-size: var(--wp--preset--font-size--xl); font-weight: 600; color: var(--wp--preset--color--ink-deep);">Why we stopped using Helvetica</div>
+        </div>
+        <div style="text-align: right;">
+          <div class="qw-eyebrow" style="margin-bottom: var(--wp--preset--spacing--3);">Next &rarr;</div>
+          <div style="font-family: var(--wp--preset--font-family--cormorant); font-size: var(--wp--preset--font-size--xl); font-weight: 600; color: var(--wp--preset--color--ink-deep);">The case for optical size axes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="qw-footer">
+  <div class="qw-footer__inner">
+    <div>
+      <div class="qw-footer__brand-name">Quillwork</div>
+      <p class="qw-footer__tagline">Independent design studio.<br>Montreal, Quebec.</p>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Studio</div>
+      <nav class="qw-footer__links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Journal</a>
+      </nav>
+    </div>
+    <div>
+      <div class="qw-footer__heading">Contact</div>
+      <nav class="qw-footer__links">
+        <a href="#">Start a Brief</a>
+        <a href="#">studio@quillwork.co</a>
+      </nav>
+    </div>
+  </div>
+  <div class="qw-footer__bottom">
+    <span>&copy; 2024 Quillwork</span>
+    <span>Built with WordPress &amp; <a href="https://thisismyurl.com/quillwork/">Quillwork</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

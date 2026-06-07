@@ -1,0 +1,128 @@
+/* =====================================================================
+   [CORE] base.css — accessibility scaffolding + the semantic-token contract.
+   ---------------------------------------------------------------------
+   This is the WCAG 2.2 AA floor every theme in the Colophon line stands
+   on: a skip link, a real focus ring, a screen-reader utility, and
+   balanced headings.
+
+   The trick that lets core style these without knowing Kern's palette is
+   the --cl-* SEMANTIC TOKENS below. Core never references
+   --wp--preset--color--studio-press (that's a Kern word); it references
+   --cl-focus-ring, and skin.css BINDS that token to whatever colour
+   clears contrast in Kern's own palette. The fallbacks here are neutral
+   and AA-safe, so the floor holds even before skin.css binds anything.
+
+   `colophon sync` owns this file. Skins bind the tokens; they don't
+   edit here. If you need to add an a11y feature to every theme in the
+   collection, edit this file and sync.
+
+   Pillar 5 (Safe by Default): the a11y floor is CORE. It cannot be
+   accidentally removed by a re-skin.
+   Pillar 9 (Archaeological Records): [CORE] tag marks CLI ownership.
+   ===================================================================== */
+@layer base {
+
+	:root {
+		/*
+		 * The semantic-token contract. skin.css overrides each of these with a
+		 * value drawn from Kern's own theme.json palette. Names are stable across
+		 * the entire collection (like --wp--preset--*), so the CLI never
+		 * re-prefixes them.
+		 *
+		 * Fallbacks here are neutral and AA-compliant on white — they hold even if
+		 * a skin forgets to bind them.
+		 */
+		--cl-focus-ring:         #1a2f52; /* Kern: studio-press on studio-ground: > 7:1 */
+		--cl-focus-ring-inverse: #ffffff; /* On dark bands (footer, press sections)      */
+		--cl-skip-bg:            #1a2f52; /* Skip link background                        */
+		--cl-skip-fg:            #ffffff; /* Skip link text — 4.5:1+ on skip-bg          */
+	}
+
+	/*
+	 * Skip link — WCAG 2.4.1 (Bypass Blocks).
+	 * Hidden off-screen until focused, then visible in the top-left corner.
+	 * Targets #main-content, which every template's <main> carries as an id.
+	 *
+	 * Pillar 5 (Safe by Default): keyboard users get this for free.
+	 */
+	.skip-link {
+		position: absolute;
+		left: -9999px;
+		top: 0;
+		z-index: 10000;
+		padding: 0.75rem 1.25rem;
+		background: var(--cl-skip-bg);
+		color: var(--cl-skip-fg);
+		font-size: 1rem;
+		text-decoration: none;
+	}
+	.skip-link:focus {
+		left: 0.75rem;
+		top: 0.75rem;
+	}
+
+	/*
+	 * Visible focus ring — WCAG 2.4.7.
+	 * Never removed without a replacement; this IS the replacement. Applied
+	 * uniformly to everything focusable via :where() (zero specificity) so any
+	 * skin can override per-component without a specificity fight.
+	 */
+	:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+		outline: 2px solid var(--cl-focus-ring);
+		outline-offset: 2px;
+	}
+
+	/*
+	 * Screen-reader utility — WordPress convention (.screen-reader-text).
+	 * Matches core and other themes so there's one less surprise for the next
+	 * developer.
+	 */
+	.screen-reader-text {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+		word-wrap: normal !important;
+	}
+	.screen-reader-text:focus {
+		position: fixed;
+		top: 0.75rem;
+		left: 0.75rem;
+		width: auto;
+		height: auto;
+		clip: auto;
+		padding: 0.75rem 1.25rem;
+		background: var(--cl-skip-bg);
+		color: var(--cl-skip-fg);
+		z-index: 100000;
+	}
+
+	/*
+	 * Typographic balance.
+	 * text-wrap: balance prevents orphaned last words in headings. Pillar 8
+	 * (Kodawari): the tiny detail that makes a headline feel considered.
+	 */
+	h1, h2, h3, h4 {
+		text-wrap: balance;
+	}
+	p {
+		text-wrap: pretty; /* Avoids single-word orphans in body paragraphs */
+	}
+
+	/* Prevent tables from overflowing their container */
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	/* Ensure media in content columns respects the layout */
+	.wp-block-image img,
+	.wp-block-cover img {
+		height: auto;
+	}
+}
