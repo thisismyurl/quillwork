@@ -25,37 +25,93 @@
 	<!-- wp:columns {"isStackedOnMobile":true,"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|6"}}}} -->
 	<div class="wp-block-columns">
 
-		<?php
-		$services = [
-			[ '01', 'Brand Identity',    'Wordmarks, visual systems, and brand guidelines built to last twenty years, not two.' ],
-			[ '02', 'Type Direction',    'Custom type pairing and variable-font implementation — the typographic voice of your brand.' ],
-			[ '03', 'Editorial Design',  'Book series templates, magazine grids, annual reports — print and digital in one system.' ],
-			[ '04', 'Web & Screen',      'WordPress FSE themes and component systems that carry the identity online without losing it.' ],
-		];
-		foreach ( $services as [$num, $title, $body] ) :
-		?>
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"className":"qw-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}},"color":{"background":"var:preset|color|cream"},"border":{"left":{"style":"solid","width":"4px","color":"transparent"}}},"layout":{"type":"default"}} -->
 			<div class="wp-block-group qw-service-card">
 
-				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|3xl","fontWeight":"300","lineHeight":"1"},"color":{"text":"var:preset|color|ochre"},"opacity":"0.3","spacing":{"margin":{"bottom":"var:preset|spacing|4"}}}} -->
-				<h3 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--3xl);font-weight:300;line-height:1;color:var(--wp--preset--color--ochre);opacity:0.3"><?php echo esc_html( $num ); ?></h3>
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|3xl","fontWeight":"300","lineHeight":"1"},"color":{"text":"var:preset|color|ochre"},"spacing":{"margin":{"bottom":"var:preset|spacing|4"}}}} -->
+				<h3 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--3xl);font-weight:300;line-height:1;color:var(--wp--preset--color--ochre);opacity:0.3">01</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
-				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)"><?php echo esc_html( $title ); ?></h4>
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Brand Identity</h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
-				<p style="color:var(--wp--preset--color--ink-muted)"><?php echo esc_html( $body ); ?></p>
+				<p style="color:var(--wp--preset--color--ink-muted)">Wordmarks, visual systems, and brand guidelines built to last twenty years, not two.</p>
 				<!-- /wp:paragraph -->
 
 			</div>
 			<!-- /wp:group -->
 		</div>
 		<!-- /wp:column -->
-		<?php endforeach; ?>
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:group {"className":"qw-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}},"color":{"background":"var:preset|color|cream"},"border":{"left":{"style":"solid","width":"4px","color":"transparent"}}},"layout":{"type":"default"}} -->
+			<div class="wp-block-group qw-service-card">
+
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|3xl","fontWeight":"300","lineHeight":"1"},"color":{"text":"var:preset|color|ochre"},"spacing":{"margin":{"bottom":"var:preset|spacing|4"}}}} -->
+				<h3 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--3xl);font-weight:300;line-height:1;color:var(--wp--preset--color--ochre);opacity:0.3">02</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Type Direction</h4>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
+				<p style="color:var(--wp--preset--color--ink-muted)">Custom type pairing and variable-font implementation &#8212; the typographic voice of your brand.</p>
+				<!-- /wp:paragraph -->
+
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:group {"className":"qw-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}},"color":{"background":"var:preset|color|cream"},"border":{"left":{"style":"solid","width":"4px","color":"transparent"}}},"layout":{"type":"default"}} -->
+			<div class="wp-block-group qw-service-card">
+
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|3xl","fontWeight":"300","lineHeight":"1"},"color":{"text":"var:preset|color|ochre"},"spacing":{"margin":{"bottom":"var:preset|spacing|4"}}}} -->
+				<h3 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--3xl);font-weight:300;line-height:1;color:var(--wp--preset--color--ochre);opacity:0.3">03</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Editorial Design</h4>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
+				<p style="color:var(--wp--preset--color--ink-muted)">Book series templates, magazine grids, annual reports &#8212; print and digital in one system.</p>
+				<!-- /wp:paragraph -->
+
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:group {"className":"qw-service-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}},"color":{"background":"var:preset|color|cream"},"border":{"left":{"style":"solid","width":"4px","color":"transparent"}}},"layout":{"type":"default"}} -->
+			<div class="wp-block-group qw-service-card">
+
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|3xl","fontWeight":"300","lineHeight":"1"},"color":{"text":"var:preset|color|ochre"},"spacing":{"margin":{"bottom":"var:preset|spacing|4"}}}} -->
+				<h3 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--3xl);font-weight:300;line-height:1;color:var(--wp--preset--color--ochre);opacity:0.3">04</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Web &amp; Screen</h4>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
+				<p style="color:var(--wp--preset--color--ink-muted)">WordPress FSE themes and component systems that carry the identity online without losing it.</p>
+				<!-- /wp:paragraph -->
+
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
 
 	</div>
 	<!-- /wp:columns -->

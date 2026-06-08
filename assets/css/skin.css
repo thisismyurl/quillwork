@@ -1,3 +1,34 @@
+/* ── Parametric colour system (Colophon v2) ─────────────────────────────────
+   Three anchor custom props drive the entire neutral + accent scale via
+   color-mix() in OKLCh space. Set in settings.custom (theme.json); overridden
+   per style variation via the same settings.custom key.
+
+   Derived tokens (--clr-*) are intentionally separate from the block-editor
+   palette (--wp--preset--color--*). The palette tokens give the editor
+   accurate swatches; --clr-* tokens give CSS components automatic
+   variation-awareness without manual per-token overrides.
+
+   color-mix() browser support: Chrome 111+ · Firefox 113+ · Safari 16.2+
+   Global coverage ≈ 93 %. Fallback values (hex literals) serve older clients.
+   ─────────────────────────────────────────────────────────────────────────── */
+body {
+  /* Anchors — resolved from settings.custom; hex literals are the fallback */
+  --colophon-light:  var(--wp--custom--colophon-light,  #faf8f5);
+  --colophon-dark:   var(--wp--custom--colophon-dark,   #0d3b3f);
+  --colophon-accent: var(--wp--custom--colophon-accent, #1a6b72);
+
+  /* Derived neutral scale (8 % / 22 % / 45 % stops in OKLCh) */
+  --clr-bg:          var(--colophon-light);
+  --clr-fg:          var(--colophon-dark);
+  --clr-surface:     color-mix(in oklch, var(--colophon-dark)  8%,  var(--colophon-light));
+  --clr-rule:        color-mix(in oklch, var(--colophon-dark) 22%,  var(--colophon-light));
+  --clr-muted:       color-mix(in oklch, var(--colophon-dark) 45%,  var(--colophon-light));
+
+  /* Accent and its tinted surface */
+  --clr-accent:      var(--colophon-accent);
+  --clr-accent-tint: color-mix(in oklch, var(--colophon-accent) 12%, var(--colophon-light));
+}
+
 /* =====================================================================
    [SKIN] skin.css — Quillwork's personality, slotted into the Colophon core
    cascade.
@@ -325,4 +356,28 @@
 @layer utilities {
 	.qw-text-center { text-align: center; }
 	.qw-no-motion   { animation: none !important; transition: none !important; }
+}
+
+/* ── Print ──────────────────────────────────────────────────────────────────
+   Hide chrome; show clean reading content.
+   ─────────────────────────────────────────────────────────────────────────── */
+@media print {
+  .wp-block-navigation,
+  .wp-block-site-logo,
+  .wp-site-blocks > footer,
+  [data-wp-interactive] { display: none !important; }
+
+  body,
+  .wp-site-blocks {
+    font-size: 12pt;
+    color: #000 !important;
+    background: #fff !important;
+    max-width: 100% !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
 }

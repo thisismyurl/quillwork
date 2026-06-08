@@ -120,6 +120,10 @@ function skin_pattern_categories(): void {
 			'label'       => __( 'Quillwork: CTA',        'quillwork' ),
 			'description' => __( 'Calls to action and contact patterns.', 'quillwork' ),
 		],
+		'quillwork-editorial' => [
+			'label'       => __( 'Quillwork: Editorial',  'quillwork' ),
+			'description' => __( 'Navigation, footer, and site-chrome patterns.', 'quillwork' ),
+		],
 	];
 	foreach ( $categories as $slug => $args ) {
 		register_block_pattern_category( $slug, $args );

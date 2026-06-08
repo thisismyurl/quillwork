@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+  "version": 3,
+  "title": "Studio Dark",
+  "settings": {
+    "custom": {
+      "colophon-light": "#0e0e0c",
+      "colophon-dark": "#e8e4d8",
+      "colophon-accent": "#3a8a90"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "ink-deep",
+          "color": "#0e0e0c",
+          "name": "Ink Deep"
+        },
+        {
+          "slug": "ink-medium",
+          "color": "#1c1c18",
+          "name": "Ink Medium"
+        },
+        {
+          "slug": "ink-muted",
+          "color": "#3a3a36",
+          "name": "Ink Muted"
+        },
+        {
+          "slug": "teal",
+          "color": "#3a8a90",
+          "name": "Teal"
+        },
+        {
+          "slug": "teal-light",
+          "color": "#5aacb4",
+          "name": "Teal Light"
+        },
+        {
+          "slug": "teal-tint",
+          "color": "#1a3436",
+          "name": "Teal Tint"
+        },
+        {
+          "slug": "ochre",
+          "color": "#c89a50",
+          "name": "Ochre"
+        },
+        {
+          "slug": "cream",
+          "color": "#2a2a28",
+          "name": "Cream"
+        },
+        {
+          "slug": "paper-white",
+          "color": "#e8e4d8",
+          "name": "Paper White"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--teal-light)",
+      "text": "var(--wp--preset--color--ink-deep)"
+    }
+  }
+}

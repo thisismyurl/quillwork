@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Quillwork — All Elements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quillwork-preview.css">
+<style>
+  /* Page-local scaffolding for the element reference — not part of the theme. */
+  .el-pagenav {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 200;
+    background: var(--wp--preset--color--ink-deep);
+    padding: 0.625rem var(--qw-gutter);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+  }
+  .el-pagenav a {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(250,248,245,0.65);
+  }
+  .el-pagenav a:hover { color: var(--wp--preset--color--ochre); }
+  .el-pagenav strong { color: var(--wp--preset--color--cream); font-family: var(--wp--preset--font-family--cormorant); font-weight: 600; text-transform: none; font-size: var(--wp--preset--font-size--lg); margin-inline-end: auto; }
+
+  .el-section { padding: var(--wp--preset--spacing--11) var(--qw-gutter); background: var(--wp--preset--color--cream); }
+  .el-section--white { background: var(--wp--preset--color--paper-white); }
+  .el-section__inner { max-width: var(--qw-full-max); margin-inline: auto; }
+  .el-section__label {
+    font-family: var(--wp--preset--font-family--dm-sans);
+    font-size: var(--wp--preset--font-size--2xs);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--teal);
+    margin-bottom: var(--wp--preset--spacing--7);
+  }
+  .el-type-row { display: flex; align-items: baseline; gap: 1.5rem; padding-block: 0.5rem; border-bottom: 1px solid rgba(13,59,63,0.12); }
+  .el-type-row__tag { flex: 0 0 5rem; font-family: var(--wp--preset--font-family--dm-sans); font-size: var(--wp--preset--font-size--2xs); color: var(--wp--preset--color--ink-muted); letter-spacing: 0.06em; }
+  .el-swatches { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .el-swatch { width: 8.5rem; }
+  .el-swatch__chip { height: 4.5rem; border: 1px solid rgba(13,59,63,0.15); }
+  .el-swatch__name { margin-top: 0.4rem; font-family: var(--wp--preset--font-family--dm-sans); font-size: var(--wp--preset--font-size--2xs); color: var(--wp--preset--color--ink-muted); }
+  .el-btn-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .qw-cta-btn--outline { background: transparent; color: var(--wp--preset--color--ink-deep); border: 1.5px solid rgba(13,59,63,0.3); }
+  .qw-cta-btn--outline:hover { background: transparent; color: var(--wp--preset--color--teal); border-color: var(--wp--preset--color--teal); }
+  .qw-cta-btn.is-disabled { opacity: 0.4; pointer-events: none; }
+  .el-prose p { font-family: var(--wp--preset--font-family--dm-sans); line-height: 1.7; max-width: 68ch; }
+  .el-prose a { color: var(--wp--preset--color--teal); text-decoration: underline; text-underline-offset: 0.15em; }
+  .el-stack-list ul, .el-stack-list ol { margin-block: 0.75rem; padding-inline-start: 1.5rem; font-family: var(--wp--preset--font-family--dm-sans); }
+  .el-stack-list ul li { list-style: disc; margin-block: 0.4rem; line-height: 1.7; color: var(--wp--preset--color--ink-medium); }
+  .el-stack-list ol li { list-style: decimal; margin-block: 0.4rem; line-height: 1.7; color: var(--wp--preset--color--ink-medium); }
+  code.el-inline { background: var(--wp--preset--color--teal-tint); padding: 0.1rem 0.35rem; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; color: var(--wp--preset--color--ink-deep); }
+  pre.el-code {
+    background: var(--wp--preset--color--ink-deep);
+    color: var(--wp--preset--color--cream);
+    font-family: 'Courier New', monospace;
+    font-size: var(--wp--preset--font-size--sm);
+    line-height: 1.7;
+    padding: var(--wp--preset--spacing--8);
+    overflow-x: auto;
+  }
+  .el-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--wp--preset--spacing--10); }
+  .el-card .qw-img-placeholder { aspect-ratio: 3 / 2; }
+</style>
+</head>
+<body>
+
+<nav class="el-pagenav">
+  <strong>Quillwork — All Elements</strong>
+  <a href="#type">Type</a>
+  <a href="#color">Color</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#links">Links &amp; Lists</a>
+  <a href="#quote">Blockquote</a>
+  <a href="#code">Code</a>
+  <a href="#rule">Separator</a>
+  <a href="#cards">Cards</a>
+</nav>
+
+<header class="qw-header">
+  <div class="qw-header__inner">
+    <a class="qw-site-title" href="#">Quill &amp; Press</a>
+    <nav class="qw-nav">
+      <a href="#">Work</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a class="qw-cta-btn" href="#">Start a Project</a>
+    </nav>
+  </div>
+</header>
+
+<section class="el-section" id="type">
+  <div class="el-section__inner">
+    <p class="el-section__label">Typography Scale</p>
+    <div class="el-type-row"><span class="el-type-row__tag">Display</span><span style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--4xl);font-weight:300;letter-spacing:-0.03em;color:var(--wp--preset--color--ink-deep);">Letterforms <em class="qw-hero__accent">in motion</em></span></div>
+    <div class="el-type-row"><span class="el-type-row__tag">H1</span><h1 style="font-size:var(--wp--preset--font-size--4xl);">A studio for the written mark</h1></div>
+    <div class="el-type-row"><span class="el-type-row__tag">H2</span><h2>Calligraphy meets the press</h2></div>
+    <div class="el-type-row"><span class="el-type-row__tag">H3</span><h3>Editorial identity, end to end</h3></div>
+    <div class="el-type-row"><span class="el-type-row__tag">H4</span><h4>Supporting heading</h4></div>
+    <div class="el-type-row"><span class="el-type-row__tag">H5</span><h5>Section label tier</h5></div>
+    <div class="el-type-row"><span class="el-type-row__tag">H6</span><h6>Smallest label</h6></div>
+    <p style="margin-top:1.5rem;max-width:68ch;font-family:var(--wp--preset--font-family--dm-sans);line-height:1.7;color:var(--wp--preset--color--ink-medium);">This is body text in DM Sans at the base size. Cormorant Garamond carries the display work and Newsreader the long-form prose, while DM Sans keeps the running interface text clean.</p>
+    <p class="qw-eyebrow" style="margin-top:1.25rem;">Eyebrow label · caption tier</p>
+    <p style="font-family:var(--wp--preset--font-family--dm-sans);font-size:var(--wp--preset--font-size--xs);color:var(--wp--preset--color--ink-muted);">Small text and captions sit here, one step below body, for metadata and asides.</p>
+  </div>
+</section>
+
+<section class="el-section el-section--white" id="color">
+  <div class="el-section__inner">
+    <p class="el-section__label">Color Palette</p>
+    <div class="el-swatches">
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--ink-deep)"></div><div class="el-swatch__name">ink-deep</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--ink-medium)"></div><div class="el-swatch__name">ink-medium</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--ink-muted)"></div><div class="el-swatch__name">ink-muted</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--teal)"></div><div class="el-swatch__name">teal</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--teal-light)"></div><div class="el-swatch__name">teal-light</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--teal-tint)"></div><div class="el-swatch__name">teal-tint</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--ochre)"></div><div class="el-swatch__name">ochre</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--ochre-warm)"></div><div class="el-swatch__name">ochre-warm</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--coral)"></div><div class="el-swatch__name">coral</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--cream)"></div><div class="el-swatch__name">cream</div></div>
+      <div class="el-swatch"><div class="el-swatch__chip" style="background:var(--wp--preset--color--paper-white)"></div><div class="el-swatch__name">paper-white</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="el-section" id="buttons">
+  <div class="el-section__inner">
+    <p class="el-section__label">Buttons</p>
+    <div class="el-btn-row">
+      <a class="qw-cta-btn" href="#">Primary action</a>
+      <a class="qw-cta-btn qw-cta-btn--outline" href="#">Secondary action</a>
+      <a class="qw-cta-btn is-disabled" href="#" aria-disabled="true">Disabled</a>
+    </div>
+  </div>
+</section>
+
+<section class="el-section el-section--white" id="links">
+  <div class="el-section__inner el-prose el-stack-list">
+    <p class="el-section__label">Links &amp; Lists</p>
+    <p>A paragraph carries <a href="#">an inline link</a> the way a reader expects it — underlined, in teal, with a second <a href="#">link further along</a> to prove the pattern holds across a line of running text.</p>
+    <ul>
+      <li>Brand identity and wordmarks</li>
+      <li>Editorial and book design</li>
+      <li>Custom lettering and monograms</li>
+      <li>Letterpress and print direction</li>
+      <li>Packaging and label systems</li>
+    </ul>
+    <ol>
+      <li>Listen to the brief and the history</li>
+      <li>Sketch directions by hand</li>
+      <li>Refine the chosen mark in detail</li>
+      <li>Deliver a full identity system</li>
+    </ol>
+  </div>
+</section>
+
+<section class="el-section" id="quote">
+  <div class="el-section__inner qw-post-body">
+    <p class="el-section__label">Blockquote</p>
+    <blockquote>
+      A mark should feel inevitable — as though it had always been the name's true shape.
+      <footer style="font-style:normal;font-family:var(--wp--preset--font-family--dm-sans);font-size:var(--wp--preset--font-size--xs);color:var(--wp--preset--color--ink-muted);margin-top:0.75rem;">— Iris Quill, <cite>Founder's Notebook</cite></footer>
+    </blockquote>
+  </div>
+</section>
+
+<section class="el-section el-section--white" id="code">
+  <div class="el-section__inner el-prose">
+    <p class="el-section__label">Code</p>
+    <p>Set the calligraphic stroke with a single property like <code class="el-inline">stroke-dashoffset</code> and let the keyframe draw it in once.</p>
+    <pre class="el-code"><code>.quill-stroke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.4s ease-out forwards;
+}</code></pre>
+  </div>
+</section>
+
+<section class="el-section" id="rule">
+  <div class="el-section__inner">
+    <p class="el-section__label">Separator</p>
+    <hr class="qw-rule">
+  </div>
+</section>
+
+<section class="el-section el-section--white" id="cards">
+  <div class="el-section__inner">
+    <p class="el-section__label">Cards</p>
+    <div class="el-card-grid">
+      <article class="qw-post-card">
+        <div class="qw-post-card__image"><div class="qw-img-placeholder">Image</div></div>
+        <span class="qw-post-card__meta">Identity</span>
+        <a class="qw-post-card__title" href="#">A wordmark for a heritage press</a>
+        <p class="qw-post-card__excerpt">Reviving a century-old imprint with a contemporary calligraphic mark.</p>
+      </article>
+      <article class="qw-post-card">
+        <div class="qw-post-card__image"><div class="qw-img-placeholder">Image</div></div>
+        <span class="qw-post-card__meta">Lettering</span>
+        <a class="qw-post-card__title" href="#">Custom script for a wine label</a>
+        <p class="qw-post-card__excerpt">Hand-drawn lettering that holds at both bottle and billboard scale.</p>
+      </article>
+      <article class="qw-post-card">
+        <div class="qw-post-card__image"><div class="qw-img-placeholder">Image</div></div>
+        <span class="qw-post-card__meta">Editorial</span>
+        <a class="qw-post-card__title" href="#">Type system for a literary journal</a>
+        <p class="qw-post-card__excerpt">A pairing built to carry essays, verse, and long interviews alike.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="qw-footer">
+  <div class="qw-footer__inner">
+    <div>
+      <p class="qw-footer__brand-name">Quill &amp; Press</p>
+      <p class="qw-footer__tagline">A studio for the written mark — identity, lettering, and editorial design.</p>
+    </div>
+    <div>
+      <p class="qw-footer__heading">Studio</p>
+      <div class="qw-footer__links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+    <div>
+      <p class="qw-footer__heading">Connect</p>
+      <div class="qw-footer__links">
+        <a href="#">Instagram</a>
+        <a href="#">Journal</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="qw-footer__bottom">
+    <span>© 2026 Quill &amp; Press</span>
+    <a href="#">Built with Quillwork</a>
+  </div>
+</footer>
+
+</body>
+</html>
