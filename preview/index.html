@@ -20,7 +20,7 @@
     .meta a { color: inherit; }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.25rem;
     }
     .card {
@@ -34,14 +34,14 @@
       transition: border-color 0.15s, box-shadow 0.15s;
     }
     .card:hover { border-color: #1a1a1a; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .card img {
+    .sf {
       width: 100%;
-      height: 175px;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      background: #eee;
+      height: 210px;
+      overflow: hidden;
+      position: relative;
+      background: #e8e8e8;
     }
+    .sf img { display: block; max-width: none; }
     .card-body { padding: 0.75rem 1rem 0.9rem; }
     .card-title { font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
     .card-note { margin-top: 0.25rem; font-size: 0.75rem; color: #777; }
@@ -60,85 +60,84 @@
       <h1>Quillwork</h1>
       <p class="tagline">A literary, editorial WordPress theme. Cormorant Garamond + Newsreader.</p>
       <p class="meta">
-        <a href="https://github.com/thisismyurl/colophon-quillwork">github.com/thisismyurl/colophon-quillwork</a>
+        <a href="https://github.com/thisismyurl/quillwork">github.com/thisismyurl/quillwork</a>
         &nbsp;·&nbsp;
         <a href="https://thisismyurl.com/quillwork/">thisismyurl.com/quillwork/</a>
       </p>
     </header>
     <div class="grid">
     <a class="card" href="00-elements.html">
-      <img src="screenshots/00-elements.webp" alt="All Elements reference" loading="lazy"
-           onerror="this.onerror=null;this.src='screenshots/00-elements.png'">
+      <div class="sf"><img src="screenshots/00-elements.webp" alt="All Elements reference" onerror="this.onerror=null;this.src='screenshots/00-elements.png'"></div>
       <div class="card-body">
         <div class="card-title">All Elements <span class="badge" style="background:#6a4c93;color:#fff">reference</span></div>
         <div class="card-note">Typography · Color · Buttons · Blocks</div>
       </div>
     </a>
     <a class="card" href="01-front-page.html">
-      <img src="screenshots/01-front-page-wporg.webp" alt="Front Page preview">
+      <div class="sf"><img src="screenshots/01-front-page-wporg.webp" alt="Front Page preview"></div>
       <div class="card-body">
         <div class="card-title">Front Page <span class="badge" style="background:#0073aa;color:#fff">WP.org</span></div>
         <div class="card-note">WP.org submission — 1200×900</div>
       </div>
     </a>
     <a class="card" href="02-services.html">
-      <img src="screenshots/02-services.webp" alt="Services preview">
+      <div class="sf"><img src="screenshots/02-services.webp" alt="Services preview"></div>
       <div class="card-body">
         <div class="card-title">Services </div>
         <div class="card-note">Numbered service cards</div>
       </div>
     </a>
     <a class="card" href="03-case-study.html">
-      <img src="screenshots/03-case-study.webp" alt="Case Study preview">
+      <div class="sf"><img src="screenshots/03-case-study.webp" alt="Case Study preview"></div>
       <div class="card-body">
         <div class="card-title">Case Study </div>
         <div class="card-note">Project deep-dive</div>
       </div>
     </a>
     <a class="card" href="04-about.html">
-      <img src="screenshots/04-about.webp" alt="About preview" loading="lazy">
+      <div class="sf"><img src="screenshots/04-about.webp" alt="About preview"></div>
       <div class="card-body">
         <div class="card-title">About </div>
         <div class="card-note">Studio bio + values</div>
       </div>
     </a>
     <a class="card" href="05-contact.html">
-      <img src="screenshots/05-contact.webp" alt="Contact preview" loading="lazy">
+      <div class="sf"><img src="screenshots/05-contact.webp" alt="Contact preview"></div>
       <div class="card-body">
         <div class="card-title">Contact </div>
         <div class="card-note">Working-brief contact form</div>
       </div>
     </a>
     <a class="card" href="06-single-post.html">
-      <img src="screenshots/06-single-post.webp" alt="Single Post preview" loading="lazy">
+      <div class="sf"><img src="screenshots/06-single-post.webp" alt="Single Post preview"></div>
       <div class="card-body">
         <div class="card-title">Single Post </div>
         <div class="card-note">Long-form essay layout</div>
       </div>
     </a>
     <a class="card" href="07-front-mobile.html">
-      <img src="screenshots/07-front-mobile-375.webp" alt="Front — 375px preview" loading="lazy">
+      <div class="sf"><img src="screenshots/07-front-mobile-375.webp" alt="Front — 375px preview"></div>
       <div class="card-body">
         <div class="card-title">Front — 375px <span class="badge" style="background:#2e7d32;color:#fff">mobile</span></div>
         <div class="card-note">Mobile front page</div>
       </div>
     </a>
     <a class="card" href="08-case-study-mobile.html">
-      <img src="screenshots/08-case-study-mobile-390.webp" alt="Case Study — 390px preview" loading="lazy">
+      <div class="sf"><img src="screenshots/08-case-study-mobile-390.webp" alt="Case Study — 390px preview"></div>
       <div class="card-body">
         <div class="card-title">Case Study — 390px <span class="badge" style="background:#2e7d32;color:#fff">mobile</span></div>
         <div class="card-note">Mobile case study</div>
       </div>
     </a>
     <a class="card" href="09-forest.html">
-      <img src="screenshots/09-forest-variant.webp" alt="Forest preview" loading="lazy">
+      <div class="sf"><img src="screenshots/09-forest-variant.webp" alt="Forest preview"></div>
       <div class="card-body">
         <div class="card-title">Forest <span class="badge" style="background:#6a1b9a;color:#fff">variant</span></div>
         <div class="card-note">Colour variant — dark forest green</div>
       </div>
     </a>
     <a class="card" href="10-obsidian.html">
-      <img src="screenshots/10-obsidian-variant.webp" alt="Obsidian preview" loading="lazy">
+      <div class="sf"><img src="screenshots/10-obsidian-variant.webp" alt="Obsidian preview"></div>
       <div class="card-body">
         <div class="card-title">Obsidian <span class="badge" style="background:#6a1b9a;color:#fff">variant</span></div>
         <div class="card-note">Colour variant — obsidian / copper</div>
@@ -146,5 +145,25 @@
     </a>
     </div>
   </div>
+  <script>
+  (function () {
+    function scale() {
+      document.querySelectorAll('.sf').forEach(function (f) {
+        var img = f.querySelector('img');
+        if (!img || !img.naturalWidth) return;
+        /* screenshots >=1600px wide are 2x retina; logical viewport = naturalWidth/2 */
+        var logical = img.naturalWidth >= 1600 ? img.naturalWidth / 2 : img.naturalWidth;
+        var s = f.getBoundingClientRect().width / logical;
+        img.style.cssText =
+          'position:absolute;top:0;left:0;width:' + img.naturalWidth +
+          'px;height:auto;max-width:none;transform:scale(' + s.toFixed(4) +
+          ');transform-origin:top left';
+      });
+    }
+    document.addEventListener('DOMContentLoaded', scale);
+    window.addEventListener('resize', scale);
+    if (document.readyState !== 'loading') scale();
+  })();
+  </script>
 </body>
 </html>
