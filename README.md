@@ -47,8 +47,29 @@ The grid is based on a golden ratio column — 61.8% content to 38.2% margin at 
 - OFL-licensed fonts: Cormorant Garamond, Newsreader, DM Sans
 - Self-hosted fonts — no Google Fonts requests
 
+## About Christopher Ross
+
+This theme is built and maintained by [Christopher Ross](https://thisismyurl.com/), the WordPress development and technical SEO practice of Christopher Ross. I help teams build WordPress sites that stay secure, fast, and maintainable, and I build a small, free theme line for people who want a real accessibility and performance floor without starting from scratch.
+
+### My background
+
+- On the web since 1996, and in WordPress since 2007
+- WordPress.org plugin developer with 19 plugins published since 2009
+- Technical SEO practitioner focused on performance, security, and search visibility
+- Lead instructor and curriculum architect at the M.L. Campbell Training Center, the Sherwin-Williams® international training facility for its industrial wood division
+
+### Ways to connect
+
+- **Website:** [thisismyurl.com](https://thisismyurl.com/)
+- **WordPress.org:** [profiles.wordpress.org/thisismyurl](https://profiles.wordpress.org/thisismyurl/)
+- **GitHub:** [github.com/thisismyurl](https://github.com/thisismyurl)
+- **LinkedIn:** [linkedin.com/in/thisismyurl](https://linkedin.com/in/thisismyurl)
+
+
 ## License
 
 GPLv2 or later. See [LICENSE](LICENSE).
 
 The fonts bundled in `assets/fonts/` are licensed under the SIL Open Font License (OFL) 1.1. See each font directory for the individual license file.
+---
+*This project follows the [10 Core Pillars](PILLARS.md). Support quality work [here](https://github.com/sponsors/thisismyurl).*
