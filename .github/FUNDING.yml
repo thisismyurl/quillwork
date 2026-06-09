@@ -1,0 +1,11 @@
+# Funding and sponsorship. GitHub renders the keys below as a Sponsor button;
+# free-form text is not supported in this file.
+#   - GitHub Sponsors: https://github.com/sponsors/thisismyurl
+#   - Bitcoin / Dogecoin: the addresses below are direct.
+#   - PayPal or Interac e-transfer: email hello@thisismyurl.com and we will send details.
+github: [thisismyurl]
+custom:
+  - "bitcoin:bc1qj9plydwsjczyf0t7a5yq22le65nfv3gcq05pd0"
+  - "dogecoin:DRcoAj6nQkxbL72MP7zXCacvgDTfhZ2iFP"
+  - "mailto:hello@thisismyurl.com?subject=PayPal%20donation%20for%20quillwork"
+  - "mailto:hello@thisismyurl.com?subject=Interac%20donation%20for%20quillwork"
