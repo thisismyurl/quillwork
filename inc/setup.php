@@ -29,9 +29,21 @@ function setup(): void {
 	// CLI rewrites the literal when it generates a theme.
 	load_theme_textdomain( 'quillwork', DIR . '/languages' );
 
-	// Fallback content width for oEmbeds in the reading column.
-	// Matches theme.json contentSize (720px).
-	$GLOBALS['content_width'] = 720;
+	// Content width for oEmbeds. Reads from theme.json contentSize if set;
+	// otherwise defaults to 720px. This ensures oEmbeds respect the theme's reading column width.
+	$layout = wp_get_global_settings( array( 'layout' ) );
+	$content_width = 720; // Default fallback for all non-pixel or malformed values.
+
+	if ( isset( $layout['contentSize'] ) && is_string( $layout['contentSize'] ) ) {
+		// Trim whitespace and validate pixel-based format only ("XXXpx").
+		// Rejects viewport-relative (vw), calc(), clamp(), or other CSS functions.
+		$size = trim( $layout['contentSize'] );
+		if ( preg_match( '/^(\d+)px$/i', $size, $matches ) ) {
+			$content_width = (int) $matches[1];
+		}
+	}
+
+	$GLOBALS['content_width'] = $content_width;
 
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'editor-styles' );
@@ -146,9 +158,29 @@ function comment_form_field_attributes( array $fields ): array {
 	);
 
 	foreach ( $attributes as $field => $attrs ) {
-		if ( isset( $fields[ $field ] ) ) {
-			$fields[ $field ] = str_replace( '<input', '<input ' . $attrs, $fields[ $field ] );
+		if ( ! isset( $fields[ $field ] ) ) {
+			continue;
 		}
+
+		$pattern     = '/<input\s+([^>]*)/';
+		$replacement = '<input ' . $attrs . ' $1';
+		$count       = 0;
+		$updated     = preg_replace( $pattern, $replacement, $fields[ $field ], 1, $count );
+
+		// Regex error: preg_replace returns null on failure (e.g., invalid regex).
+		// Skip this field to preserve the original HTML; no attributes added.
+		if ( null === $updated ) {
+			continue;
+		}
+
+		// Pattern matched: $count will be 1 (limit of 1 replacement).
+		// Update the field with the modified HTML.
+		if ( $count > 0 ) {
+			$fields[ $field ] = $updated;
+		}
+		// Non-match ($count === 0): the field HTML doesn't contain the expected <input tag.
+		// This is safe: field stays unchanged, no attributes added.
+		// Silent fallback preserves the field's original markup.
 	}
 
 	return $fields;

@@ -253,7 +253,7 @@ function get_started_content(): array {
 		'developers' => array(
 			/* translators: %s: linked developer-guide anchor. */
 			'text'  => __( 'This theme is built on Colophon, a small documented core meant to be reused. The %s walks through how to build your own theme on it.', 'quillwork' ),
-			'url'   => 'https://thisismyurl.com/colophon',
+			'url'   => apply_filters( SLUG . '/developer_guide_url', 'https://thisismyurl.com/colophon' ), // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 			'label' => __( 'developer guide', 'quillwork' ),
 		),
 	);
