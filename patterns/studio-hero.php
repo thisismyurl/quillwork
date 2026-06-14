@@ -22,7 +22,7 @@
 	<div class="wp-block-group">
 
 		<!-- wp:paragraph {"className":"qw-eyebrow","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|xs","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.18em"},"color":{"text":"var:preset|color|teal"}}} -->
-		<p class="qw-eyebrow" style="color:var(--wp--preset--color--teal)">Brand &middot; Type &middot; Identity</p>
+		<p class="qw-eyebrow" style="color:var(--wp--preset--color--teal)"><?php echo esc_html__( 'Brand', 'quillwork' ) . ' &middot; ' . esc_html__( 'Type', 'quillwork' ) . ' &middot; ' . esc_html__( 'Identity', 'quillwork' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontWeight":"300","fontSize":"var:preset|font-size|display","lineHeight":"1.0","letterSpacing":"-0.03em"},"color":{"text":"var:preset|color|ink-deep"}}} -->
@@ -30,14 +30,14 @@
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|lg","lineHeight":"1.7"},"color":{"text":"var:preset|color|ink-medium"},"spacing":{"margin":{"top":"var:preset|spacing|2"}}}} -->
-		<p style="color:var(--wp--preset--color--ink-medium);line-height:1.7">An independent studio specialising in visual identities, editorial systems, and type-led design for publishers, cultural institutions, and independent makers.</p>
+		<p style="color:var(--wp--preset--color--ink-medium);line-height:1.7"><?php esc_html_e( 'An independent studio specialising in visual identities, editorial systems, and type-led design for publishers, cultural institutions, and independent makers.', 'quillwork' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|4"}}}} -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"style":{"color":{"background":"var:preset|color|ink-deep","text":"var:preset|color|cream"},"border":{"radius":"0"},"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.1em","fontSize":"var:preset|font-size|xs"},"spacing":{"padding":{"top":"0.875rem","bottom":"0.875rem","left":"2.5rem","right":"2.5rem"}}}} -->
 			<div class="wp-block-button">
-				<a class="wp-block-button__link wp-element-button" href="#" style="border-radius:0;background-color:var(--wp--preset--color--ink-deep);color:var(--wp--preset--color--cream)">View Selected Work</a>
+				<a class="wp-block-button__link wp-element-button" href="#" style="border-radius:0;background-color:var(--wp--preset--color--ink-deep);color:var(--wp--preset--color--cream)"><?php esc_html_e( 'View Selected Work', 'quillwork' ); ?></a>
 			</div>
 			<!-- /wp:button -->
 		</div>

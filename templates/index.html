@@ -31,8 +31,12 @@
 
 			<!-- /wp:post-template -->
 
+			<!-- query-no-results offers the search form to retry rather than
+			     hardcoded visitor prose, keeping the template translation-clean.
+			     Block templates are not PHP-executed, so a PHP tag here would ship
+			     literally; the form is the correct, translatable no-results state. -->
 			<!-- wp:query-no-results -->
-				<!-- wp:paragraph --><p><?php esc_html_e( 'No posts yet. Publish your first post and it will appear here.', 'quillwork' ); ?></p><!-- /wp:paragraph -->
+				<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search the studio…","buttonText":"Search","buttonPosition":"button-outside","buttonUseIcon":true,"isExpanded":true} /-->
 			<!-- /wp:query-no-results -->
 
 			<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->

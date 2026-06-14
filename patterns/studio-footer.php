@@ -24,7 +24,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm","lineHeight":"1.7"},"color":{"text":"var:preset|color|teal-tint"}}} -->
-			<p style="color:var(--wp--preset--color--teal-tint);line-height:1.7">An editorial studio for writers, independent publishers, and literary magazines &#8212; words set with care, on paper and on screen.</p>
+			<p style="color:var(--wp--preset--color--teal-tint);line-height:1.7"><?php echo esc_html__( 'An editorial studio for writers, independent publishers, and literary magazines', 'quillwork' ) . ' &#8212; ' . esc_html__( 'words set with care, on paper and on screen.', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 
 		</div>
@@ -33,8 +33,8 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 
-			<!-- wp:paragraph {"className":"qw-eyebrow","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|2xs","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.18em"},"color":{"text":"var:preset|color|ochre"},"spacing":{"margin":{"bottom":"var:preset|spacing|5"}}}} -->
-			<p class="qw-eyebrow" style="color:var(--wp--preset--color--ochre)">Studio</p>
+			<!-- wp:paragraph {"className":"qw-eyebrow","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|2xs","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.18em"},"color":{"text":"var:preset|color|teal-tint"},"spacing":{"margin":{"bottom":"var:preset|spacing|5"}}}} -->
+			<p class="qw-eyebrow" style="color:var(--wp--preset--color--teal-tint)"><?php esc_html_e( 'Studio', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:navigation {"overlayMenu":"never","className":"qw-footer-nav","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|cream"},"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -51,8 +51,8 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 
-			<!-- wp:paragraph {"className":"qw-eyebrow","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|2xs","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.18em"},"color":{"text":"var:preset|color|ochre"},"spacing":{"margin":{"bottom":"var:preset|spacing|5"}}}} -->
-			<p class="qw-eyebrow" style="color:var(--wp--preset--color--ochre)">Get in touch</p>
+			<!-- wp:paragraph {"className":"qw-eyebrow","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|2xs","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.18em"},"color":{"text":"var:preset|color|teal-tint"},"spacing":{"margin":{"bottom":"var:preset|spacing|5"}}}} -->
+			<p class="qw-eyebrow" style="color:var(--wp--preset--color--teal-tint)"><?php esc_html_e( 'Get in touch', 'quillwork' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm","lineHeight":"1.9"},"color":{"text":"var:preset|color|cream"}}} -->
@@ -69,8 +69,8 @@
 	<hr class="wp-block-separator has-text-color has-alpha-channel-opacity has-background is-style-wide" style="background-color:var(--wp--preset--color--ink-medium);color:var(--wp--preset--color--ink-medium)"/>
 	<!-- /wp:separator -->
 
-	<!-- wp:paragraph {"align":"center","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|2xs","letterSpacing":"0.04em"},"color":{"text":"var:preset|color|ink-muted"}}} -->
-	<p class="has-text-align-center" style="color:var(--wp--preset--color--ink-muted)">&copy; 2026 Quillwork Editorial Studio. All rights reserved. Quillwork&trade; is a trademark of the studio.</p>
+	<!-- wp:paragraph {"align":"center","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|2xs","letterSpacing":"0.04em"},"color":{"text":"var:preset|color|teal-tint"}}} -->
+	<p class="has-text-align-center" style="color:var(--wp--preset--color--teal-tint)"><?php echo '&copy; ' . esc_html( gmdate( 'Y' ) ) . ' ' . esc_html__( 'Quillwork Editorial Studio. All rights reserved.', 'quillwork' ) . ' Quillwork&trade; ' . esc_html__( 'is a trademark of the studio.', 'quillwork' ); ?></p>
 	<!-- /wp:paragraph -->
 
 </footer>

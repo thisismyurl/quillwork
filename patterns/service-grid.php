@@ -19,7 +19,7 @@
 <div class="wp-block-group qw-section qw-section--white">
 
 	<!-- wp:paragraph {"className":"qw-eyebrow","style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|xs","fontWeight":"500","textTransform":"uppercase","letterSpacing":"0.18em"},"color":{"text":"var:preset|color|teal"},"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}}} -->
-	<p class="qw-eyebrow" style="color:var(--wp--preset--color--teal)">Services</p>
+	<p class="qw-eyebrow" style="color:var(--wp--preset--color--teal)"><?php esc_html_e( 'Services', 'quillwork' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:columns {"isStackedOnMobile":true,"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|6"}}}} -->
@@ -35,11 +35,11 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
-				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Brand Identity</h4>
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)"><?php esc_html_e( 'Brand Identity', 'quillwork' ); ?></h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
-				<p style="color:var(--wp--preset--color--ink-muted)">Wordmarks, visual systems, and brand guidelines built to last twenty years, not two.</p>
+				<p style="color:var(--wp--preset--color--ink-muted)"><?php esc_html_e( 'Wordmarks, visual systems, and brand guidelines built to last twenty years, not two.', 'quillwork' ); ?></p>
 				<!-- /wp:paragraph -->
 
 			</div>
@@ -57,11 +57,11 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
-				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Type Direction</h4>
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)"><?php esc_html_e( 'Type Direction', 'quillwork' ); ?></h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
-				<p style="color:var(--wp--preset--color--ink-muted)">Custom type pairing and variable-font implementation &#8212; the typographic voice of your brand.</p>
+				<p style="color:var(--wp--preset--color--ink-muted)"><?php echo esc_html__( 'Custom type pairing and variable-font implementation', 'quillwork' ) . ' &#8212; ' . esc_html__( 'the typographic voice of your brand.', 'quillwork' ); ?></p>
 				<!-- /wp:paragraph -->
 
 			</div>
@@ -79,11 +79,11 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
-				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Editorial Design</h4>
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)"><?php esc_html_e( 'Editorial Design', 'quillwork' ); ?></h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
-				<p style="color:var(--wp--preset--color--ink-muted)">Book series templates, magazine grids, annual reports &#8212; print and digital in one system.</p>
+				<p style="color:var(--wp--preset--color--ink-muted)"><?php echo esc_html__( 'Book series templates, magazine grids, annual reports', 'quillwork' ) . ' &#8212; ' . esc_html__( 'print and digital in one system.', 'quillwork' ); ?></p>
 				<!-- /wp:paragraph -->
 
 			</div>
@@ -101,11 +101,11 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:heading {"level":4,"style":{"typography":{"fontFamily":"var:preset|font-family|cormorant","fontSize":"var:preset|font-size|xl","fontWeight":"600","letterSpacing":"-0.01em"},"color":{"text":"var:preset|color|ink-deep"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
-				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)">Web &amp; Screen</h4>
+				<h4 style="font-family:var(--wp--preset--font-family--cormorant);font-size:var(--wp--preset--font-size--xl);font-weight:600;color:var(--wp--preset--color--ink-deep)"><?php echo esc_html__( 'Web', 'quillwork' ) . ' &amp; ' . esc_html__( 'Screen', 'quillwork' ); ?></h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|dm-sans","fontSize":"var:preset|font-size|sm"},"color":{"text":"var:preset|color|ink-muted"}}} -->
-				<p style="color:var(--wp--preset--color--ink-muted)">WordPress FSE themes and component systems that carry the identity online without losing it.</p>
+				<p style="color:var(--wp--preset--color--ink-muted)"><?php esc_html_e( 'WordPress FSE themes and component systems that carry the identity online without losing it.', 'quillwork' ); ?></p>
 				<!-- /wp:paragraph -->
 
 			</div>

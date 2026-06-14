@@ -10,7 +10,7 @@
 
    Everything here is design-neutral. No colours, no type, no spacing
    values — those are the skin's job. `colophon sync` owns this file;
-   don't add Kern's personality here. It lives in skin.css.
+   don't add the skin's personality here. It lives in skin.css.
 
    Pillar 6 (Resilience): the reduced-motion guard at the bottom is a
    global kill-switch. Any skin animation is neutralised here; skins
@@ -35,7 +35,7 @@
 		 * color-scheme intentionally omitted here.
 		 *
 		 * Setting color-scheme: light globally blocks dark mode for all themes in
-		 * the collection, including those (Masthead) that advertise dark-mode
+		 * the collection, including those that advertise dark-mode
 		 * support. Each skin opts into the correct color-scheme value in skin.css
 		 * so themes that are light-only declare it there, and themes that support
 		 * dark mode can declare color-scheme: light dark.
@@ -58,7 +58,7 @@
 		 *
 		 * overflow-x: hidden on body creates a new block formatting context,
 		 * which breaks position: sticky on child elements in Safari — directly
-		 * affecting the sticky navigation headers in Wake, Masthead, and Kern.
+		 * affecting the sticky navigation header.
 		 * It also silently conceals horizontal overflow bugs in plugin content
 		 * rather than surfacing them. If a specific template needs overflow
 		 * containment, apply it at that component, not globally.
@@ -70,7 +70,7 @@
 		 *
 		 * Applied globally, optimizeLegibility degrades rendering performance on
 		 * pages with dense small-size text — exactly the article-card archives
-		 * Masthead and Wake render. Ligature and kerning quality is only visible
+		 * an editorial theme renders. Ligature and kerning quality is only visible
 		 * at display sizes; skins apply optimizeLegibility to headline selectors
 		 * (h1, h2, .display) in skin.css where the visual benefit is real and the
 		 * performance cost is bounded.

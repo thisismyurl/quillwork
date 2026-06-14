@@ -7,11 +7,13 @@
 	<h1 style="font-family:var(--wp--preset--font-family--cormorant);font-weight:300">404</h1>
 	<!-- /wp:heading -->
 
-	<!-- wp:paragraph -->
-	<p>The page you were looking for has moved, been renamed, or no longer exists.</p>
-	<!-- /wp:paragraph -->
-
 	<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Try searching…","buttonText":"Search","buttonPosition":"button-outside","buttonUseIcon":true,"isExpanded":true} /-->
+
+	<!-- Home link uses core/home-link so its label is supplied (and translated) by
+	     WordPress at render time; no theme-side visitor prose to internationalise. -->
+	<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"margin":{"top":"var:preset|spacing|8"}}}} -->
+		<!-- wp:home-link /-->
+	<!-- /wp:navigation -->
 
 </main>
 <!-- /wp:group -->

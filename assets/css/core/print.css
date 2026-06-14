@@ -1,4 +1,4 @@
-/* [CORE] print.css — Kern print stylesheet.
+/* [CORE] print.css — print stylesheet shared across the Colophon line.
  * Loaded by assets.php with media="print".
  * Goal: a case study or blog post should print as a clean document.
  * Remove chrome. Keep typography. Keep structure. Kill decoration.

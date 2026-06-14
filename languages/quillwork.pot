@@ -2,111 +2,394 @@
 # This file is distributed under the same license as the Quillwork package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Quillwork 1.6148\n"
+"Project-Id-Version: Quillwork 1.6164.1200\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/quillwork\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-04T00:00:00+00:00\n"
+"POT-Creation-Date: 2026-06-13T12:00:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.x\n"
+"X-Generator: manual-extract\n"
 "X-Domain: quillwork\n"
 
 #. Theme Name of the theme
 msgid "Quillwork"
 msgstr ""
 
-#. Theme URI of the theme
-msgid "https://thisismyurl.com/quillwork/"
+#: inc/admin.php:227
+msgid "%s is a free, full-site-editing theme built to get out of the way of your content. Here is how to make it yours."
 msgstr ""
 
-#. Description of the theme
-msgid "A calligraphy-informed full-site editing theme for independent design studios, brand consultancies, and editorial agencies."
-msgstr ""
-
-#. Author of the theme
-msgid "Christopher Ross"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://thisismyurl.com/"
-msgstr ""
-
-#: inc/bindings.php
-msgid "Copyright line"
-msgstr ""
-
-#: inc/bindings.php
-msgid "Footer credit line"
-msgstr ""
-
-#: inc/bindings.php
-#. translators: 1: four-digit year, 2: site title.
-msgid "© %1$s %2$s. All rights reserved."
-msgstr ""
-
-#: inc/bindings.php
-#. translators: %s: linked theme name.
-msgid "Built with the %s theme."
-msgstr ""
-
-#: inc/admin.php
-#. translators: %s: theme name.
-msgid "Welcome to %s."
-msgstr ""
-
-#: inc/admin.php
-msgid "Thanks for giving it a home. A few small steps will have your site reading the way it should."
-msgstr ""
-
-#: inc/admin.php
-#. translators: %s: theme name.
-msgid "Set up %s →"
-msgstr ""
-
-#: inc/admin.php
-msgid "Dismiss"
-msgstr ""
-
-#: inc/admin.php
-msgid "You do not have permission to do that."
-msgstr ""
-
-#: inc/admin.php
-#. translators: %s: theme name.
+#: inc/admin.php:301 inc/admin.php:72
 msgid "%s: Get started"
 msgstr ""
 
-#: inc/admin.php
-msgid "Set up"
+#: inc/admin.php:237
+msgid "A site without a menu is a room without doors. Open the Site Editor, edit the header, and assign your menu to Primary Navigation."
 msgstr ""
 
-#: inc/admin.php
-msgid "Optimize"
+#: inc/admin.php:233
+msgid "A visitor's first second decides whether they stay. Set a static front page under Settings → Reading, and give your posts a page of their own."
 msgstr ""
 
-#: inc/admin.php
-msgid "The footer credit"
+#: inc/skin.php:107
+msgid "About, bio, and studio identity patterns."
 msgstr ""
 
-#: inc/admin.php
+#: inc/admin.php:250
+msgid "Accessibility is designed in, not bolted on — visible focus outlines, a skip link, sensible heading order, and motion that respects a reduce-motion setting. This is guidance about what the theme provides, not a formal conformance certification; audit your finished site with your own content and plugins in place."
+msgstr ""
+
+#: patterns/studio-footer.php:27
+msgid "An editorial studio for writers, independent publishers, and literary magazines"
+msgstr ""
+
+#: patterns/studio-hero.php:33
+msgid "An independent studio specialising in visual identities, editorial systems, and type-led design for publishers, cultural institutions, and independent makers."
+msgstr ""
+
+#: patterns/service-grid.php:86
+msgid "Book series templates, magazine grids, annual reports"
+msgstr ""
+
+#: patterns/studio-hero.php:25
+msgid "Brand"
+msgstr ""
+
+#: patterns/service-grid.php:38
+msgid "Brand Identity"
+msgstr ""
+
+#: inc/bindings.php:123
+msgid "Built with the %s theme."
+msgstr ""
+
+#: inc/skin.php:119
+msgid "Calls to action and contact patterns."
+msgstr ""
+
+#: inc/admin.php:232
+msgid "Choose what people land on."
+msgstr ""
+
+#: inc/bindings.php:40
+msgid "Copyright line"
+msgstr ""
+
+#: patterns/service-grid.php:64
+msgid "Custom type pairing and variable-font implementation"
+msgstr ""
+
+#: inc/admin.php:185
+msgid "Dismiss"
+msgstr ""
+
+#: inc/skin.php:91
+msgid "Display Heading"
+msgstr ""
+
+#: patterns/service-grid.php:82
+msgid "Editorial Design"
+msgstr ""
+
+#: patterns/services-cta.php:20
+msgid "Editorial Services"
+msgstr ""
+
+#: inc/skin.php:88
+msgid "Eyebrow Label"
+msgstr ""
+
+#: inc/setup.php:71
+msgid "Footer Navigation"
+msgstr ""
+
+#: inc/bindings.php:49
+msgid "Footer credit line"
+msgstr ""
+
+#: inc/admin.php:334
 msgid "For developers"
 msgstr ""
 
-#: inc/skin.php
+#: patterns/studio-footer.php:55
+msgid "Get in touch"
+msgstr ""
+
+#: inc/admin.php:236
+msgid "Give people a way around."
+msgstr ""
+
+#: patterns/studio-hero.php:25
+msgid "Identity"
+msgstr ""
+
+#: inc/skin.php:152
+msgid "In any page or post, open the block inserter, choose Patterns, and find the Quillwork group. The Service Cards and Studio Bio patterns are the fastest starting points."
+msgstr ""
+
+#: inc/admin.php:241
+msgid "In any page or post, open the block inserter, choose Patterns, and find this theme's group. Drop one in and change the words."
+msgstr ""
+
+#: inc/admin.php:245
+msgid "In the Site Editor, open Styles to change colours and typefaces. Nothing you do there can break the theme — experiment freely."
+msgstr ""
+
+#: inc/skin.php:156
+msgid "In the Site Editor, open Styles. The teal accent and ochre numerals are the only colours that change your design voice — everything else follows."
+msgstr ""
+
+#: inc/admin.php:244
+msgid "Make it sound like you."
+msgstr ""
+
+#: inc/skin.php:123
+msgid "Navigation, footer, and site-chrome patterns."
+msgstr ""
+
+#: inc/admin.php:322
+msgid "Optimize"
+msgstr ""
+
+#: inc/skin.php:111
+msgid "Portfolio and case study patterns."
+msgstr ""
+
+#: inc/setup.php:70
+msgid "Primary Navigation"
+msgstr ""
+
+#: inc/skin.php:148
+msgid "Projects are standard WordPress posts. Publish one and it will appear in the works directory on the front page automatically."
+msgstr ""
+
+#: inc/skin.php:147
+msgid "Publish your first project."
+msgstr ""
+
+#: inc/skin.php:47
+msgid "Quillwork Card (600×450)"
+msgstr ""
+
+#: patterns/studio-footer.php:73
+msgid "Quillwork Editorial Studio. All rights reserved."
+msgstr ""
+
+#: inc/skin.php:46
+msgid "Quillwork Feature (780×520)"
+msgstr ""
+
+#: inc/skin.php:45
+msgid "Quillwork Hero (1440×810)"
+msgstr ""
+
+#: inc/skin.php:48
+msgid "Quillwork Mark (800×800)"
+msgstr ""
+
+#: inc/skin.php:49
+msgid "Quillwork Wide (1280×540)"
+msgstr ""
+
+#: inc/skin.php:140
+msgid "Quillwork is built for independent design studios that want a site as considered as their work. Here is how to make it yours."
+msgstr ""
+
+#: inc/skin.php:118
+msgid "Quillwork: CTA"
+msgstr ""
+
+#: inc/skin.php:122
+msgid "Quillwork: Editorial"
+msgstr ""
+
+#: inc/skin.php:102
+msgid "Quillwork: Hero"
+msgstr ""
+
+#: inc/skin.php:114
+msgid "Quillwork: Services"
+msgstr ""
+
+#: inc/skin.php:106
+msgid "Quillwork: Studio"
+msgstr ""
+
+#: inc/skin.php:110
+msgid "Quillwork: Work"
+msgstr ""
+
+#: patterns/services-cta.php:24
+msgid "Ready to begin?"
+msgstr ""
+
+#: inc/skin.php:151
+msgid "Replace the pattern placeholders."
+msgstr ""
+
+#: patterns/service-grid.php:104
+msgid "Screen"
+msgstr ""
+
+#: patterns/services-cta.php:42
+msgid "See our work"
+msgstr ""
+
+#: inc/skin.php:79
+msgid "Service Card"
+msgstr ""
+
+#: inc/skin.php:115
+msgid "Service cards and offering patterns."
+msgstr ""
+
+#: patterns/service-grid.php:22
+msgid "Services"
+msgstr ""
+
+#: inc/admin.php:310
+msgid "Set up"
+msgstr ""
+
+#: inc/admin.php:181
+msgid "Set up %s →"
+msgstr ""
+
+#: inc/skin.php:143
+msgid "Set your studio name."
+msgstr ""
+
+#: inc/setup.php:202
+msgid "Skip to content"
+msgstr ""
+
+#: inc/skin.php:25
+msgid "Social Links"
+msgstr ""
+
+#: patterns/main-navigation.php:41
+msgid "Start a project"
+msgstr ""
+
+#: inc/admin.php:240
+msgid "Start from a pattern, not a blank page."
+msgstr ""
+
+#: inc/skin.php:85
+msgid "Stats Block"
+msgstr ""
+
+#: patterns/studio-footer.php:37
+msgid "Studio"
+msgstr ""
+
+#: inc/skin.php:76
 msgid "Studio Hero"
 msgstr ""
 
-#: inc/skin.php
-msgid "Full-width studio name hero with navigation."
+#: inc/skin.php:103
+msgid "Studio hero and landing sections."
 msgstr ""
 
-#: inc/skin.php
-msgid "Service Grid"
+#: inc/skin.php:82
+msgid "Testimonial Card"
 msgstr ""
 
-#: inc/skin.php
-msgid "Numbered service card patterns."
+#: inc/admin.php:175
+msgid "Thanks for giving it a home. A few small steps will have your site reading the way it should."
+msgstr ""
+
+#: inc/admin.php:329
+msgid "The footer credit"
+msgstr ""
+
+#: inc/admin.php:252
+msgid "There's a small credit in your footer. It's a thank-you, not a tax — remove it in two clicks in the Site Editor → Footer, or filter it out in code. No hard feelings either way."
+msgstr ""
+
+#: inc/admin.php:255
+msgid "This theme is built on Colophon, a small documented core meant to be reused. The %s walks through how to build your own theme on it."
+msgstr ""
+
+#: inc/admin.php:249
+msgid "This theme is built to stay light: self-hosted fonts that don't phone home, and styling tuned against the Core Web Vitals search engines actually measure. Keep your own images sized for the web and the site stays fast."
+msgstr ""
+
+#: inc/skin.php:155
+msgid "Tune the palette."
+msgstr ""
+
+#: patterns/studio-hero.php:25
+msgid "Type"
+msgstr ""
+
+#: patterns/service-grid.php:60
+msgid "Type Direction"
+msgstr ""
+
+#: patterns/studio-hero.php:40
+msgid "View Selected Work"
+msgstr ""
+
+#: patterns/service-grid.php:104
+msgid "Web"
+msgstr ""
+
+#: inc/admin.php:172
+msgid "Welcome to %s."
+msgstr ""
+
+#: patterns/services-cta.php:28
+msgid "Whether you are shaping a literary magazine, a book series, or a single careful essay"
+msgstr ""
+
+#: patterns/service-grid.php:108
+msgid "WordPress FSE themes and component systems that carry the identity online without losing it."
+msgstr ""
+
+#: patterns/service-grid.php:42
+msgid "Wordmarks, visual systems, and brand guidelines built to last twenty years, not two."
+msgstr ""
+
+#: patterns/services-cta.php:36
+msgid "Work with us"
+msgstr ""
+
+#: inc/admin.php:201
+msgid "You do not have permission to do that."
+msgstr ""
+
+#: inc/skin.php:144
+msgid "Your studio name at display scale IS the hero — no photography needed. Go to Appearance → Editor → Site Identity and enter your studio name."
+msgstr ""
+
+#: inc/admin.php:257
+msgid "developer guide"
+msgstr ""
+
+#: patterns/studio-footer.php:73
+msgid "is a trademark of the studio."
+msgstr ""
+
+#: patterns/service-grid.php:86
+msgid "print and digital in one system."
+msgstr ""
+
+#: patterns/service-grid.php:64
+msgid "the typographic voice of your brand."
+msgstr ""
+
+#: patterns/services-cta.php:28
+msgid "we copy-edit, design, and typeset work that deserves to be read closely."
+msgstr ""
+
+#: patterns/studio-footer.php:27
+msgid "words set with care, on paper and on screen."
+msgstr ""
+
+#: inc/bindings.php:82
+msgid "© %1$s %2$s. All rights reserved."
 msgstr ""

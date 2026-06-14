@@ -12,20 +12,17 @@
 namespace Quillwork;
 
 defined( 'ABSPATH' ) || exit;
-// Opt this theme into GitHub-release self-updates (see inc/github-updater.php).
-add_filter( 'quillwork/github_updater_repo', static function (): string {{
-	return 'thisismyurl/quillwork';
-}} );
 
 // =========================================================================
 // SETUP — navigation menus
 // =========================================================================
 
 function skin_setup(): void {
+	// CORE (inc/setup.php) already registers 'primary' and 'footer'. This adds
+	// only Quillwork's theme-specific 'social' location, so the two menu lists
+	// never drift.
 	register_nav_menus( [
-		'primary' => esc_html__( 'Primary Navigation', 'quillwork' ),
-		'footer'  => esc_html__( 'Footer Navigation',  'quillwork' ),
-		'social'  => esc_html__( 'Social Links',       'quillwork' ),
+		'social' => esc_html__( 'Social Links', 'quillwork' ),
 	] );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\skin_setup' );
@@ -49,6 +46,7 @@ function skin_image_size_names( array $sizes ): array {
 		'quillwork-feature' => esc_html__( 'Quillwork Feature (780×520)', 'quillwork' ),
 		'quillwork-card'    => esc_html__( 'Quillwork Card (600×450)',     'quillwork' ),
 		'quillwork-mark'    => esc_html__( 'Quillwork Mark (800×800)',     'quillwork' ),
+		'quillwork-wide'    => esc_html__( 'Quillwork Wide (1280×540)',    'quillwork' ),
 	] );
 }
 add_filter( 'image_size_names_choose', __NAMESPACE__ . '\\skin_image_size_names' );
@@ -136,7 +134,7 @@ add_action( 'init', __NAMESPACE__ . '\\skin_pattern_categories' );
 // =========================================================================
 
 add_filter(
-	'colophon/get_started_content',
+	SLUG . '/get_started_content',
 	static function ( array $default ): array {
 		return array_merge( $default, [
 			'lead'  => __( 'Quillwork is built for independent design studios that want a site as considered as their work. Here is how to make it yours.', 'quillwork' ),

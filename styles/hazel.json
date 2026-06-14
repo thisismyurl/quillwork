@@ -6,7 +6,7 @@
     "custom": {
       "colophon-light": "#f5f0e4",
       "colophon-dark": "#1a1512",
-      "colophon-accent": "#8b7414"
+      "colophon-accent": "#6a580f"
     },
     "color": {
       "palette": [
@@ -27,7 +27,7 @@
         },
         {
           "slug": "teal",
-          "color": "#8b7414",
+          "color": "#6a580f",
           "name": "Teal"
         },
         {
@@ -60,8 +60,43 @@
   },
   "styles": {
     "color": {
-      "background": "var(--wp--preset--color--teal-light)",
+      "background": "var(--wp--preset--color--cream)",
       "text": "var(--wp--preset--color--ink-deep)"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-deep)"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--teal)"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--ink-deep)"
+          }
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--ink-deep)",
+          "text": "var(--wp--preset--color--cream)"
+        }
+      }
+    },
+    "blocks": {
+      "core/site-title": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-deep)"
+        }
+      },
+      "core/navigation": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-medium)"
+        }
+      }
     }
   }
 }

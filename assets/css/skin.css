@@ -56,10 +56,15 @@ body {
 	color-scheme: light;
 
 	/* Bind the core semantic-token contract to Quillwork's palette. The base
-	   teal focus ring clears 3:1 on the cream/white grounds; ochre is the
-	   inverse used on the ink-deep bands where teal fails. */
+	   teal focus ring clears 3:1 on the cream/white grounds. The inverse ring is
+	   used on the ink-deep bands (footer, --section--ink); it must clear 3:1 on
+	   whatever colour that band resolves to. ochre held on the dark bands of the
+	   light variations but failed (1.6–1.8:1) in Nightfall / Studio Dark, where
+	   the ink-deep band inverts to light. --clr-bg (the variation's page-light
+	   anchor) is the band's inverse partner in every variation, so it clears the
+	   3:1 UI floor on all five plus the default (11–18:1). */
 	--cl-focus-ring:         var(--wp--preset--color--teal);
-	--cl-focus-ring-inverse: var(--wp--preset--color--ochre);
+	--cl-focus-ring-inverse: var(--clr-bg);
 	--cl-skip-bg:            var(--wp--preset--color--ink-deep);
 	--cl-skip-fg:            var(--wp--preset--color--cream);
 
@@ -82,15 +87,22 @@ body {
 
 	/* Sticky translucent header. z-index sits below the nav overlay
 	   (.wp-block-navigation__responsive-container is z-index 100000 in core),
-	   so the mobile menu always paints over a stuck header. */
+	   so the mobile menu always paints over a stuck header.
+
+	   The band reads from --clr-bg (the variation's light anchor) rather than a
+	   hardcoded cream. In the dark variations (Nightfall, Studio Dark) the page
+	   ground inverts, and the site-title/nav text tokens (ink-deep / ink-medium)
+	   invert with it; a fixed cream band would have left light text on a light
+	   band (WCAG 1.4.3 failure). color-mix keeps the translucent-glass look while
+	   the underlying colour tracks the variation. */
 	.qw-header {
 		position: sticky;
 		inset-block-start: 0;
 		z-index: 100;
-		background: rgba(250, 248, 245, 0.95);
+		background: color-mix(in srgb, var(--clr-bg, #faf8f5) 95%, transparent);
 		-webkit-backdrop-filter: blur(10px);
 		backdrop-filter: blur(10px);
-		border-block-end: 1px solid rgba(13, 59, 63, 0.10);
+		border-block-end: 1px solid color-mix(in srgb, var(--clr-fg, #0d3b3f) 10%, transparent);
 	}
 
 	/* Generous section bands — the calm whitespace of the source design. */
@@ -287,20 +299,21 @@ body {
 	}
 
 	/* ---- Footer ---- */
-	/* The footer sits on the ink-deep band; teal link text fails contrast there.
-	   Cream at rest for both nav and the credit line — clears 4.5:1 on #0d3b3f.
+	/* The footer band is the ink-deep token, which INVERTS per variation: dark in
+	   the light variations, light in Nightfall / Studio Dark. The cream token
+	   inverts in lockstep, so cream-at-rest always clears 4.5:1 on the band.
 	   Footer nav is plain text, not the uppercased header treatment. */
 	.qw-footer .wp-block-navigation a,
 	.qw-footer__bottom a {
 		color: var(--wp--preset--color--cream, #faf8f5);
 	}
-	/* Footer navigation: cream → ochre on interaction (the a11y-fix hover). */
+	/* Hover/focus moves cream → paper-white for both the nav and the credit line.
+	   paper-white tracks the variation (it inverts with the band), so it clears
+	   4.5:1 on BOTH the dark footer bands and the light ones; ochre, the previous
+	   nav hover, is a mid-tone that failed (1.6–1.8:1) on the inverted light band
+	   in Nightfall and Studio Dark. One contrast-safe hover across all five. */
 	.qw-footer .wp-block-navigation a:hover,
-	.qw-footer .wp-block-navigation a:focus {
-		color: var(--wp--preset--color--ochre, #d4a574);
-	}
-	/* Footer credit link only: cream → paper-white on interaction (per request).
-	   White on ink-deep clears ~16:1, well past AA — distinct from the nav hover. */
+	.qw-footer .wp-block-navigation a:focus,
 	.qw-footer__bottom a:hover,
 	.qw-footer__bottom a:focus {
 		color: var(--wp--preset--color--paper-white, #ffffff);
@@ -328,12 +341,14 @@ body {
 		justify-content: center;
 	}
 
-	/* Focus ring on the dark bands (footer + ink-deep testimonial band): the
-	   base teal ring fails 3:1 on #0d3b3f, so override to ochre, which clears it.
-	   This also matches the --cl-focus-ring-inverse binding above. */
+	/* Focus ring on the ink-deep bands (footer + --section--ink testimonial band):
+	   the base teal ring fails 3:1 on those grounds, so override to the inverse
+	   ring token. It binds to --clr-bg above, which inverts with the variation so
+	   the ring clears 3:1 on the band whether the band resolves dark (the light
+	   variations) or light (Nightfall / Studio Dark). */
 	.qw-footer :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible,
 	.qw-section--ink :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
-		outline-color: var(--wp--preset--color--ochre, #d4a574);
+		outline-color: var(--cl-focus-ring-inverse, #faf8f5);
 	}
 }
 

@@ -13,8 +13,10 @@
 			<!-- wp:post-title {"level":2,"isLink":true} /-->
 			<!-- wp:post-excerpt {"moreText":""} /-->
 		<!-- /wp:post-template -->
+		<!-- query-no-results offers the search form again to retry rather than
+		     hardcoded visitor prose, keeping the template translation-clean. -->
 		<!-- wp:query-no-results -->
-			<!-- wp:paragraph --><p>No results. Try a different search term.</p><!-- /wp:paragraph -->
+			<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search the studio…","buttonText":"Search","buttonPosition":"button-outside","buttonUseIcon":true,"isExpanded":true} /-->
 		<!-- /wp:query-no-results -->
 		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
 			<!-- wp:query-pagination-previous /-->
