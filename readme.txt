@@ -1,6 +1,6 @@
 === Quillwork ===
 Contributors: thisismyurl
-Tags: portfolio, blog, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, translation-ready, wide-blocks
+Tags: portfolio, blog, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, accessibility-ready, rtl-language-support, translation-ready, wide-blocks
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 8.1
