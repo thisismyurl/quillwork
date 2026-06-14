@@ -5,7 +5,7 @@
  *
  * A static template part can't compute the current year, and hardcoding one is
  * a quiet way to look abandoned every January. So parts/footer.html binds its
- * copyright paragraph to the `colophon/copyright` source registered here (WP
+ * copyright paragraph to the `quillwork/copyright` source registered here (WP
  * 6.5+ block bindings) — one small, removable callback instead of a render
  * filter reinventing what the bindings API already does.
  *

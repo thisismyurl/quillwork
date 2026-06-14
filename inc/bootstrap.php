@@ -39,7 +39,7 @@ const SLUG = 'quillwork';
 /**
  * Theme version — cache-bust for enqueued assets and the WordPress.org version.
  */
-const VERSION = '1.6148';
+const VERSION = '1.6165.1300';
 
 /**
  * Absolute filesystem path to the theme root (no trailing slash).

@@ -246,8 +246,8 @@ function get_started_content(): array {
 			),
 		),
 		'optimize' => array(
-			__( "This theme is already fast by design: zero front-end JavaScript, self-hosted fonts that don't phone home, and tuning against the Core Web Vitals search engines actually measure.", 'quillwork' ),
-			__( 'It meets WCAG 2.2 AA — real focus outlines, a skip link, sensible heading order, and motion that respects a reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming.', 'quillwork' ),
+			__( "This theme is built to stay light: self-hosted fonts that don't phone home, and styling tuned against the Core Web Vitals search engines actually measure. Keep your own images sized for the web and the site stays fast.", 'quillwork' ),
+			__( 'Accessibility is designed in, not bolted on — visible focus outlines, a skip link, sensible heading order, and motion that respects a reduce-motion setting. This is guidance about what the theme provides, not a formal conformance certification; audit your finished site with your own content and plugins in place.', 'quillwork' ),
 		),
 		'credit'   => __( "There's a small credit in your footer. It's a thank-you, not a tax — remove it in two clicks in the Site Editor → Footer, or filter it out in code. No hard feelings either way.", 'quillwork' ),
 		'developers' => array(

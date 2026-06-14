@@ -76,7 +76,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets' );
  * The font that paints the largest headline is the LCP-critical font; preloading
  * its WOFF2 shaves the swap-in flash. Which font that is depends on the design,
  * so core declares nothing by default and each skin opts in via the filter below.
- * inc/skin.php adds Fraunces (the h1/display font) via this filter.
+ * inc/skin.php adds Cormorant Garamond (the h1/display font) via this filter.
  *
  * crossorigin is required even for same-origin font fetches — browsers fetch
  * fonts via CORS regardless of origin.

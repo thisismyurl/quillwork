@@ -1,15 +1,15 @@
 /* =====================================================================
    [CORE] base.css — accessibility scaffolding + the semantic-token contract.
    ---------------------------------------------------------------------
-   This is the WCAG 2.2 AA floor every theme in the Colophon line stands
+   This is the accessibility floor every theme in the Colophon line stands
    on: a skip link, a real focus ring, a screen-reader utility, and
    balanced headings.
 
-   The trick that lets core style these without knowing Kern's palette is
+   The trick that lets core style these without knowing the skin's palette is
    the --cl-* SEMANTIC TOKENS below. Core never references
-   --wp--preset--color--studio-press (that's a Kern word); it references
+   --wp--preset--color--studio-press (a skin-specific word); it references
    --cl-focus-ring, and skin.css BINDS that token to whatever colour
-   clears contrast in Kern's own palette. The fallbacks here are neutral
+   clears contrast in the skin's own palette. The fallbacks here are neutral
    and AA-safe, so the floor holds even before skin.css binds anything.
 
    `colophon sync` owns this file. Skins bind the tokens; they don't
@@ -25,14 +25,14 @@
 	:root {
 		/*
 		 * The semantic-token contract. skin.css overrides each of these with a
-		 * value drawn from Kern's own theme.json palette. Names are stable across
+		 * value drawn from the skin's own theme.json palette. Names are stable across
 		 * the entire collection (like --wp--preset--*), so the CLI never
 		 * re-prefixes them.
 		 *
 		 * Fallbacks here are neutral and AA-compliant on white — they hold even if
 		 * a skin forgets to bind them.
 		 */
-		--cl-focus-ring:         #1a2f52; /* Kern: studio-press on studio-ground: > 7:1 */
+		--cl-focus-ring:         #1a2f52; /* Skin binds this; fallback clears > 7:1 on white */
 		--cl-focus-ring-inverse: #ffffff; /* On dark bands (footer, press sections)      */
 		--cl-skip-bg:            #1a2f52; /* Skip link background                        */
 		--cl-skip-fg:            #ffffff; /* Skip link text — 4.5:1+ on skip-bg          */

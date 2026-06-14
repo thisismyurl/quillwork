@@ -23,10 +23,6 @@ require_once __DIR__ . '/inc/assets.php';    // [CORE] cascade-ordered styleshee
 require_once __DIR__ . '/inc/bindings.php';  // [CORE] footer copyright-year + removable credit (block bindings).
 require_once __DIR__ . '/inc/skin.php';      // [SKIN] Quillwork's image sizes, fonts, block styles, onboarding.
 
-if ( file_exists( __DIR__ . '/inc/github-updater.php' ) ) {
-	require_once __DIR__ . '/inc/github-updater.php'; // [CORE][REMOVABLE] Remove before WP.org submission.
-}
-
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once __DIR__ . '/inc/cli.php'; // [CORE] CLI-only, zero front-end cost.
 }

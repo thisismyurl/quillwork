@@ -1,4 +1,3 @@
-inc/github-updater.php
 inc/cli.php
 colophon.json
 .distignore

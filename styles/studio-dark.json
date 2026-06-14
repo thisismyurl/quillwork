@@ -4,55 +4,55 @@
   "title": "Studio Dark",
   "settings": {
     "custom": {
-      "colophon-light": "#0e0e0c",
-      "colophon-dark": "#e8e4d8",
-      "colophon-accent": "#3a8a90"
+      "colophon-light": "#16201f",
+      "colophon-dark": "#ece8de",
+      "colophon-accent": "#5fb3ba"
     },
     "color": {
       "palette": [
         {
           "slug": "ink-deep",
-          "color": "#0e0e0c",
+          "color": "#ece8de",
           "name": "Ink Deep"
         },
         {
           "slug": "ink-medium",
-          "color": "#1c1c18",
+          "color": "#c9c4b6",
           "name": "Ink Medium"
         },
         {
           "slug": "ink-muted",
-          "color": "#3a3a36",
+          "color": "#9a958a",
           "name": "Ink Muted"
         },
         {
           "slug": "teal",
-          "color": "#3a8a90",
+          "color": "#5fb3ba",
           "name": "Teal"
         },
         {
           "slug": "teal-light",
-          "color": "#5aacb4",
+          "color": "#7cc6cc",
           "name": "Teal Light"
         },
         {
           "slug": "teal-tint",
-          "color": "#1a3436",
+          "color": "#16302f",
           "name": "Teal Tint"
         },
         {
           "slug": "ochre",
-          "color": "#c89a50",
+          "color": "#d8a85a",
           "name": "Ochre"
         },
         {
           "slug": "cream",
-          "color": "#2a2a28",
+          "color": "#16201f",
           "name": "Cream"
         },
         {
           "slug": "paper-white",
-          "color": "#e8e4d8",
+          "color": "#1d2a29",
           "name": "Paper White"
         }
       ]
@@ -60,8 +60,43 @@
   },
   "styles": {
     "color": {
-      "background": "var(--wp--preset--color--teal-light)",
+      "background": "var(--wp--preset--color--cream)",
       "text": "var(--wp--preset--color--ink-deep)"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-deep)"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--teal)"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--teal-light)"
+          }
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--teal)",
+          "text": "var(--wp--preset--color--cream)"
+        }
+      }
+    },
+    "blocks": {
+      "core/site-title": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-deep)"
+        }
+      },
+      "core/navigation": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-medium)"
+        }
+      }
     }
   }
 }

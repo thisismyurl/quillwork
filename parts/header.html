@@ -1,9 +1,13 @@
-<!-- wp:html -->
-<a class="skip-link" href="#main-content">Skip to content</a>
-<!-- /wp:html -->
+<!-- The "Skip to content" link is rendered in PHP on wp_body_open
+     (inc/setup.php) so its text is translatable via esc_html_e(); a
+     wp:html block here would hardcode untranslatable English. -->
 
-<!-- wp:group {"tagName":"header","className":"qw-header","role":"banner","style":{"position":{"type":"sticky"},"color":{"background":"rgba(250, 248, 245, 0.95)"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
-<header class="wp-block-group qw-header" role="banner" style="background-color:rgba(250,248,245,0.95)">
+<!-- The header band colour is set in skin.css (.qw-header) via color-mix on
+     --clr-bg so it tracks the active style variation; setting it inline here
+     would hardcode a light band and break contrast in the dark variations
+     (the site-title and nav text invert per variation, the band must too). -->
+<!-- wp:group {"tagName":"header","className":"qw-header","role":"banner","style":{"position":{"type":"sticky"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
+<header class="wp-block-group qw-header" role="banner">
 
 	<!-- wp:group {"className":"qw-header__inner","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 	<div class="wp-block-group qw-header__inner">
