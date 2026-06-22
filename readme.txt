@@ -1,12 +1,15 @@
 === Quillwork ===
 Contributors: thisismyurl
-Tags: portfolio, blog, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, accessibility-ready, rtl-language-support, translation-ready, wide-blocks
+Tags: portfolio, blog, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, translation-ready, wide-blocks
 Requires at least: 6.7
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 8.1
 Stable tag: 1.6165.1300
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Quillwork WordPress Theme, Copyright 2026 Christopher Ross
+Quillwork is distributed under the terms of the GNU GPL v2 or later.
 
 A calligraphy-informed FSE theme for independent design studios — the type is the hero, no photograph required.
 
