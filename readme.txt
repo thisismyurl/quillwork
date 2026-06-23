@@ -6,7 +6,10 @@ Requires PHP: 8.1
 Stable tag: 1.6152.0832
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, accessibility-ready, rtl-language-support, translation-ready, wide-blocks, sticky-post, threaded-comments
+Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, translation-ready, wide-blocks, sticky-post, threaded-comments
+
+Quillwork WordPress Theme, Copyright 2026 Christopher Ross
+Quillwork is distributed under the terms of the GNU GPL v2 or later.
 
 An elegant, type-led full-site-editing theme for writers, editors, and personal brands.
 
