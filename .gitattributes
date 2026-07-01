@@ -1,0 +1,23 @@
+# Line endings
+* text=auto eol=lf
+
+# Export-ignore — excluded from `git archive` ZIPs and release builds
+.github/             export-ignore
+.gitignore           export-ignore
+.gitattributes       export-ignore
+.distignore          export-ignore
+ARCHITECTURE.md      export-ignore
+GUIDE.md             export-ignore
+PILLARS.md           export-ignore
+THEME-CHECK.md       export-ignore
+CONTRIBUTING.md      export-ignore
+CODE_OF_CONDUCT.md   export-ignore
+SECURITY.md          export-ignore
+README.md            export-ignore
+colophon.json        export-ignore
+preview/             export-ignore
+
+# Diff drivers
+*.css     diff=css
+*.php     diff=php
+*.json    diff=json
