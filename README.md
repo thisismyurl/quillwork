@@ -40,20 +40,28 @@ If you need a newspaper front page or a financial data layout, Masthead and Marg
 
 ## Install
 
-**Option A — from a release ZIP (recommended):**
+**Option A — from the WordPress.org directory (recommended):**
+
+1. WordPress admin → Appearance → Themes → Add New
+2. Search for **Quillwork**
+3. Install and activate
+
+Or install directly: [wordpress.org/themes/quillwork](https://wordpress.org/themes/quillwork/)
+
+**Option B — from a release ZIP:**
 
 1. Download the latest ZIP from [Releases](../../releases)
 2. WordPress admin → Appearance → Themes → Add New → Upload Theme
 3. Upload the ZIP, activate
 
-**Option B — clone:**
+**Option C — clone (development):**
 
 ```bash
 cd wp-content/themes/
-git clone https://github.com/thisismyurl/thisismyurl-colophon-quillwork quillwork
+git clone https://github.com/thisismyurl/quillwork quillwork
 ```
 
-Then activate via Appearance → Themes.
+Then activate via Appearance → Themes. Note: cloning `main` gives you the development branch, which may be ahead of or behind the current WordPress.org release.
 
 ---
 
