@@ -9,6 +9,10 @@ on:
         description: 'Colophon core branch or SHA to sync from'
         required: false
         default: 'main'
+      reason:
+        description: 'Why this sync is being run (shown in the sync PR body)'
+        required: false
+        default: 'Manual trigger'
 
 jobs:
   sync:
@@ -103,11 +107,11 @@ jobs:
             --title "Core sync from colophon" \
             --body "Automated sync of shared core files from [thisismyurl/colophon](https://github.com/thisismyurl/colophon).
 
-**Triggered by:** ${{ github.event.client_payload.triggered_by || 'manual dispatch' }}
-**Core SHA:** \`${{ github.event.client_payload.core_sha || 'manual' }}\`
-**Reason:** ${{ github.event.client_payload.reason || inputs.reason || 'Manual trigger' }}
+          **Triggered by:** ${{ github.event.client_payload.triggered_by || 'manual dispatch' }}
+          **Core SHA:** \`${{ github.event.client_payload.core_sha || 'manual' }}\`
+          **Reason:** ${{ github.event.client_payload.reason || inputs.reason || 'Manual trigger' }}
 
-Review the diff before merging. Scaffold files (\`inc/skin.php\`, \`theme.json\`, \`style.css\`, all templates) are never touched by this sync." \
+          Review the diff before merging. Scaffold files (\`inc/skin.php\`, \`theme.json\`, \`style.css\`, all templates) are never touched by this sync." \
             --base main \
             --head "$BRANCH"
         env:
