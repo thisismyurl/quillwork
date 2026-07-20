@@ -11,15 +11,13 @@
  *
  * The "Built with …" credit binds to a second source so an integrator can
  * rewrite or drop it through a filter without editing a template. Both source
- * names derive from SLUG, so a theme installed beside its siblings never
+ * names derive from QUILLWORK_SLUG, so a theme installed beside its siblings never
  * collides. The credit text reads the theme's own Name and Theme URI from the
  * style.css header, so this file carries no theme-specific string and stays
  * pure core.
  *
  * @package quillwork
  */
-
-namespace Quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,30 +27,30 @@ defined( 'ABSPATH' ) || exit;
  * Guarded on register_block_bindings_source() so the theme degrades cleanly on
  * any pre-6.5 install that slips past the "Requires at least" header.
  */
-function register_bindings(): void {
+function quillwork_register_bindings(): void {
 	if ( ! function_exists( 'register_block_bindings_source' ) ) {
 		return;
 	}
 
 	register_block_bindings_source(
-		SLUG . '/copyright',
+		QUILLWORK_SLUG . '/copyright',
 		array(
-			'label'              => __( 'Copyright line', 'quillwork' ),
-			'get_value_callback' => __NAMESPACE__ . '\\get_copyright_value',
+			'label'              => esc_html__( 'Copyright line', 'quillwork' ),
+			'get_value_callback' => 'quillwork_get_copyright_value',
 			'uses_context'       => array(),
 		)
 	);
 
 	register_block_bindings_source(
-		SLUG . '/footer-credit',
+		QUILLWORK_SLUG . '/footer-credit',
 		array(
-			'label'              => __( 'Footer credit line', 'quillwork' ),
-			'get_value_callback' => __NAMESPACE__ . '\\get_footer_credit_value',
+			'label'              => esc_html__( 'Footer credit line', 'quillwork' ),
+			'get_value_callback' => 'quillwork_get_footer_credit_value',
 			'uses_context'       => array(),
 		)
 	);
 }
-add_action( 'init', __NAMESPACE__ . '\\register_bindings' );
+add_action( 'init', 'quillwork_register_bindings' );
 
 /**
  * Resolve the copyright line: © {current year} {Site Title}. All rights reserved.
@@ -61,7 +59,7 @@ add_action( 'init', __NAMESPACE__ . '\\register_bindings' );
  *
  * @return string The composed copyright sentence.
  */
-function get_copyright_value(): string {
+function quillwork_get_copyright_value(): string {
 	/**
 	 * Filters the date format used for the copyright year.
 	 *
@@ -74,12 +72,12 @@ function get_copyright_value(): string {
 	 *
 	 * @param string $format PHP date format string, or a literal string.
 	 */
-	$format = (string) apply_filters( SLUG . '/copyright_date_format', 'Y' );
+	$format = (string) apply_filters( QUILLWORK_SLUG . '/copyright_date_format', 'Y' );
 	$year   = (string) current_time( $format );
 
 	$copyright = sprintf(
 		/* translators: 1: four-digit year, 2: site title. */
-		__( '© %1$s %2$s. All rights reserved.', 'quillwork' ),
+		esc_html__( '© %1$s %2$s. All rights reserved.', 'quillwork' ),
 		$year,
 		esc_html( get_bloginfo( 'name' ) )
 	);
@@ -94,7 +92,7 @@ function get_copyright_value(): string {
 	 *
 	 * @param string $copyright The composed "© {year} {site}. All rights reserved." line.
 	 */
-	return (string) apply_filters( SLUG . '/copyright_text', $copyright );
+	return (string) apply_filters( QUILLWORK_SLUG . '/copyright_text', $copyright );
 }
 
 /**
@@ -109,7 +107,7 @@ function get_copyright_value(): string {
  *
  * @return string The credit line markup (possibly empty).
  */
-function get_footer_credit_value(): string {
+function quillwork_get_footer_credit_value(): string {
 	$theme = wp_get_theme();
 	$name  = $theme->get( 'Name' );
 	$home  = $theme->get( 'ThemeURI' );
@@ -120,7 +118,7 @@ function get_footer_credit_value(): string {
 
 	$credit = sprintf(
 		/* translators: %s: linked theme name. */
-		__( 'Built with the %s theme.', 'quillwork' ),
+		esc_html__( 'Built with the %s theme.', 'quillwork' ),
 		$linked
 	);
 
@@ -134,7 +132,7 @@ function get_footer_credit_value(): string {
 	 *
 	 * @param string $credit The default "Built with the {Theme} theme." markup.
 	 */
-	$credit = (string) apply_filters( SLUG . '/footer_credit', $credit );
+	$credit = (string) apply_filters( QUILLWORK_SLUG . '/footer_credit', $credit );
 
 	return wp_kses(
 		$credit,

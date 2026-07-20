@@ -4,7 +4,7 @@
  *
  * All behaviour lives in inc/, split one concern per file, so this file stays a
  * table of contents you can read in five seconds. The single re-prefixing point
- * is inc/bootstrap.php (the namespace + the SLUG/VERSION constants).
+ * is inc/bootstrap.php (the namespace + the QUILLWORK_SLUG/QUILLWORK_VERSION constants).
  *
  * [CORE] This is the portable loader. The `colophon` CLI rewrites the namespace
  * and slug on the way into each theme it generates, so a shipped theme's

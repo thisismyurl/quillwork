@@ -12,19 +12,17 @@
  * for fonts. An optional preload for the LCP-critical font fires separately via
  * the quillwork/preload_fonts filter (registered in inc/skin.php).
  *
- * Portable: every handle derives from the SLUG constant, so a re-skin needs no
+ * Portable: every handle derives from the QUILLWORK_SLUG constant, so a re-skin needs no
  * edit. The sheet list is fixed [CORE]; the skin sheet's content is the theme's,
  * but its path is stable.
  *
- * Pillar 8 (Kodawari): cache-busting by file mtime, not VERSION, means a CSS
+ * Pillar 8 (Kodawari): cache-busting by file mtime, not QUILLWORK_VERSION, means a CSS
  * edit invalidates caches on the next save during development — no version bumps
  * required mid-iteration.
  * Pillar 9 (Archaeological Records): [CORE] tag marks what the CLI owns.
  *
  * @package quillwork
  */
-
-namespace Quillwork;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -34,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
  * Pillar 6 (Resilience): file_exists() guard means a missing sheet skips
  * gracefully rather than producing a broken 404 asset in the waterfall.
  */
-function enqueue_assets(): void {
+function quillwork_enqueue_assets(): void {
 	$dir = get_template_directory();
 	$uri = get_template_directory_uri();
 
@@ -51,7 +49,7 @@ function enqueue_assets(): void {
 			continue;
 		}
 
-		$handle = SLUG . '-' . $name;
+		$handle = QUILLWORK_SLUG . '-' . $name;
 		wp_enqueue_style( $handle, $uri . '/' . $rel, $deps, (string) filemtime( $path ) );
 		$deps = array( $handle );
 	}
@@ -60,7 +58,7 @@ function enqueue_assets(): void {
 	$print = $dir . '/assets/css/core/print.css';
 	if ( file_exists( $print ) ) {
 		wp_enqueue_style(
-			SLUG . '-print',
+			QUILLWORK_SLUG . '-print',
 			$uri . '/assets/css/core/print.css',
 			array(),
 			(string) filemtime( $print ),
@@ -68,7 +66,7 @@ function enqueue_assets(): void {
 		);
 	}
 }
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets' );
+add_action( 'wp_enqueue_scripts', 'quillwork_enqueue_assets' );
 
 /**
  * Preload the LCP-critical font.
@@ -83,7 +81,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets' );
  *
  * @param string[] $fonts Theme-root-relative WOFF2 paths to preload.
  */
-function preload_fonts(): void {
+function quillwork_preload_fonts(): void {
 	/**
 	 * Filters the list of fonts preloaded in the document head.
 	 *
@@ -101,8 +99,8 @@ function preload_fonts(): void {
 
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-			esc_url( URI . '/' . ltrim( $font, '/' ) )
+			esc_url( QUILLWORK_URI . '/' . ltrim( $font, '/' ) )
 		);
 	}
 }
-add_action( 'wp_head', __NAMESPACE__ . '\\preload_fonts', 1 );
+add_action( 'wp_head', 'quillwork_preload_fonts', 1 );

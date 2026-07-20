@@ -15,19 +15,17 @@
  * @package quillwork
  */
 
-namespace Quillwork;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Register theme feature supports, the text domain, and navigation menus.
  */
-function setup(): void {
+function quillwork_setup(): void {
 
 	// i18n. The domain is the literal 'quillwork' (a constant would break make-pot —
-	// see bootstrap.php); the path uses DIR so it travels with a re-skin. The
+	// see bootstrap.php); the path uses QUILLWORK_DIR so it travels with a re-skin. The
 	// CLI rewrites the literal when it generates a theme.
-	load_theme_textdomain( 'quillwork', DIR . '/languages' );
+	load_theme_textdomain( 'quillwork', QUILLWORK_DIR . '/languages' );
 
 	// Content width for oEmbeds. Reads from theme.json contentSize if set;
 	// otherwise defaults to 720px. This ensures oEmbeds respect the theme's reading column width.
@@ -82,7 +80,7 @@ function setup(): void {
 	 */
 	do_action( 'quillwork/setup' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
+add_action( 'after_setup_theme', 'quillwork_setup' );
 
 /**
  * Declare WooCommerce support.
@@ -97,7 +95,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
  *
  * Pillar 6 (Resilience): we handle the 'when', not the 'if'.
  */
-function woocommerce_support(): void {
+function quillwork_woocommerce_support(): void {
 	if ( ! class_exists( 'WooCommerce' ) ) {
 		return;
 	}
@@ -106,7 +104,7 @@ function woocommerce_support(): void {
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\woocommerce_support' );
+add_action( 'after_setup_theme', 'quillwork_woocommerce_support' );
 
 /**
  * Register the editor stylesheet so the block editor mirrors the front end.
@@ -115,10 +113,10 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\woocommerce_support' );
  * carries only the ::before/::after and custom-block personality that
  * theme.json cannot express.
  */
-function editor_styles(): void {
+function quillwork_editor_styles(): void {
 	add_editor_style( array( 'assets/css/editor-style.css' ) );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\editor_styles' );
+add_action( 'after_setup_theme', 'quillwork_editor_styles' );
 
 /**
  * Drop the emoji-detection script and its styles.
@@ -130,13 +128,13 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\editor_styles' );
  * Pillar 2 (Innovation over Compliance): we don't ship dead weight because
  * it ships by default.
  */
-function disable_emoji_assets(): void {
+function quillwork_disable_emoji_assets(): void {
 	// Front-end only — leave the admin emoji picker intact.
 	// Themes must not alter admin-area behaviour users haven't opted into.
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 }
-add_action( 'init', __NAMESPACE__ . '\\disable_emoji_assets' );
+add_action( 'init', 'quillwork_disable_emoji_assets' );
 
 /**
  * Add autocomplete and enterkeyhint hints to the comment-form fields.
@@ -150,7 +148,7 @@ add_action( 'init', __NAMESPACE__ . '\\disable_emoji_assets' );
  * @param array $fields The default comment-form field markup, keyed by field.
  * @return array The fields with input attributes added.
  */
-function comment_form_field_attributes( array $fields ): array {
+function quillwork_comment_form_field_attributes( array $fields ): array {
 	$attributes = array(
 		'author' => 'autocomplete="name" enterkeyhint="next"',
 		'email'  => 'autocomplete="email" inputmode="email" enterkeyhint="next"',
@@ -185,7 +183,7 @@ function comment_form_field_attributes( array $fields ): array {
 
 	return $fields;
 }
-add_filter( 'comment_form_default_fields', __NAMESPACE__ . '\\comment_form_field_attributes' );
+add_filter( 'comment_form_default_fields', 'quillwork_comment_form_field_attributes' );
 
 /**
  * Render the "Skip to content" link as the first focusable element on the page.
@@ -197,7 +195,7 @@ add_filter( 'comment_form_default_fields', __NAMESPACE__ . '\\comment_form_field
  * target #main-content matches the <main id="main-content"> in every template. This
  * is the single skip link in the rendered DOM; the header part deliberately omits it.
  */
-function skip_link(): void {
+function quillwork_skip_link(): void {
 	echo '<a class="skip-link" href="#main-content">'
 		. esc_html__( 'Skip to content', 'quillwork' )
 		. '</a>';

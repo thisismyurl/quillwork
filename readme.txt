@@ -4,7 +4,7 @@ Tags: portfolio, blog, one-column, two-columns, custom-colors, custom-logo, cust
 Requires at least: 6.7
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.6165.1300
+Stable tag: 1.6201.1029
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -170,6 +170,31 @@ minimal anchor allow-list.
 
 
 == Changelog ==
+
+= 1.6201.1029 =
+Prefixing and escaping, brought in line with the WordPress.org Theme Review Team's
+current reading of the global-scope prefix requirement. Quillwork was approved
+before this rule was applied to the shared core it is built on; this release
+brings it forward rather than waiting for a future review to raise it.
+
+There is no visual, layout, or content change in this release. Nothing an editor
+sees or clicks is different.
+
+* Prefixing: removed the `namespace Quillwork;` declaration from every file in inc/
+  and gave each global-scope symbol the theme's own prefix: 26 functions to
+  `quillwork_*`, 7 constants to `QUILLWORK_*` (file-scope `const` converted to
+  `define()` so none remain bare global consts), and the WP-CLI class to
+  `Quillwork_CLI_Command`. All callback registrations were rewritten to match. Hook
+  names are unchanged, so any filter or action registered against this theme keeps
+  working. The review team's position is that a namespace is acceptable only at the
+  class level, because a WordPress site loads a large number of vendor functions
+  into the global scope and a bare `function setup()` inside a namespace still
+  reads as unprefixed.
+* Escaping: converted 39 translated strings from `__()` to `esc_html__()`. Six keep
+  bare `__()` deliberately, because each is escaped with `esc_html()` at the point of echo,
+  so converting them too would escape twice and render an apostrophe as a literal
+  `&#039;`. Each carries an inline comment explaining why, so the exception is not
+  mistaken for an oversight.
 
 = 1.6165.1300 =
 Style-variation contrast audit (WCAG 2.1 1.4.3 / 1.4.11 / 2.4.7):
