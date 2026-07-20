@@ -13,8 +13,8 @@
 # https://wordpress.org/themes/quillwork/ — if it is inside 30 days, batch the
 # change into a later release instead of shipping another update notice.
 #
-# Requires repository secrets: WPORG_SVN_USERNAME, WPORG_SVN_PASSWORD
-# (a wordpress.org account with commit rights on this theme).
+# Credentials come from the `wordpress-org` environment (WPORG_SVN_USERNAME,
+# WPORG_SVN_PASSWORD), which requires a reviewer's approval before the job runs.
 
 name: Deploy to WordPress.org
 
@@ -37,6 +37,15 @@ jobs:
   deploy:
     name: Publish to themes.svn.wordpress.org
     runs-on: ubuntu-latest
+
+    # The wordpress.org credentials live on this environment, not on the
+    # repository, for two reasons. WordPress.org issues no scoped deploy token, so
+    # that password is the whole account: every theme and plugin under it. And a
+    # repository secret is readable by EVERY workflow in the repo, including ones
+    # that run on push. Scoping it here means only this job can see it, and the
+    # environment's required reviewer puts a human approval in front of an
+    # irreversible SVN commit.
+    environment: wordpress-org
 
     steps:
       - name: Check out the requested ref
