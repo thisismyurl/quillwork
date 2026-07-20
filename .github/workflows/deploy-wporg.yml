@@ -1,0 +1,164 @@
+# Deploy Quillwork to the WordPress.org theme directory.
+#
+# MANUAL ONLY, ON PURPOSE. There is no push, tag, or release trigger here and one
+# must not be added. Two reasons:
+#
+#   1. Theme updates get NO review queue after initial approval, and an SVN commit
+#      cannot be overwritten once made. Nothing external catches a bad push.
+#   2. Every directory update sends an update notice to every install. Tagging a
+#      release and publishing to users are different decisions and should stay that
+#      way.
+#
+# Before running this, check when the theme was last updated at
+# https://wordpress.org/themes/quillwork/ — if it is inside 30 days, batch the
+# change into a later release instead of shipping another update notice.
+#
+# Requires repository secrets: WPORG_SVN_USERNAME, WPORG_SVN_PASSWORD
+# (a wordpress.org account with commit rights on this theme).
+
+name: Deploy to WordPress.org
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Tag or SHA to deploy. Quillwork's released line is NOT main — pass the release tag."
+        required: true
+        type: string
+      confirm:
+        description: 'Type the theme version you intend to publish (e.g. 1.6201.1029). Must match style.css.'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Publish to themes.svn.wordpress.org
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the requested ref
+        uses: actions/checkout@v4
+        with:
+          # The released line shares no history with main, so never default this.
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - name: Read the version out of style.css
+        id: version
+        run: |
+          VERSION=$(grep -m1 '^Version:' style.css | sed 's/Version:[[:space:]]*//' | tr -d '[:space:]')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "style.css version: $VERSION"
+
+      - name: Refuse unless the typed version matches style.css
+        run: |
+          # A deliberate speed bump. The operator has to know what they are
+          # publishing, not just which ref they picked.
+          if [ "${{ inputs.confirm }}" != "${{ steps.version.outputs.version }}" ]; then
+            echo "::error::Confirmation '${{ inputs.confirm }}' does not match style.css version '${{ steps.version.outputs.version }}'."
+            exit 1
+          fi
+
+      - name: Refuse if this version is already published
+        run: |
+          # SVN commits cannot be overwritten. Re-publishing an existing tag is the
+          # one mistake with no undo, so check before touching the repository.
+          V="${{ steps.version.outputs.version }}"
+          if svn ls "https://themes.svn.wordpress.org/quillwork/$V/" >/dev/null 2>&1; then
+            echo "::error::Version $V already exists in themes.svn.wordpress.org/quillwork/. Bump the version; SVN tags cannot be replaced."
+            exit 1
+          fi
+          echo "Version $V is not yet published."
+
+      - name: Warn if the directory was updated in the last 30 days
+        run: |
+          # Not a hard failure: the operator may be shipping a deliberate hotfix.
+          # It has to be visible in the run log either way.
+          LAST=$(curl -s "https://wordpress.org/themes/quillwork/" \
+            | tr '>' '\n' | grep -A2 -i 'last updated' | tr -d '<' \
+            | grep -oE '[A-Z][a-z]+ [0-9]{1,2}, [0-9]{4}' | head -1)
+          if [ -z "$LAST" ]; then
+            echo "::warning::Could not read the last-updated date. Check https://wordpress.org/themes/quillwork/ by hand."
+            exit 0
+          fi
+          LAST_TS=$(date -d "$LAST" +%s); NOW_TS=$(date +%s)
+          DAYS=$(( (NOW_TS - LAST_TS) / 86400 ))
+          echo "Directory last updated: $LAST ($DAYS days ago)"
+          if [ "$DAYS" -lt 30 ]; then
+            echo "::warning::Quillwork was updated $DAYS days ago ($LAST). Every release pushes an update notice to every install. Consider batching."
+          fi
+
+      - name: PHP lint every file that will ship
+        run: |
+          # Cheap, and the failure it prevents is a fatal error on every install of
+          # the theme, with no way to roll the SVN commit back.
+          find . -path ./.git -prune -o -name '*.php' -print \
+            | xargs -r -n1 php -l
+
+      - name: Confirm no prohibited file would reach the directory
+        run: |
+          # Mirrors .distignore. The deploy action honours it, but a theme is
+          # rejected (or worse, ships a self-updater) if this is ever wrong, so it
+          # is asserted here rather than assumed.
+          for f in inc/github-updater.php inc/cli.php colophon.json PILLARS.md; do
+            if [ -f "$f" ] && ! grep -qxF "$f" .distignore; then
+              echo "::error::$f exists but is not listed in .distignore — it would be published."
+              exit 1
+            fi
+          done
+          echo "Prohibited-file check passed."
+
+      # The SVN commands are inline rather than delegated to a marketplace action.
+      # The maintained WordPress deploy action (10up's) is plugin-only: the plugin
+      # repository uses trunk/ + tags/ + assets/, while a theme repository is just
+      # <slug>/<version>/. The theme-specific actions on the marketplace are all
+      # low-adoption and mostly unmaintained, and this is the step that holds the
+      # wordpress.org credentials. Fifteen lines of svn is a smaller risk than an
+      # unpinned third party with the password.
+      - name: Publish the version directory to SVN
+        env:
+          SVN_USERNAME: ${{ secrets.WPORG_SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.WPORG_SVN_PASSWORD }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          # --depth=empty: the repository holds every historical version, and we
+          # only need to add one directory to it.
+          svn co --depth=empty "https://themes.svn.wordpress.org/quillwork/" svn \
+            --non-interactive --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+
+          mkdir "svn/$VERSION"
+
+          # Copy the theme, honouring .distignore, and never the VCS directories.
+          rsync -a ./ "svn/$VERSION/" \
+            --exclude-from=.distignore \
+            --exclude='.git' --exclude='.github' --exclude='svn' \
+            --exclude='.gitignore' --exclude='.gitattributes' --exclude='.distignore'
+
+          # Assert on the built tree, not on the source. This is the last point at
+          # which a self-updater or dev tooling can be caught before an
+          # unoverwritable commit.
+          for f in inc/github-updater.php inc/cli.php colophon.json PILLARS.md; do
+            if [ -e "svn/$VERSION/$f" ]; then
+              echo "::error::$f made it into the build. Refusing to publish."
+              exit 1
+            fi
+          done
+          test -f "svn/$VERSION/style.css"
+          test -f "svn/$VERSION/readme.txt"
+          echo "Publishing $(find "svn/$VERSION" -type f | wc -l) files."
+
+          cd svn
+          svn add "$VERSION"
+          svn ci -m "Quillwork $VERSION" \
+            --non-interactive --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+
+      - name: Where to check
+        run: |
+          echo "Published. The directory can take a few minutes to reflect it:"
+          echo "  https://wordpress.org/themes/quillwork/"
+          echo "  https://themes.svn.wordpress.org/quillwork/${{ steps.version.outputs.version }}/"
