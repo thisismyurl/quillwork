@@ -78,6 +78,7 @@
 			"_comment": "[SKIN] Cormorant Garamond (display, light + italic), Newsreader (body, light + italic), DM Sans (UI/eyebrows). All SIL OFL 1.1, self-hosted under assets/fonts/. fontFamily stacks carry Georgia/system fallbacks per the CORE font strategy (ARCHITECTURE.md §5).",
 			"fluid": true,
 			"customFontSize": false,
+			"defaultFontSizes": false,
 			"lineHeight": true,
 			"letterSpacing": true,
 			"textTransform": true,
@@ -233,6 +234,7 @@
 		"spacing": {
 			"_comment": "[CORE] structure — [SKIN] values. A linear step scale; bands use the large steps for the source design's generous whitespace.",
 			"customSpacingSize": false,
+			"defaultSpacingSizes": false,
 			"spacingSizes": [
 				{
 					"name": "1",
@@ -377,7 +379,7 @@
 			"h2": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--cormorant)",
-					"fontSize": "var(--wp--preset--font-size--2xl)",
+					"fontSize": "var(--wp--preset--font-size--2-xl)",
 					"fontWeight": "600",
 					"fontOpticalSizing": "auto",
 					"lineHeight": "1.18"

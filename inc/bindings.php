@@ -58,6 +58,15 @@ function quillwork_register_bindings(): void {
 			'uses_context'       => array(),
 		)
 	);
+
+	register_block_bindings_source(
+		QUILLWORK_SLUG . '/footer-credit',
+		array(
+			'label'              => esc_html__( 'Footer credit', 'quillwork' ),
+			'get_value_callback' => 'quillwork_get_footer_credit_value',
+			'uses_context'       => array(),
+		)
+	);
 }
 add_action( 'init', 'quillwork_register_bindings' );
 
@@ -136,6 +145,66 @@ function quillwork_get_copyright_value(): string {
 	// stops being noticed.
 	return wp_kses(
 		$copyright,
+		array(
+			'a' => array(
+				'href'   => array(),
+				'rel'    => array(),
+				'target' => array(),
+			),
+		)
+	);
+}
+
+/**
+ * Resolve the "Built with {Theme}" footer credit line.
+ *
+ * Registered here (CORE) since 1.6265.1511 — parts/footer.html has bound a
+ * paragraph to `{slug}/footer-credit` since the credit line existed, and this
+ * file's own docblock described the source in detail, but nothing ever called
+ * register_block_bindings_source() for it. Every theme in the line rendered an
+ * empty <p class="{slug}-footer-credit"> in every footer until this was found
+ * and fixed independently on Kerf and Halyard on the same day (2026-09-22),
+ * which is what surfaced it as a CORE bug rather than a per-theme one.
+ *
+ * Reads the theme's own Name and Theme URI from the style.css header via
+ * wp_get_theme(), so this file carries no theme-specific string and a synced
+ * copy needs no per-theme edit.
+ *
+ * @since 1.6265.1511
+ *
+ * @return string The composed, filterable, and removable credit sentence.
+ */
+function quillwork_get_footer_credit_value(): string {
+	$theme = wp_get_theme();
+	$name  = $theme->get( 'Name' );
+	$uri   = $theme->get( 'ThemeURI' );
+
+	$credit = $uri
+		? sprintf( '<a href="%s">%s</a>', esc_url( $uri ), esc_html( $name ) )
+		: esc_html( $name );
+
+	$text = sprintf(
+		/* translators: %s: linked or plain theme name. */
+		esc_html__( 'Built with %s.', 'quillwork' ),
+		$credit
+	);
+
+	/**
+	 * Filters the footer credit sentence.
+	 *
+	 * Return an empty string to remove the credit line entirely — it is
+	 * intentionally easy to drop without editing the footer template part.
+	 *
+	 * @since 1.6265.1511
+	 *
+	 * @param string $text The composed "Built with {Theme}." sentence.
+	 */
+	$text = (string) apply_filters( QUILLWORK_SLUG . '/footer_credit_text', $text ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+
+	// Same minimal anchor allow-list as the copyright line above — both take a
+	// filtered value straight into a rendered block.
+	return wp_kses(
+		$text,
 		array(
 			'a' => array(
 				'href'   => array(),
