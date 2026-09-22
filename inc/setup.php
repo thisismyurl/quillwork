@@ -10,32 +10,30 @@
  * @package quillwork
  */
 
-namespace quillwork;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Register theme feature supports, the text domain, and navigation menus.
  */
-function setup(): void {
+function quillwork_setup(): void {
 
 	// i18n. The domain is the literal 'quillwork' (a constant would break
-	// make-pot — see bootstrap.php); the path uses DIR so it travels with a
+	// make-pot — see bootstrap.php); the path uses QUILLWORK_DIR so it travels with a
 	// re-skin. The CLI rewrites the literal when it generates a theme.
-	load_theme_textdomain( 'quillwork', DIR . '/languages' );
+	load_theme_textdomain( 'quillwork', QUILLWORK_DIR . '/languages' );
 
 	/**
 	 * Filters the fallback content width for oEmbeds.
 	 *
 	 * The default 720 matches the reading-column contentSize in theme.json and
-	 * singular.html. A re-skin with a wider column should override this so
+	 * the single-post templates. A re-skin with a wider column should override this so
 	 * oEmbed providers (YouTube, Vimeo, Twitter) size their output correctly.
 	 *
 	 * @since 1.6150
 	 *
 	 * @param int $width Content width in pixels.
 	 */
-	$GLOBALS['content_width'] = (int) apply_filters( 'quillwork/content_width', 720 );
+	$GLOBALS['content_width'] = (int) apply_filters( QUILLWORK_SLUG . '/content_width', 720 );
 
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'editor-styles' );
@@ -70,7 +68,7 @@ function setup(): void {
 	 */
 	register_nav_menus(
 		(array) apply_filters(
-			'quillwork/register_nav_menus',
+			QUILLWORK_SLUG . '/register_nav_menus',
 			array(
 				'primary' => esc_html__( 'Primary Navigation', 'quillwork' ),
 				'footer'  => esc_html__( 'Footer Navigation', 'quillwork' ),
@@ -87,9 +85,9 @@ function setup(): void {
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'quillwork/setup' );
+	do_action( QUILLWORK_SLUG . '/setup' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
+add_action( 'after_setup_theme', 'quillwork_setup' );
 
 /**
  * Declare minimum WooCommerce support so a shop renders without conflict.
@@ -107,7 +105,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
  * Guarded on the WooCommerce class so the supports are only declared when the
  * plugin is active.
  */
-function woocommerce_support(): void {
+function quillwork_woocommerce_support(): void {
 	if ( ! class_exists( 'WooCommerce' ) ) {
 		return;
 	}
@@ -117,35 +115,19 @@ function woocommerce_support(): void {
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\woocommerce_support' );
+add_action( 'after_setup_theme', 'quillwork_woocommerce_support' );
 
 /**
  * Register the editor stylesheet so the block editor mirrors the front end.
  *
- * theme.json supplies the editor's tokens and global styles; the editor sheet
+ * The theme.json file supplies the editor's tokens and global styles; the editor sheet
  * carries only the ::before/::after personality theme.json cannot express. The
  * file is skin-owned (assets/css/editor-style.css); a missing file is harmless.
  */
-function editor_styles(): void {
+function quillwork_editor_styles(): void {
 	add_editor_style( array( 'assets/css/editor-style.css' ) );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\editor_styles' );
-
-/**
- * Drop the emoji-detection script and its styles.
- *
- * Core injects a render-blocking inline script plus a stylesheet to polyfill
- * emoji on older platforms. Modern browsers render emoji natively, so this is
- * dead weight on the critical path — removing it is a Core Web Vitals line
- * standard.
- */
-function disable_emoji_assets(): void {
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );
-}
-add_action( 'init', __NAMESPACE__ . '\\disable_emoji_assets' );
+add_action( 'after_setup_theme', 'quillwork_editor_styles' );
 
 /**
  * Add autocomplete and enterkeyhint hints to the comment-form fields.
@@ -156,7 +138,7 @@ add_action( 'init', __NAMESPACE__ . '\\disable_emoji_assets' );
  * @param array $fields The default comment-form field markup, keyed by field.
  * @return array The fields with input attributes added.
  */
-function comment_form_field_attributes( array $fields ): array {
+function quillwork_comment_form_field_attributes( array $fields ): array {
 	$attributes = array(
 		'author' => 'autocomplete="name" enterkeyhint="next"',
 		'email'  => 'autocomplete="email" inputmode="email" enterkeyhint="next"',
@@ -164,49 +146,32 @@ function comment_form_field_attributes( array $fields ): array {
 	);
 
 	foreach ( $attributes as $field => $attrs ) {
-		if ( isset( $fields[ $field ] ) ) {
-			$fields[ $field ] = str_replace( '<input', '<input ' . $attrs, $fields[ $field ] );
+		if ( ! isset( $fields[ $field ] ) ) {
+			continue;
 		}
+
+		$pattern     = '/<input\s+([^>]*)/';
+		$replacement = '<input ' . $attrs . ' $1';
+		$count       = 0;
+		$updated     = preg_replace( $pattern, $replacement, $fields[ $field ], 1, $count );
+
+		// Regex error: preg_replace returns null on failure (e.g., invalid regex).
+		// Skip this field to preserve the original HTML; no attributes added.
+		if ( null === $updated ) {
+			continue;
+		}
+
+		// Pattern matched: $count will be 1 (limit of 1 replacement).
+		// Update the field with the modified HTML.
+		if ( $count > 0 ) {
+			$fields[ $field ] = $updated;
+		}
+		// Non-match ($count === 0): the field HTML doesn't contain the expected <input tag.
+		// This is safe: field stays unchanged, no attributes added.
+		// Silent fallback preserves the field's original markup.
 	}
 
 	return $fields;
 }
-add_filter( 'comment_form_default_fields', __NAMESPACE__ . '\\comment_form_field_attributes' );
+add_filter( 'comment_form_default_fields', 'quillwork_comment_form_field_attributes' );
 
-/**
- * Output a skip-to-content link immediately after the opening <body> tag.
- *
- * WCAG 2.4.1 (Bypass Blocks). The .skip-link rule in assets/css/core/base.css
- * hides it off-screen until focused; it targets #main-content, which every
- * template's <main> carries.
- */
-function skip_link(): void {
-	/**
-	 * Filters the skip-link anchor target ID (without the leading #).
-	 *
-	 * The default 'main-content' matches the id="main-content" on the <main>
-	 * element in every core template. Override if you rename that id.
-	 *
-	 * @since 1.6150
-	 *
-	 * @param string $target Element ID, without the leading #.
-	 */
-	$target = (string) apply_filters( 'quillwork/skip_link_target', 'main-content' );
-
-	/**
-	 * Filters the visible skip-link label.
-	 *
-	 * Override to match the language or phrasing of your site without editing
-	 * a translation file — useful for single-language sites or custom copy.
-	 *
-	 * @since 1.6150
-	 *
-	 * @param string $label The link text.
-	 */
-	$label = (string) apply_filters( 'quillwork/skip_link_label', __( 'Skip to content', 'quillwork' ) );
-
-	echo '<a class="skip-link" href="#' . esc_attr( $target ) . '">'
-		. esc_html( $label )
-		. '</a>';
-}
-add_action( 'wp_body_open', __NAMESPACE__ . '\\skip_link' );

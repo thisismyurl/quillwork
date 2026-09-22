@@ -11,24 +11,7 @@
  * @package quillwork
  */
 
-namespace quillwork;
-
 defined( 'ABSPATH' ) || exit;
-
-/**
- * Opt in to GitHub-release self-updates.
- *
- * Names the repo the [CORE][REMOVABLE] inc/github-updater.php watches for new
- * releases. Empty by default in core; set here so a Quillwork installed from a
- * GitHub release gets the one-click update banner in Appearance → Themes. Delete
- * inc/github-updater.php (and this filter) before a WordPress.org submission.
- */
-add_filter(
-	'quillwork/github_updater_repo',
-	static function (): string {
-		return 'thisismyurl/thisismyurl-colophon-quillwork';
-	}
-);
 
 /**
  * Register Quillwork's image crop sizes.
@@ -37,11 +20,11 @@ add_filter(
  * Hooked on after_setup_theme so a re-skin changes crops here without touching
  * inc/setup.php.
  */
-function skin_image_sizes(): void {
+function quillwork_skin_image_sizes(): void {
 	add_image_size( 'quillwork-hero', 1600, 900, true ); // 16:9 hero.
 	add_image_size( 'quillwork-card', 720, 480, true );  // 3:2 portfolio card.
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\skin_image_sizes' );
+add_action( 'after_setup_theme', 'quillwork_skin_image_sizes' );
 
 /**
  * Preload Cormorant Garamond — the largest-paint glyph on every page.
@@ -67,7 +50,7 @@ add_filter(
  * apply via className; an editor can also reach for them by hand. The CSS —
  * never the registration — carries the visual weight.
  */
-function skin_block_styles(): void {
+function quillwork_skin_block_styles(): void {
 
 	// [SKIN] Paragraph as an uppercase DM Sans eyebrow above a heading.
 	register_block_style(
@@ -105,18 +88,19 @@ function skin_block_styles(): void {
 		)
 	);
 }
-add_action( 'init', __NAMESPACE__ . '\\skin_block_styles' );
+add_action( 'init', 'quillwork_skin_block_styles' );
 
 /**
  * Register Quillwork's pattern categories.
  *
- * Prefixed with SLUG so a theme installed beside its siblings never collides.
+ * Prefixed with the theme's own slug so a theme installed beside its siblings
+ * never collides.
  * Pattern files in /patterns/*.php declare which category they slot into.
  */
-function skin_pattern_categories(): void {
+function quillwork_skin_pattern_categories(): void {
 
 	register_block_pattern_category(
-		SLUG . '-pages',
+		QUILLWORK_SLUG . '-pages',
 		array(
 			'label'       => __( 'Quillwork: Pages', 'quillwork' ),
 			'description' => __( 'Full-page layout patterns for the editorial home and about pages.', 'quillwork' ),
@@ -124,14 +108,14 @@ function skin_pattern_categories(): void {
 	);
 
 	register_block_pattern_category(
-		SLUG . '-sections',
+		QUILLWORK_SLUG . '-sections',
 		array(
 			'label'       => __( 'Quillwork: Sections', 'quillwork' ),
 			'description' => __( 'Hero, services, testimonials, and contact section patterns.', 'quillwork' ),
 		)
 	);
 }
-add_action( 'init', __NAMESPACE__ . '\\skin_pattern_categories' );
+add_action( 'init', 'quillwork_skin_pattern_categories' );
 
 /**
  * Replace the Get-started copy with Quillwork's voice.
