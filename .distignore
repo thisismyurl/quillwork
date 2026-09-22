@@ -29,3 +29,9 @@ colophon
 colophon.json
 colophon.manifest.json
 tools
+
+# CLI-only dev tooling and the GitHub self-updater — functions.php guards
+# each require with file_exists() so excluding them here is safe under
+# WP-CLI too, not just on the front end.
+inc/cli.php
+inc/github-updater.php

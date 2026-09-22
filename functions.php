@@ -32,7 +32,10 @@ if ( file_exists( __DIR__ . '/inc/github-updater.php' ) ) {
 	require_once __DIR__ . '/inc/github-updater.php';
 }
 
-if ( defined( 'WP_CLI' ) && WP_CLI ) {
+// file_exists() guard so a WP.org distribution zip (which now excludes
+// inc/cli.php via .distignore) never fatals under WP-CLI — same pattern
+// already used for inc/github-updater.php just above.
+if ( defined( 'WP_CLI' ) && WP_CLI && file_exists( __DIR__ . '/inc/cli.php' ) ) {
 	require_once __DIR__ . '/inc/cli.php'; // [CORE] wp quillwork commands — CLI-only, zero front-end cost.
 }
 
