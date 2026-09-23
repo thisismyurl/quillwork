@@ -95,12 +95,12 @@ category in the block inserter:
 * Fixed a rendering bug: theme.json and several patterns referenced
   --wp--preset--font-size--2xl/--3xl directly, but WordPress kebab-cases
   that to --2-xl/--3-xl when it emits the custom property, so affected
-  headings were silently falling back to body size. Corrected throughout.
-* Fixed a fatal-error risk: inc/cli.php was required unconditionally under
-  WP_CLI with no file_exists() guard, and was not excluded from the
-  distribution package, so any wp-cli command against a live install could
-  fatal. The file is now excluded from the package and the require is
-  guarded.
+  headings were silently falling back to an inherited size. Corrected
+  throughout.
+* Fixed a fatal-error risk: inc/cli.php was required whenever WP_CLI was
+  defined, with no file_exists() guard. Any build that left the file out
+  would fatal on every wp-cli command. The require is now guarded, and
+  the file is also excluded from the distribution package.
 * inc/bindings.php now registers the quillwork/footer-credit block-bindings
   source that parts/footer.html has bound its credit line to since the line
   existed. The source was never registered, so the credit rendered as an
@@ -109,13 +109,13 @@ category in the block inserter:
   settings.spacing.defaultSpacingSizes set to false, so the editor's own
   auto-generated presets stop merging with this theme's own curated set.
 * Internal PHP in inc/bootstrap.php, inc/setup.php, inc/assets.php,
-  inc/bindings.php and inc/admin.php now uses a flat function prefix
-  instead of namespace declarations, matching the pattern WordPress.org
-  theme review actually approved on this line (a namespace is accepted
-  only at the class level). No design-facing change.
-* Removed the bundled self-updater (inc/github-updater.php). Core dropped
-  it collection-wide; a theme on WordPress.org must not update itself
-  outside the directory.
+  inc/bindings.php and inc/admin.php now uses a flat quillwork_ function
+  prefix instead of namespace declarations, matching the pattern
+  WordPress.org theme review approved on Masthead (a namespace is accepted
+  only at the class level). No visible change.
+* The bundled self-updater (inc/github-updater.php) is gone. Themes hosted
+  on WordPress.org get their updates from WordPress.org, not their own
+  code.
 * SECURITY.md, CODE_OF_CONDUCT.md and CONTRIBUTING.md are excluded from
   the distribution package. They belong on GitHub, not in the installed
   theme.
