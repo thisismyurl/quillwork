@@ -99,7 +99,7 @@ category in the block inserter:
   throughout.
 * Fixed a fatal-error risk: inc/cli.php was required whenever WP_CLI was
   defined, with no file_exists() guard. Any build that left the file out
-  would fatal on every wp-cli command. The require is now guarded, and
+  would fatal on every WP-CLI command. The require is now guarded, and
   the file is also excluded from the distribution package.
 * inc/bindings.php now registers the quillwork/footer-credit block-bindings
   source that parts/footer.html has bound its credit line to since the line
