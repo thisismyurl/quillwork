@@ -71,6 +71,13 @@ jobs:
             exit 1
           fi
 
+      - name: Install svn
+        # ubuntu-latest does not ship the svn CLI. Every step below that
+        # touches themes.svn.wordpress.org needs it, starting with the very
+        # next one, so this has to run before the first svn call, not just
+        # before the publish step.
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq subversion
+
       - name: Refuse if this version is already published
         run: |
           # SVN commits cannot be overwritten. Re-publishing an existing tag is the

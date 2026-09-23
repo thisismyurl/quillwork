@@ -62,6 +62,9 @@ jobs:
           done
           echo "All 4 expected asset files present."
 
+      - name: Install svn
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq subversion
+
       - name: Publish assets/ to SVN
         env:
           SVN_USERNAME: ${{ secrets.WPORG_SVN_USERNAME }}
