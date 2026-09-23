@@ -92,21 +92,33 @@ category in the block inserter:
 == Changelog ==
 
 = 1.6265.1630 =
-Synced two fixes from Colophon core (1.6265.1620), found during independent
-wp-expert reviews of Kerf and Halyard, since this theme was still running
-the pre-fix core:
-
-* inc/bindings.php now registers the {slug}/footer-credit block-bindings
+* Fixed a rendering bug: theme.json and several patterns referenced
+  --wp--preset--font-size--2xl/--3xl directly, but WordPress kebab-cases
+  that to --2-xl/--3-xl when it emits the custom property, so affected
+  headings were silently falling back to body size. Corrected throughout.
+* Fixed a fatal-error risk: inc/cli.php was required unconditionally under
+  WP_CLI with no file_exists() guard, and was not excluded from the
+  distribution package, so any wp-cli command against a live install could
+  fatal. The file is now excluded from the package and the require is
+  guarded.
+* inc/bindings.php now registers the quillwork/footer-credit block-bindings
   source that parts/footer.html has bound its credit line to since the line
-  existed. The source was never registered anywhere in the collection, so
-  the credit rendered as an empty paragraph in every footer. functions.php
-  also gained the file_exists() guard on the WP-CLI require that a separate
-  regression had dropped.
-* theme.json's h1/h2 styles had the same --2xl/--3xl kebab-case bug described above. Corrected.
+  existed. The source was never registered, so the credit rendered as an
+  empty paragraph in every footer.
 * settings.typography.defaultFontSizes and
-  settings.spacing.defaultSpacingSizes set to false, matching the rest of the
-  collection, so the editor's own auto-generated presets stop merging with
-  this theme's own curated set.
+  settings.spacing.defaultSpacingSizes set to false, so the editor's own
+  auto-generated presets stop merging with this theme's own curated set.
+* Internal PHP in inc/bootstrap.php, inc/setup.php, inc/assets.php,
+  inc/bindings.php and inc/admin.php now uses a flat function prefix
+  instead of namespace declarations, matching the pattern WordPress.org
+  theme review actually approved on this line (a namespace is accepted
+  only at the class level). No design-facing change.
+* Removed the bundled self-updater (inc/github-updater.php). Core dropped
+  it collection-wide; a theme on WordPress.org must not update itself
+  outside the directory.
+* SECURITY.md, CODE_OF_CONDUCT.md and CONTRIBUTING.md are excluded from
+  the distribution package. They belong on GitHub, not in the installed
+  theme.
 
 = 1.6152.0832 =
 * Added GPL copyright notice to style.css for Theme Check compliance.
