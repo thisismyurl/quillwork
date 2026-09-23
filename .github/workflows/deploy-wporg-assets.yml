@@ -1,0 +1,96 @@
+# Deploy Quillwork's WordPress.org directory listing assets (banner + icon).
+#
+# This is a different SVN path from deploy-wporg.yml: assets/ holds the banner
+# and icon shown on the directory listing and in search results, not a
+# version of the theme itself. Unlike a version tag, assets/ CAN be
+# overwritten — a re-run replaces what is there rather than failing on an
+# already-exists check — but it is still a real, immediate, public change to
+# the live listing, so it stays MANUAL ONLY and behind the same credential
+# gate as a theme release.
+#
+# Source files live in .wporg-assets/ in this repo (excluded from the theme
+# zip via .distignore) and are copied verbatim to
+# https://themes.svn.wordpress.org/quillwork/assets/.
+#
+# Credentials come from the `wordpress-org` environment (WPORG_SVN_USERNAME,
+# WPORG_SVN_PASSWORD), which requires a reviewer's approval before the job runs.
+
+name: Deploy WordPress.org listing assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch or SHA to deploy .wporg-assets/ from."
+        required: true
+        default: "main"
+        type: string
+      confirm:
+        description: 'Type "deploy assets" to confirm you want to overwrite the live WordPress.org listing banner/icon.'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Publish assets/ to themes.svn.wordpress.org
+    runs-on: ubuntu-latest
+    environment: wordpress-org
+
+    steps:
+      - name: Refuse unless explicitly confirmed
+        run: |
+          if [ "${{ inputs.confirm }}" != "deploy assets" ]; then
+            echo "::error::Type 'deploy assets' exactly to confirm. Got: '${{ inputs.confirm }}'"
+            exit 1
+          fi
+
+      - name: Check out the requested ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Confirm the expected asset files are present
+        run: |
+          for f in banner-1544x500.png banner-772x250.png icon-256x256.png icon-128x128.png; do
+            if [ ! -f ".wporg-assets/$f" ]; then
+              echo "::error::.wporg-assets/$f is missing."
+              exit 1
+            fi
+          done
+          echo "All 4 expected asset files present."
+
+      - name: Publish assets/ to SVN
+        env:
+          SVN_USERNAME: ${{ secrets.WPORG_SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.WPORG_SVN_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          svn co --depth=empty "https://themes.svn.wordpress.org/quillwork/" svn \
+            --non-interactive --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+          cd svn
+
+          # assets/ may not exist yet (first-ever asset push for this theme) or may
+          # already exist from a prior run. Handle both: pull it down if it's there,
+          # create+schedule it for addition if it isn't.
+          if svn ls "https://themes.svn.wordpress.org/quillwork/assets/" \
+              --non-interactive --username "$SVN_USERNAME" --password "$SVN_PASSWORD" >/dev/null 2>&1; then
+            svn up --set-depth=infinity assets \
+              --non-interactive --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+          else
+            mkdir assets
+            svn add assets --depth=empty
+          fi
+
+          for f in banner-1544x500.png banner-772x250.png icon-256x256.png icon-128x128.png; do
+            cp "../.wporg-assets/$f" "assets/$f"
+          done
+
+          # --force adds new files and leaves already-versioned ones alone, so this
+          # is safe whether assets/ was just created or already had prior content.
+          svn add assets/*.png --force
+          svn ci -m "Update Quillwork directory listing assets (banner, icon)" \
+            --non-interactive --username "$SVN_USERNAME" --password "$SVN_PASSWORD"

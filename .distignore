@@ -35,3 +35,8 @@ tools
 # WP-CLI too, not just on the front end.
 inc/cli.php
 inc/github-updater.php
+
+# WordPress.org directory listing assets (banner/icon) — pushed to the SVN
+# assets/ path by .github/workflows/deploy-wporg-assets.yml, never bundled
+# into the installed theme itself
+.wporg-assets/
