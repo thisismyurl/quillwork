@@ -79,13 +79,13 @@ Four hooks isn't many, and that's deliberate. I added the ones a real integrator
 
 Quillwork leaves a small credit in your footer. I'd be glad if you kept it, and I've made it genuinely easy to remove, because a credit you're forced to keep isn't a thank-you, it's a tax.
 
-Two clicks does it: open the Site Editor, edit the footer template part, delete the line. No code, no setting that re-enables itself on the next update, no hard feelings. Or if you're working in code, return an empty string from `quillwork/footer_credit`. A credit that's easy to remove is the one people actually leave up — and either way, the theme is yours now.
+Two clicks does it: open the Site Editor, edit the footer template part, delete the line. No code, no setting that re-enables itself on the next update, no hard feelings. Or if you're working in code, return an empty string from `quillwork/footer_credit_text`. A credit that's easy to remove is the one people actually leave up — and either way, the theme is yours now.
 
 ## Who made this, and why you can build on it
 
 I'm Christopher Ross. I've been building the web since 1996 and working in WordPress since 2007. Along the way I've shipped 19 plugins to the WordPress.org repository and spoken at more than 18 WordCamps, which mostly means I've made a lot of the mistakes this architecture is designed to keep you from making. Earlier I was a senior web developer at Corel and a director of technology at Yorkville. These days I lead a training centre, and the teaching is the part of the work I love most.
 
-I tell you this not to pad the page but because it's the honest answer to a fair question: *why trust this core enough to build on it?* The answer is that you don't have to take my word for any of it. Quillwork is built to the WordPress.org Theme Review standard, it passes the Theme Check plugin clean, and it meets WCAG 2.2 AA — and every one of those claims is auditable against the code sitting right next to this guide. Don't trust the architecture because I described it well. Read it.
+I tell you this not to pad the page but because it's the honest answer to a fair question: *why trust this core enough to build on it?* The answer is that you don't have to take my word for any of it. Quillwork is built against the WordPress.org Theme Review requirements, and you can check how against the code sitting right next to this guide. Don't trust the architecture because I described it well. Read it.
 
 ## Go build something
 

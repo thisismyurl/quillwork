@@ -21,3 +21,6 @@ preview/             export-ignore
 *.css     diff=css
 *.php     diff=php
 *.json    diff=json
+tools/               export-ignore
+.wporg-assets/       export-ignore
+inc/cli.php          export-ignore

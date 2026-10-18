@@ -67,8 +67,8 @@ Then activate via Appearance → Themes. Note: cloning `main` gives you the deve
 
 ## What you get
 
-- WCAG 2.2 AA accessibility — skip link, visible focus rings, reduced-motion support, ARIA patterns — cleared by a defensible margin, not just passing a checker
-- Core Web Vitals discipline — no render-blocking scripts, no layout shift from late-loading fonts, no third-party connections
+- Accessibility-minded — skip link, visible focus rings, reduced-motion support
+- Light on the front end — no render-blocking scripts, self-hosted fonts, no third-party connections
 - Zero front-end JavaScript — none
 - Full RTL support via CSS logical properties
 - Full-site editor ready — edit headers, footers, and templates without touching code

@@ -119,8 +119,8 @@ jobs:
           # Mirrors .distignore. The deploy action honours it, but a theme is
           # rejected (or worse, ships a self-updater) if this is ever wrong, so it
           # is asserted here rather than assumed.
-          for f in inc/github-updater.php inc/cli.php colophon.json PILLARS.md; do
-            if [ -f "$f" ] && ! grep -qxF "$f" .distignore; then
+          for f in inc/github-updater.php inc/cli.php colophon.json PILLARS.md preview tools; do
+            if [ -e "$f" ] && ! grep -qxF "$f" .distignore; then
               echo "::error::$f exists but is not listed in .distignore — it would be published."
               exit 1
             fi
@@ -158,7 +158,7 @@ jobs:
           # Assert on the built tree, not on the source. This is the last point at
           # which a self-updater or dev tooling can be caught before an
           # unoverwritable commit.
-          for f in inc/github-updater.php inc/cli.php colophon.json PILLARS.md; do
+          for f in inc/github-updater.php inc/cli.php colophon.json PILLARS.md preview tools; do
             if [ -e "svn/$VERSION/$f" ]; then
               echo "::error::$f made it into the build. Refusing to publish."
               exit 1

@@ -30,6 +30,7 @@ colophon
 colophon.json
 colophon.manifest.json
 tools
+preview
 
 # CLI-only dev tooling and the GitHub self-updater — functions.php guards
 # each require with file_exists() so excluding them here is safe under

@@ -1,12 +1,10 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.8/theme.json",
 	"version": 3,
-	"_comment_architecture": "[CORE] The top-level keys, settings shape, templateParts and customTemplates skeleton are the portable structure — a sibling theme keeps this scaffold. [SKIN] The VALUES inside color/typography/spacing/styles are Quillwork's design and are re-authored per theme. Boundary is marked at each section.",
 	"settings": {
 		"appearanceTools": true,
 		"useRootPaddingAwareAlignments": true,
 		"color": {
-			"_comment": "[SKIN] Quillwork palette — deep teal / warm ochre / coral on cream. defaultPalette off so the editor offers only the theme's tokens.",
 			"defaultPalette": false,
 			"defaultGradients": false,
 			"defaultDuotone": false,
@@ -75,7 +73,6 @@
 			"gradients": []
 		},
 		"typography": {
-			"_comment": "[SKIN] Cormorant Garamond (display, light + italic), Newsreader (body, light + italic), DM Sans (UI/eyebrows). All SIL OFL 1.1, self-hosted under assets/fonts/. fontFamily stacks carry Georgia/system fallbacks per the CORE font strategy (ARCHITECTURE.md §5).",
 			"fluid": true,
 			"customFontSize": false,
 			"defaultFontSizes": false,
@@ -232,7 +229,6 @@
 			]
 		},
 		"spacing": {
-			"_comment": "[CORE] structure — [SKIN] values. A linear step scale; bands use the large steps for the source design's generous whitespace.",
 			"customSpacingSize": false,
 			"defaultSpacingSizes": false,
 			"spacingSizes": [
@@ -294,7 +290,6 @@
 			]
 		},
 		"layout": {
-			"_comment": "[CORE structure / SKIN values] contentSize = literary reading measure; wideSize mirrors --qw-full-max in style.css.",
 			"contentSize": "720px",
 			"wideSize": "1280px"
 		},
@@ -331,20 +326,16 @@
 				}
 			]
 		},
-		"useRootPaddingAwareAlignments_comment": "true above; root padding set in styles.spacing.padding",
 		"blocks": {
 			"core/button": {
 				"border": {
 					"radius": false
 				}
 			},
-			"core/post-featured-image": {
-				"allowResize": false
-			}
+			"core/post-featured-image": {}
 		}
 	},
 	"styles": {
-		"_comment": "[SKIN] All of styles is Quillwork's design expression. A sibling theme replaces this whole block.",
 		"color": {
 			"background": "var(--wp--preset--color--cream)",
 			"text": "var(--wp--preset--color--ink-primary)"
@@ -358,8 +349,8 @@
 		"spacing": {
 			"blockGap": "var(--wp--preset--spacing--6)",
 			"padding": {
-				"start": "var(--wp--preset--spacing--5)",
-				"end": "var(--wp--preset--spacing--5)"
+				"left": "var(--wp--preset--spacing--5)",
+				"right": "var(--wp--preset--spacing--5)"
 			}
 		},
 		"elements": {
@@ -368,7 +359,6 @@
 					"fontFamily": "var(--wp--preset--font-family--cormorant)",
 					"fontSize": "var(--wp--preset--font-size--display)",
 					"fontWeight": "300",
-					"fontOpticalSizing": "auto",
 					"lineHeight": "1.1",
 					"letterSpacing": "-0.01em"
 				},
@@ -381,7 +371,6 @@
 					"fontFamily": "var(--wp--preset--font-family--cormorant)",
 					"fontSize": "var(--wp--preset--font-size--2-xl)",
 					"fontWeight": "600",
-					"fontOpticalSizing": "auto",
 					"lineHeight": "1.18"
 				},
 				"color": {
@@ -393,7 +382,6 @@
 					"fontFamily": "var(--wp--preset--font-family--cormorant)",
 					"fontSize": "var(--wp--preset--font-size--xl)",
 					"fontWeight": "600",
-					"fontOpticalSizing": "auto",
 					"lineHeight": "1.22"
 				},
 				"color": {

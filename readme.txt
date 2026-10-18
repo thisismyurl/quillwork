@@ -3,10 +3,10 @@ Contributors: thisismyurl
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.6291
+Stable tag: 1.6291.1554
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, translation-ready, wide-blocks, sticky-post, threaded-comments
+Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, wide-blocks, threaded-comments
 
 Quillwork WordPress Theme, Copyright 2026 Christopher Ross
 Quillwork is distributed under the terms of the GNU GPL v2 or later.
@@ -40,15 +40,15 @@ nothing breaks when a plugin is deactivated, and there is no lock-in.
 == Key features ==
 
 * Full-site editing — every template and template part editable in the Site Editor.
-* Five block patterns translating a complete writer-portfolio home page (see below).
+* Six block patterns translating a complete writer-portfolio home page (see below).
 * Four custom block styles — Eyebrow, Service Card, Stat Block, and Highlight.
 * Built on WordPress core blocks only — zero plugin dependencies.
-* WCAG 2.2 AA accessibility — skip link, visible focus, semantic heading order, sufficient colour contrast.
-* Core Web Vitals optimised — self-hosted fonts with `font-display: swap`, no render-blocking third-party requests, no front-end JavaScript framework.
+* Accessibility-minded — skip link, visible focus outlines, semantic heading order.
+* Light on the front end — self-hosted fonts with `font-display: swap`, no third-party requests, no front-end JavaScript framework.
 * Self-hosted fonts under the SIL Open Font License 1.1 — no calls to Google Fonts, no third-party connections.
 * Fluid typography and spacing scales that adapt from mobile to desktop without breakpoints.
 * RTL-ready through CSS logical properties throughout.
-* Translation-ready — every user-facing string is internationalised against the `quillwork` text domain.
+* Translatable — PHP and pattern strings use the `quillwork` text domain; some template headings are plain text you can edit in the Site Editor.
 * Decorative motion (the hero's floating accents) honours `prefers-reduced-motion`.
 
 == Installation ==
@@ -89,7 +89,20 @@ category in the block inserter:
 * About + Stats — Two Column (`quillwork/about-stats`): editorial copy with a coral-bordered pull-quote highlight beside a 2x2 grid of stat cards.
 * Contact — Centred CTA (`quillwork/contact`): a centred band with a heading, subtitle, email and location methods, and a single primary call to action.
 
+== Upgrade Notice ==
+
+= 1.6291.1554 =
+Redesign compared with 1.6165.1300: five style variations, two templates, one template part and five patterns are removed. Check your site on a staging copy before updating if you use any of them.
+
 == Changelog ==
+
+= 1.6291.1554 =
+* Pre-release review fixes. The preview/ folder (4 MB of screenshots and pages that loaded Google Fonts) is now explicitly excluded from the theme package. The 404 "Back to home" button now uses the site's home URL instead of a fixed "/", so it works on subdirectory installs. Side padding on the page root and footer used keys WordPress ignores (start/end); it now uses left/right.
+* theme.json now validates against the WordPress schema. Non-schema comment keys and two unsupported settings were removed; the notes are in ARCHITECTURE.md.
+* Corrected tags and claims. The sticky-post and translation-ready tags are removed because neither is fully implemented, and the unmeasured WCAG 2.2 AA and Core Web Vitals claims are gone.
+* Theme URI and footer credit links now point to themes.thisismyurl.com.
+* Compared with 1.6165.1300, the version previously on WordPress.org, this release is a redesign, not a patch. Removed: the page-blank and search templates, the post-meta template part, the five style variations (Hazel, Minimal, Nightfall, Parchment, Studio Dark), and the main-navigation, service-grid, services-cta, studio-footer and studio-hero patterns. Added: the about-stats, contact, front-page, hero, services and testimonials patterns. Pages assigned the page-blank template will use the default page template until you pick another.
+* 1.6291 changes (fixed invalid block markup in the Site Editor) are included.
 
 = 1.6291 =
 * Fixed "Block contains unexpected or invalid content" in the Site Editor. Some templates, template parts and patterns held hand-written block markup that did not match what the block would save, so the editor flagged those blocks as invalid and offered to recover them. All block markup in this theme now matches the editor's own output.

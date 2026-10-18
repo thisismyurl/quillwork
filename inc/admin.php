@@ -253,13 +253,13 @@ function quillwork_get_started_content(): array {
 			),
 		),
 		'optimize'   => array(
-			esc_html__( "This theme is fast by design: reading is JavaScript-free (only the breaking-news dismiss control ships a small script), self-hosted fonts that don't phone home, and tuning against the Core Web Vitals search engines actually measure.", 'quillwork' ),
-			esc_html__( 'It is built to WCAG 2.2 AA guidance — real focus outlines, a skip link, sensible heading order, and motion that respects a reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming.', 'quillwork' ),
+			esc_html__( "This theme is light by design: reading is JavaScript-free, and the fonts are self-hosted so nothing phones home.", 'quillwork' ),
+			esc_html__( 'It has real focus outlines, a skip link, sensible heading order, and motion that respects a reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming.', 'quillwork' ),
 		),
 		'developers' => array(
 			/* translators: %s: linked developer-guide anchor. */
 			'text'  => __( 'This theme is built on Colophon, a small documented core meant to be reused. The %s walks through how to build your own theme on it.', 'quillwork' ),
-			'url'   => apply_filters( QUILLWORK_SLUG . '/developer_guide_url', 'https://thisismyurl.com/quillwork/' ), // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+			'url'   => apply_filters( QUILLWORK_SLUG . '/developer_guide_url', 'https://themes.thisismyurl.com/quillwork/' ), // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 			'label' => __( 'developer guide', 'quillwork' ),
 		),
 	);

@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Quillwork 1.0.0\n"
+"Project-Id-Version: Quillwork 1.6291.1554\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/quillwork\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-26T21:08:42+00:00\n"
+"POT-Creation-Date: 2026-10-18T16:02:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: quillwork\n"
@@ -21,12 +21,12 @@ msgstr ""
 
 #. Theme URI of the theme
 #: style.css
-msgid "https://thisismyurl.com/themes/quillwork"
+msgid "https://themes.thisismyurl.com/quillwork/"
 msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "An elegant, literary full-site-editing theme for writers, editors, and personal brands. Light Cormorant Garamond display headlines with italic accents, a calm Newsreader reading column, deep-teal and warm-ochre palette on a cream ground, numbered service cards, and gentle float accents that respect reduced-motion. Zero plugin dependencies, WCAG 2.2 AA accessible, Core Web Vitals optimised, self-hosted OFL fonts, RTL-ready via CSS logical properties."
+msgid "An elegant, literary full-site-editing theme for writers, editors, and personal brands. Light Cormorant Garamond display headlines with italic accents, a calm Newsreader reading column, deep-teal and warm-ochre palette on a cream ground, numbered service cards, and gentle float accents that respect reduced-motion. Zero plugin dependencies, self-hosted OFL fonts, RTL-ready via CSS logical properties."
 msgstr ""
 
 #. Author of the theme
@@ -36,71 +36,280 @@ msgstr ""
 
 #. Author URI of the theme
 #: style.css
-msgid "https://thisismyurl.com"
+msgid "https://thisismyurl.com/"
 msgstr ""
 
-#: inc/bindings.php:41
+#. translators: %s: theme name.
+#: inc/admin.php:70
+#: inc/admin.php:313
+#, php-format
+msgid "%s: Get started"
+msgstr ""
+
+#. translators: %s: theme name.
+#: inc/admin.php:170
+#, php-format
+msgid "Welcome to %s."
+msgstr ""
+
+#: inc/admin.php:173
+msgid "Thanks for giving it a home. A few small steps will have your site reading the way it should."
+msgstr ""
+
+#. translators: %s: theme name.
+#: inc/admin.php:179
+#, php-format
+msgid "Set up %s →"
+msgstr ""
+
+#: inc/admin.php:183
+msgid "Dismiss"
+msgstr ""
+
+#: inc/admin.php:199
+msgid "You do not have permission to do that."
+msgstr ""
+
+#. translators: %s: theme name.
+#: inc/admin.php:225
+#, php-format
+msgid "%s is a free, full-site-editing theme built to get out of the way of your content. Here is how to make it yours."
+msgstr ""
+
+#: inc/admin.php:239
+#: inc/skin.php:140
+msgid "Choose what people land on."
+msgstr ""
+
+#: inc/admin.php:240
+msgid "A visitor's first second decides whether they stay. Set a static front page under Settings → Reading, and give your posts a page of their own."
+msgstr ""
+
+#: inc/admin.php:243
+#: inc/skin.php:148
+msgid "Give people a way around."
+msgstr ""
+
+#: inc/admin.php:244
+msgid "A site without a menu is a room without doors. Open the Site Editor, edit the header, and assign your menu to Primary Navigation."
+msgstr ""
+
+#: inc/admin.php:247
+msgid "Start from a pattern, not a blank page."
+msgstr ""
+
+#: inc/admin.php:248
+msgid "In any page or post, open the block inserter, choose Patterns, and find this theme's group. Drop one in and change the words."
+msgstr ""
+
+#: inc/admin.php:251
+#: inc/skin.php:164
+msgid "Make it sound like you."
+msgstr ""
+
+#: inc/admin.php:252
+msgid "In the Site Editor, open Styles to change colours and typefaces. Nothing you do there can break the theme — experiment freely."
+msgstr ""
+
+#: inc/admin.php:256
+msgid "This theme is light by design: reading is JavaScript-free, and the fonts are self-hosted so nothing phones home."
+msgstr ""
+
+#: inc/admin.php:257
+msgid "It has real focus outlines, a skip link, sensible heading order, and motion that respects a reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming."
+msgstr ""
+
+#. translators: %s: linked developer-guide anchor.
+#: inc/admin.php:261
+#, php-format
+msgid "This theme is built on Colophon, a small documented core meant to be reused. The %s walks through how to build your own theme on it."
+msgstr ""
+
+#: inc/admin.php:263
+msgid "developer guide"
+msgstr ""
+
+#: inc/admin.php:322
+msgid "Set up"
+msgstr ""
+
+#: inc/admin.php:334
+msgid "Optimize"
+msgstr ""
+
+#: inc/admin.php:341
+msgid "For developers"
+msgstr ""
+
+#: inc/bindings.php:38
 msgid "Copyright line"
 msgstr ""
 
-#: inc/bindings.php:50
-msgid "Footer credit line"
+#: inc/bindings.php:47
+msgid "Theme strings"
+msgstr ""
+
+#: inc/bindings.php:56
+msgid "Publication date"
+msgstr ""
+
+#: inc/bindings.php:65
+msgid "Footer credit"
+msgstr ""
+
+#: inc/bindings.php:86
+msgid "Breaking"
+msgstr ""
+
+#: inc/bindings.php:88
+msgid "Back to the front page"
+msgstr ""
+
+#: inc/bindings.php:92
+msgid "Page not found"
+msgstr ""
+
+#: inc/bindings.php:95
+msgid "Latest news"
 msgstr ""
 
 #. translators: 1: four-digit year, 2: site title.
-#: inc/bindings.php:69
+#: inc/bindings.php:125
 #, php-format
 msgid "© %1$s %2$s. All rights reserved."
 msgstr ""
 
-#. translators: %s: linked theme name ("Quillwork").
-#: inc/bindings.php:102
+#. translators: %s: linked or plain theme name.
+#: inc/bindings.php:188
 #, php-format
-msgid "Built with the %s theme."
+msgid "Built with %s."
 msgstr ""
 
-#: inc/blocks.php:30
-msgid "Eyebrow"
-msgstr ""
-
-#: inc/blocks.php:39
-msgid "Service Card"
-msgstr ""
-
-#: inc/blocks.php:48
-msgid "Stat Block"
-msgstr ""
-
-#: inc/blocks.php:57
-msgid "Highlight"
-msgstr ""
-
-#: inc/blocks.php:74
-msgid "Quillwork: Pages"
-msgstr ""
-
-#: inc/blocks.php:75
-msgid "Full-page layout patterns for the editorial home and about pages."
-msgstr ""
-
-#: inc/blocks.php:82
-msgid "Quillwork: Sections"
-msgstr ""
-
-#: inc/blocks.php:83
-msgid "Hero, services, testimonials, and contact section patterns."
-msgstr ""
-
-#: inc/setup.php:50
+#: inc/setup.php:73
 msgid "Primary Navigation"
 msgstr ""
 
-#: inc/setup.php:51
+#: inc/setup.php:74
 msgid "Footer Navigation"
 msgstr ""
 
-#: inc/setup.php:163
-msgid "Skip to content"
+#: inc/skin.php:60
+msgid "Eyebrow"
+msgstr ""
+
+#: inc/skin.php:69
+msgid "Service Card"
+msgstr ""
+
+#: inc/skin.php:78
+msgid "Stat Block"
+msgstr ""
+
+#: inc/skin.php:87
+msgid "Highlight"
+msgstr ""
+
+#: inc/skin.php:105
+msgid "Quillwork: Pages"
+msgstr ""
+
+#: inc/skin.php:106
+msgid "Full-page layout patterns for the editorial home and about pages."
+msgstr ""
+
+#: inc/skin.php:113
+msgid "Quillwork: Sections"
+msgstr ""
+
+#: inc/skin.php:114
+msgid "Hero, services, testimonials, and contact section patterns."
+msgstr ""
+
+#: inc/skin.php:132
+msgid "Quillwork is a quiet, literary theme for people whose work is words — writers, editors, and anyone building a personal brand around what they have to say. I built it to get out of the way: a calm reading column, type that breathes, and nothing on the page fighting your sentences. It's given freely, in the hope it earns you a few more readers. Here's how to make it yours."
+msgstr ""
+
+#. translators: %s: linked "Settings → Reading" admin screen.
+#: inc/skin.php:143
+#, php-format
+msgid "A visitor's first second decides whether they stay. If you have a piece you're proud of, or a short introduction to who you are, send them there first. Set a static front page under %s, and point your posts page somewhere of its own."
+msgstr ""
+
+#: inc/skin.php:144
+msgid "Settings → Reading"
+msgstr ""
+
+#. translators: %s: linked "Site Editor" admin screen.
+#: inc/skin.php:151
+#, php-format
+msgid "A site without a menu is a room without doors. Open the %s, edit the header, and assign your menu to Primary Navigation so readers can find the rest of your work."
+msgstr ""
+
+#: inc/skin.php:152
+#: inc/skin.php:189
+msgid "Site Editor"
+msgstr ""
+
+#: inc/skin.php:156
+msgid "Start from a good page, not a blank one."
+msgstr ""
+
+#. translators: %s: linked "new page" admin screen.
+#: inc/skin.php:159
+#, php-format
+msgid "A blank page is the hardest place to begin. Quillwork ships with patterns — pre-built sections you can drop in and edit. %s, click the block inserter, open Patterns, and look for the Quillwork group. Start there and change the words."
+msgstr ""
+
+#: inc/skin.php:160
+msgid "Start a new page"
+msgstr ""
+
+#. translators: %s: linked "Site Editor → Styles" admin screen.
+#: inc/skin.php:167
+#, php-format
+msgid "The default palette and fonts are a starting point, not a verdict. In the Site Editor, open %s to change colours and typefaces until the site feels like your voice and not mine. Nothing you do here can break the theme — it's a safe place to experiment."
+msgstr ""
+
+#: inc/skin.php:168
+msgid "Styles"
+msgstr ""
+
+#: inc/skin.php:172
+msgid "Add featured images so the card grids sing."
+msgstr ""
+
+#. translators: %s: linked "Posts" admin screen.
+#: inc/skin.php:175
+#, php-format
+msgid "Quillwork lays your posts out as cards, and a card without an image is a card with a hole in it. Add a featured image to each of %s — even a simple, calm one — and the grids come to life."
+msgstr ""
+
+#: inc/skin.php:176
+msgid "your posts"
+msgstr ""
+
+#: inc/skin.php:182
+msgid "Here's the honest part: Quillwork is already fast, and that's by design, not by accident. It ships zero JavaScript, hosts its own fonts so nothing phones home to Google. You don't have to do anything to get that."
+msgstr ""
+
+#: inc/skin.php:183
+msgid "To keep it that way: be gentle with plugins that add scripts to every page, size your images before you upload them, and resist the urge to bolt on a page builder — the theme is the layout. On accessibility, Quillwork gives you real focus outlines, a skip link, sensible heading order, and motion that respects a visitor's reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming to everyone."
+msgstr ""
+
+#. translators: %s: linked "Site Editor" admin screen.
+#: inc/skin.php:188
+#, php-format
+msgid "Quillwork leaves a small credit in your footer. It's a thank-you, not a tax — it helps people find the theme, which is the only payment I ask. If it doesn't suit your site, remove it in two clicks: open the %s, edit the Footer, and delete the line. Developers can filter quillwork/footer_credit_text instead. No hard feelings either way."
+msgstr ""
+
+#. translators: %s: linked "build-on-Quillwork guide" anchor.
+#: inc/skin.php:194
+#, php-format
+msgid "Quillwork is built on a small, documented core meant to be reused. If you want to build your own theme on top of it, the %s walks through how."
+msgstr ""
+
+#: inc/skin.php:196
+msgid "build-on-Quillwork guide"
 msgstr ""
 
 #: patterns/about-stats.php
@@ -114,35 +323,35 @@ msgid "A two-column section pairing an editorial bio with a coral-bordered pull-
 msgstr ""
 
 #: patterns/about-stats.php:30
-msgid "Based in your region, serving clients everywhere"
+msgid "Based in your city, published everywhere"
 msgstr ""
 
 #: patterns/about-stats.php:34
-msgid "With a working knowledge of many industries and audiences, I bring clarity and craft to every project. Whether you are a new business finding your voice or an established one refining its message, the writing aligns with your goals."
+msgid "I write personal essays, cultural criticism, and narrative nonfiction for literary journals, magazines, and independent publications. The work moves between memoir, place, and ideas."
 msgstr ""
 
 #: patterns/about-stats.php:38
-msgid "The approach pairs strategy with careful editing. Every piece is researched, revised, and shaped to serve both your objectives and your reader."
+msgid "Every piece is researched, revised, and shaped to do what only prose can — hold an experience still long enough for a reader to enter it. Add your own bio in the Site Editor."
 msgstr ""
 
 #: patterns/about-stats.php:44
-msgid "Great content is not only keywords and conversions. It is the genuine connection that builds a lasting relationship with your audience."
+msgid "The essay is the form that lets you think out loud in public — which is the whole point of writing anything."
 msgstr ""
 
 #: patterns/about-stats.php:62
-msgid "Projects completed"
+msgid "Essays published"
 msgstr ""
 
 #: patterns/about-stats.php:73
-msgid "Happy clients"
+msgid "Publications"
 msgstr ""
 
 #: patterns/about-stats.php:84
-msgid "Industries served"
+msgid "Years writing"
 msgstr ""
 
 #: patterns/about-stats.php:95
-msgid "Client satisfaction"
+msgid "Independent"
 msgstr ""
 
 #: patterns/contact.php
@@ -160,7 +369,7 @@ msgid "Let’s create something worth reading"
 msgstr ""
 
 #: patterns/contact.php:28
-msgid "Ready to sharpen your content? Get in touch to talk through the project and where words can do the most good."
+msgid "For commissions, editing inquiries, workshop bookings, or just a conversation about the work — get in touch."
 msgstr ""
 
 #: patterns/contact.php:37
@@ -180,7 +389,7 @@ msgid "Your Region"
 msgstr ""
 
 #: patterns/contact.php:57
-msgid "Working with clients everywhere"
+msgid "Available for assignment worldwide"
 msgstr ""
 
 #: patterns/contact.php:68
@@ -208,19 +417,19 @@ msgid "Full-bleed hero with a light Cormorant headline, an italic teal accent li
 msgstr ""
 
 #: patterns/hero.php:30
-msgid "Freelance Writer &middot; Your Region"
+msgid "Essayist &middot; Your City"
 msgstr ""
 
 #: patterns/hero.php:34
-msgid "Words that work."
+msgid "Ideas that stay."
 msgstr ""
 
 #: patterns/hero.php:34
-msgid "Content that converts."
+msgid "Essays worth returning to."
 msgstr ""
 
 #: patterns/hero.php:38
-msgid "Marketing copy, long-form editorial, technical writing, and search-friendly content built to be read. Clear on the first pass and worth a second."
+msgid "Personal essays, cultural criticism, and narrative nonfiction for publications that still believe in the sentence. Precise on the first pass and worth a second."
 msgstr ""
 
 #: patterns/hero.php:44
@@ -246,103 +455,103 @@ msgid "What I do"
 msgstr ""
 
 #: patterns/services.php:31
-msgid "Crafting content that elevates your brand"
+msgid "What I write"
 msgstr ""
 
 #: patterns/services.php:45
-msgid "Marketing content"
+msgid "Essays and criticism"
 msgstr ""
 
 #: patterns/services.php:48
-msgid "Persuasive copy that captures attention and prompts action. From landing pages to email campaigns, content that turns prospects into customers."
+msgid "Personal essays and cultural criticism for literary journals, magazines, and independent publications. Work that earns its space on the page."
 msgstr ""
 
 #: patterns/services.php:52
-msgid "Landing pages and web copy"
+msgid "Personal and lyric essays"
 msgstr ""
 
 #: patterns/services.php:53
-msgid "Email marketing campaigns"
+msgid "Cultural and book criticism"
 msgstr ""
 
 #: patterns/services.php:54
-msgid "Product descriptions"
+msgid "Literary memoir"
 msgstr ""
 
 #: patterns/services.php:55
-msgid "Brand messaging and voice"
+msgid "Magazine and journal commissions"
 msgstr ""
 
 #: patterns/services.php:67
-msgid "Blog and editorial"
+msgid "Narrative journalism"
 msgstr ""
 
 #: patterns/services.php:70
-msgid "Informative posts that establish your authority and connect with readers. Stories that inform, hold attention, and earn the return visit."
+msgid "Reported features, profiles, and longform nonfiction that take the subject seriously and trust the reader to stay."
 msgstr ""
 
 #: patterns/services.php:74
-msgid "Thought-leadership articles"
+msgid "Longform reported features"
 msgstr ""
 
 #: patterns/services.php:75
-msgid "Industry insights and analysis"
+msgid "Profiles and interviews"
 msgstr ""
 
 #: patterns/services.php:76
-msgid "Company news and updates"
+msgid "Travel and place writing"
 msgstr ""
 
 #: patterns/services.php:77
-msgid "Guest-post creation"
+msgid "Print and digital publications"
 msgstr ""
 
 #: patterns/services.php:89
-msgid "Technical writing"
+msgid "Editing and development"
 msgstr ""
 
 #: patterns/services.php:92
-msgid "Complex information made clear. Technical concepts translated into user guides, documentation, and white papers your audience can actually use."
+msgid "Close reading and structural editing for writers who need a careful second set of eyes before submission or publication."
 msgstr ""
 
 #: patterns/services.php:96
-msgid "User guides and documentation"
+msgid "Manuscript critique"
 msgstr ""
 
 #: patterns/services.php:97
-msgid "White papers and reports"
+msgid "Developmental and line editing"
 msgstr ""
 
 #: patterns/services.php:98
-msgid "Process documentation"
+msgid "Query letter review"
 msgstr ""
 
 #: patterns/services.php:99
-msgid "Case studies"
+msgid "Submission strategy"
 msgstr ""
 
 #: patterns/services.php:111
-msgid "Search-friendly content"
+msgid "Workshops and teaching"
 msgstr ""
 
 #: patterns/services.php:114
-msgid "Content that ranks and reads well. Strategic, keyword-aware writing that improves search visibility while keeping the prose worth a human read."
+msgid "Craft-focused workshops for writers at every stage — in universities, literary festivals, and online. The essay as a form worth mastering."
 msgstr ""
 
 #: patterns/services.php:118
-msgid "Keyword research and strategy"
+msgid "Essay craft workshops"
 msgstr ""
 
 #: patterns/services.php:119
-msgid "Optimised articles"
+msgid "Literary festival sessions"
 msgstr ""
 
 #: patterns/services.php:120
-msgid "Content-gap analysis"
+msgid "University guest lectures"
 msgstr ""
 
 #: patterns/services.php:121
-msgid "Meta descriptions and headlines"
+msgid "Online writing intensives"
 msgstr ""
 
 #: patterns/testimonials.php
@@ -356,41 +565,47 @@ msgid "A deep-teal section with three testimonial cards — a large ochre quote 
 msgstr ""
 
 #: patterns/testimonials.php:27
-msgid "Client feedback"
+msgid "What editors say"
 msgstr ""
 
 #: patterns/testimonials.php:31
-msgid "What clients say"
+msgid "Reader and editor responses"
 msgstr ""
 
 #: patterns/testimonials.php:42
-msgid "They rewrote our website from the ground up. Search rankings climbed within a season, and the writing finally sounds like us."
+msgid "The essay sits with you. It is not trying to convince you of anything — it is trying to think, and it brings you along. That is what good essayists do, and this is that."
 msgstr ""
 
 #: patterns/testimonials.php:47
-#: patterns/testimonials.php:65
-#: patterns/testimonials.php:83
-msgid "Sample client name"
+msgid "Sample editor name"
 msgstr ""
 
 #: patterns/testimonials.php:50
-msgid "Marketing director, sample company"
+msgid "Essays editor, sample journal"
 msgstr ""
 
 #: patterns/testimonials.php:60
-msgid "They understood our technical product on the first call and wrote documentation our users actually find helpful. Rare and welcome."
+msgid "Working with this writer on a manuscript draft was one of the most useful editorial experiences I have had. Sharp, honest, and genuinely interested in the work."
+msgstr ""
+
+#: patterns/testimonials.php:65
+msgid "Sample author name"
 msgstr ""
 
 #: patterns/testimonials.php:68
-msgid "Founder, sample company"
+msgid "Nonfiction writer"
 msgstr ""
 
 #: patterns/testimonials.php:78
-msgid "Our blog engagement has tripled since they took over the content calendar. Complex topics, made readable, on a steady cadence."
+msgid "The workshop was the best two days I have spent on the essay form. Structured without being prescriptive — the kind of teaching that gives you tools rather than rules."
+msgstr ""
+
+#: patterns/testimonials.php:83
+msgid "Sample participant name"
 msgstr ""
 
 #: patterns/testimonials.php:86
-msgid "Chief executive, sample company"
+msgid "Workshop participant"
 msgstr ""
 
 #: theme.json
@@ -451,11 +666,6 @@ msgstr ""
 #: theme.json
 msgctxt "Color name"
 msgid "Paper White"
-msgstr ""
-
-#: theme.json
-msgctxt "Gradient name"
-msgid "Teal Veil"
 msgstr ""
 
 #: theme.json

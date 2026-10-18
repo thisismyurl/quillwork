@@ -179,20 +179,20 @@ add_filter(
 		);
 
 		$default['optimize'] = array(
-			__( "Here's the honest part: Quillwork is already fast, and that's by design, not by accident. It ships zero JavaScript, hosts its own fonts so nothing phones home to Google, and is tuned against the Core Web Vitals that search engines actually measure. You don't have to do anything to get that.", 'quillwork' ),
-			__( "To keep it that way: be gentle with plugins that add scripts to every page, size your images before you upload them, and resist the urge to bolt on a page builder — the theme is the layout. On accessibility, Quillwork meets WCAG 2.2 AA: real focus outlines, a skip link, sensible heading order, and motion that respects a visitor's reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming to everyone.", 'quillwork' ),
+			__( "Here's the honest part: Quillwork is already fast, and that's by design, not by accident. It ships zero JavaScript, hosts its own fonts so nothing phones home to Google. You don't have to do anything to get that.", 'quillwork' ),
+			__( "To keep it that way: be gentle with plugins that add scripts to every page, size your images before you upload them, and resist the urge to bolt on a page builder — the theme is the layout. On accessibility, Quillwork gives you real focus outlines, a skip link, sensible heading order, and motion that respects a visitor's reduce-motion setting. Keep your own copy and images to that bar and the whole site stays welcoming to everyone.", 'quillwork' ),
 		);
 
 		$default['credit'] = sprintf(
 			/* translators: %s: linked "Site Editor" admin screen. */
-			__( "Quillwork leaves a small credit in your footer. It's a thank-you, not a tax — it helps people find the theme, which is the only payment I ask. If it doesn't suit your site, remove it in two clicks: open the %s, edit the Footer, and delete the line. Developers can filter quillwork/footer_credit instead. No hard feelings either way.", 'quillwork' ),
+			__( "Quillwork leaves a small credit in your footer. It's a thank-you, not a tax — it helps people find the theme, which is the only payment I ask. If it doesn't suit your site, remove it in two clicks: open the %s, edit the Footer, and delete the line. Developers can filter quillwork/footer_credit_text instead. No hard feelings either way.", 'quillwork' ),
 			'<a href="' . esc_url( admin_url( 'site-editor.php' ) ) . '">' . esc_html__( 'Site Editor', 'quillwork' ) . '</a>'
 		);
 
 		$default['developers'] = array(
 			/* translators: %s: linked "build-on-Quillwork guide" anchor. */
 			'text'  => __( 'Quillwork is built on a small, documented core meant to be reused. If you want to build your own theme on top of it, the %s walks through how.', 'quillwork' ),
-			'url'   => 'https://thisismyurl.com/quillwork/develop',
+			'url'   => 'https://github.com/thisismyurl/quillwork/blob/main/GUIDE.md',
 			'label' => __( 'build-on-Quillwork guide', 'quillwork' ),
 		);
 

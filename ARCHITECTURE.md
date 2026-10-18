@@ -262,3 +262,15 @@ enforces both. The rationale that used to sit in those comments lives here.
   frame. A static section heading always precedes the comment list and form, so
   the document outline never jumps from H1 to H3 when a post has no comments
   (`comments-title` only renders once at least one comment exists).
+
+## 9. theme.json design notes
+
+The notes below used to sit in theme.json as `_comment` keys. They are not part of the theme.json schema, so they live here instead.
+
+* **root** — [CORE] The top-level keys, settings shape, templateParts and customTemplates skeleton are the portable structure — a sibling theme keeps this scaffold. [SKIN] The VALUES inside color/typography/spacing/styles are Quillwork's design and are re-authored per theme. Boundary is marked at each section.
+* **/settings/color** — [SKIN] Quillwork palette — deep teal / warm ochre / coral on cream. defaultPalette off so the editor offers only the theme's tokens.
+* **/settings/typography** — [SKIN] Cormorant Garamond (display, light + italic), Newsreader (body, light + italic), DM Sans (UI/eyebrows). All SIL OFL 1.1, self-hosted under assets/fonts/. fontFamily stacks carry Georgia/system fallbacks per the CORE font strategy (ARCHITECTURE.md §5).
+* **/settings/spacing** — [CORE] structure — [SKIN] values. A linear step scale; bands use the large steps for the source design's generous whitespace.
+* **/settings/layout** — [CORE structure / SKIN values] contentSize = literary reading measure; wideSize mirrors --qw-full-max in style.css.
+* **/settings** — true above; root padding set in styles.spacing.padding
+* **/styles** — [SKIN] All of styles is Quillwork's design expression. A sibling theme replaces this whole block.
