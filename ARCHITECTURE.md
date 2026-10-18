@@ -242,3 +242,23 @@ that theme ships and must not be destabilised here:
 The newspaper theme is ~80% core-aligned already; the namespace + bootstrap
 split is the only structural gap. That is a low-risk follow-up, not a blocker.
 ```
+
+## 8. Template design notes
+
+Prose HTML comments must never appear inside block markup in `templates/`,
+`parts/` or `patterns/`. Core re-saves each block in the editor and compares
+the result with the stored markup; a comment inside a block's body makes that
+comparison fail and the editor reports "Block contains unexpected or invalid
+content" (the WordPress.org review of Colophon, ticket #292760). A loose
+comment above the first block is read as an unrecognised block, which the
+Theme Review Action reports as an incomplete template. `tools/check-templates.py`
+enforces both. The rationale that used to sit in those comments lives here.
+
+* **front-page.html:** the hero comes from the `quillwork/hero` pattern, so it
+  lives in exactly one place; editing `patterns/hero.php` updates every use.
+  Below it, the recent writing band is a calm card layout of the latest posts.
+* **single.html:** a teal-tint rule separates the byline from the content when
+  no featured image stands between them; with an image present it reads as a
+  frame. A static section heading always precedes the comment list and form, so
+  the document outline never jumps from H1 to H3 when a post has no comments
+  (`comments-title` only renders once at least one comment exists).
