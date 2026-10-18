@@ -3,7 +3,7 @@ Contributors: thisismyurl
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.6265.1630
+Stable tag: 1.6291
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, translation-ready, wide-blocks, sticky-post, threaded-comments
@@ -90,6 +90,11 @@ category in the block inserter:
 * Contact — Centred CTA (`quillwork/contact`): a centred band with a heading, subtitle, email and location methods, and a single primary call to action.
 
 == Changelog ==
+
+= 1.6291 =
+* Fixed "Block contains unexpected or invalid content" in the Site Editor. Some templates, template parts and patterns held hand-written block markup that did not match what the block would save, so the editor flagged those blocks as invalid and offered to recover them. All block markup in this theme now matches the editor's own output.
+* Removed stray HTML comments that sat between or inside blocks. The editor treats text outside a block as an unrecognised block, which is what WordPress.org's theme review check reports as an incomplete template.
+* No visual change.
 
 = 1.6265.1630 =
 * Fixed a rendering bug: theme.json and several patterns referenced

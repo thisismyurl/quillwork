@@ -1,49 +1,37 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"qw-main","metadata":{"name":"Main"},"layout":{"type":"default"}} -->
-<main id="main-content" class="wp-block-group qw-main">
+<!-- wp:group {"tagName":"main","anchor":"main-content","className":"qw-main","layout":{"type":"default"},"metadata":{"name":"Main"}} -->
+<main id="main-content" class="wp-block-group qw-main"><!-- wp:pattern {"slug":"quillwork/hero"} /-->
 
-	<!-- HERO — referenced from the quillwork/hero pattern so the hero lives in
-	     exactly one place; editing patterns/hero.php updates every use. -->
-	<!-- wp:pattern {"slug":"quillwork/hero"} /-->
+<!-- wp:group {"anchor":"work","className":"qw-section qw-section\u002d\u002dwhite","style":{"spacing":{"padding":{"top":"var:preset|spacing|16","bottom":"var:preset|spacing|16"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
+<div id="work" class="wp-block-group qw-section qw-section--white" style="padding-top:var(--wp--preset--spacing--16);padding-bottom:var(--wp--preset--spacing--16)"><!-- wp:paragraph {"className":"is-style-qw-eyebrow qw-eyebrow"} -->
+<p class="is-style-qw-eyebrow qw-eyebrow">Recent writing</p>
+<!-- /wp:paragraph -->
 
-	<!-- RECENT WRITING — a calm card band drawing the latest posts. -->
-	<!-- wp:group {"className":"qw-section qw-section--white","anchor":"work","layout":{"type":"constrained","contentSize":"1280px"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|16","bottom":"var:preset|spacing|16"}}}} -->
-	<div id="work" class="wp-block-group qw-section qw-section--white" style="padding-top:var(--wp--preset--spacing--16);padding-bottom:var(--wp--preset--spacing--16)">
+<!-- wp:heading {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|12"}}}} -->
+<h2 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--12)">Lately on the page</h2>
+<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"is-style-qw-eyebrow qw-eyebrow"} -->
-		<p class="is-style-qw-eyebrow qw-eyebrow">Recent writing</p>
-		<!-- /wp:paragraph -->
+<!-- wp:query {"queryId":1,"query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","inherit":false},"layout":{"type":"default"}} -->
+<div class="wp-block-query"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|8"}},"layout":{"type":"grid","minimumColumnWidth":"20rem"}} -->
+<!-- wp:group {"className":"qw-card","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group qw-card"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"3/2"} /-->
 
-		<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|12"}}}} -->
-		<h2 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--12)">Lately on the page</h2>
-		<!-- /wp:heading -->
+<!-- wp:post-terms {"term":"category"} /-->
 
-		<!-- wp:query {"queryId":1,"query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","inherit":false},"layout":{"type":"default"}} -->
-		<div class="wp-block-query">
-			<!-- wp:post-template {"layout":{"type":"grid","minimumColumnWidth":"20rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|8"}}} -->
-				<!-- wp:group {"className":"qw-card","layout":{"type":"default"},"style":{"spacing":{"blockGap":"var:preset|spacing|3"}}} -->
-				<div class="wp-block-group qw-card">
-					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"3/2"} /-->
-					<!-- wp:post-terms {"term":"category"} /-->
-					<!-- wp:post-title {"level":3,"isLink":true} /-->
-					<!-- wp:post-date /-->
-				</div>
-				<!-- /wp:group -->
-			<!-- /wp:post-template -->
+<!-- wp:post-title {"level":3,"isLink":true} /-->
 
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>No posts yet. The first words are on their way.</p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
-		</div>
-		<!-- /wp:query -->
+<!-- wp:post-date {} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
 
-	</div>
-	<!-- /wp:group -->
-
-</main>
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No posts yet. The first words are on their way.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></div>
+<!-- /wp:group --></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
