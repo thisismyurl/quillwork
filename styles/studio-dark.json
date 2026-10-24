@@ -97,6 +97,7 @@
           "text": "var(--wp--preset--color--ink-medium)"
         }
       }
-    }
+    },
+    "css": ":root:root{--qw-ink-bg:#0c1413;--qw-ink-fg:#ece8de;--qw-ink-accent:#d8a85a}"
   }
 }

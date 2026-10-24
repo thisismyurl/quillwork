@@ -17,7 +17,7 @@
         },
         {
           "slug": "ink-muted",
-          "color": "#9A9080",
+          "color": "#A89E8E",
           "name": "Ink Muted"
         },
         {
@@ -107,6 +107,7 @@
           "text": "var(--wp--preset--color--ink-medium)"
         }
       }
-    }
+    },
+    "css": ":root:root{--qw-ink-bg:#0b1710;--qw-ink-fg:#f0ebe0;--qw-ink-accent:#e8b460}"
   }
 }

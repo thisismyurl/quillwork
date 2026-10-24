@@ -322,3 +322,36 @@
 	.qw-text-center { text-align: center; }
 	.qw-no-motion   { animation: none !important; transition: none !important; }
 }
+
+/* =====================================================================
+   [SKIN] DARK BANDS — the footer and the .qw-section--ink bands
+   They read three role tokens (background, text, accent) instead of the
+   ink-deep / cream / ochre slugs directly. A style variation that flips the
+   palette (Nightfall, Studio Dark: light ink on a dark page) would otherwise
+   turn the band light and leave light text on it; those variations set the
+   tokens below to a dark band instead. Unlayered on purpose: theme.json's
+   link and text colours are unlayered and beat anything inside @layer, and
+   the footer's inline colours need !important to be overridden.
+   ===================================================================== */
+:root {
+	--qw-ink-bg:     var(--wp--preset--color--ink-deep, #0d3b3f);
+	--qw-ink-fg:     var(--wp--preset--color--cream, #faf8f5);
+	--qw-ink-accent: #e8b460;
+}
+.qw-section--ink {
+	background-color: var(--qw-ink-bg);
+	color: var(--qw-ink-fg);
+}
+.qw-footer h2,
+.qw-footer h3 { color: var(--qw-ink-accent) !important; }
+.qw-footer p,
+.qw-footer .wp-block-site-title,
+.qw-footer .wp-block-site-title a,
+.qw-footer .wp-block-navigation a,
+.qw-footer__bottom a { color: var(--qw-ink-fg) !important; }
+.qw-footer__bottom p { color: color-mix(in srgb, var(--qw-ink-fg) 82%, transparent) !important; }
+.qw-footer__bottom a { text-decoration: underline; }
+.qw-footer .wp-block-navigation a:hover,
+.qw-footer .wp-block-navigation a:focus { color: var(--qw-ink-accent) !important; }
+.qw-footer :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible,
+.qw-section--ink :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible { outline-color: var(--qw-ink-accent); }
