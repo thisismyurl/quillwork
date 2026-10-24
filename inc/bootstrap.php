@@ -44,7 +44,7 @@ define( 'QUILLWORK_SLUG', 'quillwork' );
  * Theme version — cache-bust for enqueued assets and the WordPress.org version.
  * Keep this in step with the Version header in style.css and Stable tag in readme.txt.
  */
-define( 'QUILLWORK_VERSION', '1.6291.1554' );
+define( 'QUILLWORK_VERSION', '1.6297.1224' );
 
 /**
  * Absolute filesystem path to the theme root (no trailing slash).

@@ -3,7 +3,7 @@ Contributors: thisismyurl
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.6291.1554
+Stable tag: 1.6297.1224
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, portfolio, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, wide-blocks, threaded-comments
@@ -91,18 +91,16 @@ category in the block inserter:
 
 == Upgrade Notice ==
 
-= 1.6291.1554 =
-Redesign compared with 1.6165.1300: five style variations, two templates, one template part and five patterns are removed. Check your site on a staging copy before updating if you use any of them.
+= 1.6297.1224 =
+Fixes the Site Editor invalid-block error and keeps all five style variations, the page-blank and search templates and the post-meta part. Five older patterns are replaced by six new ones.
 
 == Changelog ==
 
-= 1.6291.1554 =
-* Pre-release review fixes. The preview/ folder (4 MB of screenshots and pages that loaded Google Fonts) is now explicitly excluded from the theme package. The 404 "Back to home" button now uses the site's home URL instead of a fixed "/", so it works on subdirectory installs. Side padding on the page root and footer used keys WordPress ignores (start/end); it now uses left/right.
-* theme.json now validates against the WordPress schema. Non-schema comment keys and two unsupported settings were removed; the notes are in ARCHITECTURE.md.
-* Corrected tags and claims. The sticky-post and translation-ready tags are removed because neither is fully implemented, and the unmeasured WCAG 2.2 AA and Core Web Vitals claims are gone.
-* Theme URI and footer credit links now point to themes.thisismyurl.com.
-* Compared with 1.6165.1300, the version previously on WordPress.org, this release is a redesign, not a patch. Removed: the page-blank and search templates, the post-meta template part, the five style variations (Hazel, Minimal, Nightfall, Parchment, Studio Dark), and the main-navigation, service-grid, services-cta, studio-footer and studio-hero patterns. Added: the about-stats, contact, front-page, hero, services and testimonials patterns. Pages assigned the page-blank template will use the default page template until you pick another.
-* 1.6291 changes (fixed invalid block markup in the Site Editor) are included.
+= 1.6297.1224 =
+* The five style variations (Hazel, Minimal, Nightfall, Parchment and Studio Dark) are back. They were left out of the unreleased 1.6265 and 1.6291 builds; this release keeps them, so a site using one of them looks the same after updating. Each was checked against the current theme.json: it changes the page colours, text colour and fonts as before.
+* The page-blank and search templates and the post-meta template part are back as well, so pages assigned to the blank template keep it. Their markup is cleaned the same way as the rest of 1.6291 (no prose comments between blocks, the main landmark's id set through the block's own anchor), and two spacing and size steps that no longer exist (font size xs, spacing 11) now use the nearest current step.
+* Includes everything in 1.6291.1554: the Site Editor 'Block contains unexpected or invalid content' fix, the 404 home link for subdirectory installs, the schema-valid theme.json, the corrected tags and claims, and the preview folder left out of the package.
+* Still different from 1.6165.1300, the version on WordPress.org before this: the main-navigation, service-grid, services-cta, studio-footer and studio-hero patterns are replaced by the about-stats, contact, front-page, hero, services and testimonials patterns. Patterns you already inserted into a page are ordinary blocks and are not affected.
 
 = 1.6291 =
 * Fixed "Block contains unexpected or invalid content" in the Site Editor. Some templates, template parts and patterns held hand-written block markup that did not match what the block would save, so the editor flagged those blocks as invalid and offered to recover them. All block markup in this theme now matches the editor's own output.

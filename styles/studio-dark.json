@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+  "version": 3,
+  "title": "Studio Dark",
+  "settings": {
+    "custom": {
+      "colophon-light": "#16201f",
+      "colophon-dark": "#ece8de",
+      "colophon-accent": "#5fb3ba"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "ink-deep",
+          "color": "#ece8de",
+          "name": "Ink Deep"
+        },
+        {
+          "slug": "ink-medium",
+          "color": "#c9c4b6",
+          "name": "Ink Medium"
+        },
+        {
+          "slug": "ink-muted",
+          "color": "#9a958a",
+          "name": "Ink Muted"
+        },
+        {
+          "slug": "teal",
+          "color": "#5fb3ba",
+          "name": "Teal"
+        },
+        {
+          "slug": "teal-light",
+          "color": "#7cc6cc",
+          "name": "Teal Light"
+        },
+        {
+          "slug": "teal-tint",
+          "color": "#16302f",
+          "name": "Teal Tint"
+        },
+        {
+          "slug": "ochre",
+          "color": "#d8a85a",
+          "name": "Ochre"
+        },
+        {
+          "slug": "cream",
+          "color": "#16201f",
+          "name": "Cream"
+        },
+        {
+          "slug": "paper-white",
+          "color": "#1d2a29",
+          "name": "Paper White"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--cream)",
+      "text": "var(--wp--preset--color--ink-deep)"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-deep)"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--teal)"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--teal-light)"
+          }
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--teal)",
+          "text": "var(--wp--preset--color--cream)"
+        }
+      }
+    },
+    "blocks": {
+      "core/site-title": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-deep)"
+        }
+      },
+      "core/navigation": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-medium)"
+        }
+      }
+    }
+  }
+}
